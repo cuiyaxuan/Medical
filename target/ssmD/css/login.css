@@ -1,0 +1,20 @@
+html,body{
+    margin: 0;
+    padding: 0;
+    height: 100% !important;
+    width: 100% !important;
+}
+body{
+    background:url("../img/bg-login2.jpg") !important;
+    background-size: cover !important;
+}
+
+.lg-container{
+}
+.lg-main{
+    width: 30%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}

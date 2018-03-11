@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="components/amazeui/css/amazeui.min.css">
+    <link rel="stylesheet" href="components/amazeui/css/amazeui.datatables.min.css">
+</head>
+<body>
+<table id="example" class="am-table am-table-striped am-table-bordered am-table-compact" width="100%">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Position</th>
+        <th>Office</th>
+        <th>Extn.</th>
+        <th>Start date</th>
+        <th>Salary</th>
+    </tr>
+    </thead>
+</table>
+</body>
+<script src="js/jquery-3.2.1.min.js"></script>
+<script src="components/amazeui/js/amazeui.min.js"></script>
+<script src="components/amazeui/js/amazeui.datatables.min.js"></script>
+<script src="components/amazeui/js/dataTables.responsive.min.js"></script>
+<script src="js/index.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#example').DataTable( {
+            "ajax": {
+                "url": "test.json",
+                "dataSrc": ""
+            },
+            "columns": [
+                { "data": "name" },
+                { "data": "position" },
+                { "data": "office" },
+                { "data": "extn" },
+                { "data": "start_date" },
+                { "data": "salary" }
+            ]
+        } );
+    } );
+</script>
+</html>
