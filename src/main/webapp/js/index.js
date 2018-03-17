@@ -139,7 +139,6 @@ function initRole(){
             alert("出错了！");
         }
     });*/
-
 }
 function initUpdateData(id) {
     var html = '<div class="am-g">' +
