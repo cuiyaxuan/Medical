@@ -18,6 +18,7 @@
     <mvc:resources location="/css/" mapping="/css/**" />
     <mvc:resources location="/img/" mapping="/img/**" />
     <mvc:resources location="/components/" mapping="/components/**" />
+    <mvc:resources location="/html/" mapping="/html/**" />
     <!--避免IE执行AJAX时，返回JSON出现下载文件 -->
     <bean id="mappingJacksonHttpMessageConverter"
           class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
@@ -39,8 +40,8 @@
 
     <!-- 定义跳转的文件的前后缀 ，视图模式配置 -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="/WEB-INF/jsp/" />
-        <property name="suffix" value=".jsp"/>
+        <property name="prefix" value="/html/" />
+        <property name="suffix" value=".html"/>
     </bean>
 
     <!-- 文件上传配置 -->

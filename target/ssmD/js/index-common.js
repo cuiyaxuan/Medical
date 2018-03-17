@@ -2,6 +2,11 @@
 $(function () {
 
 });
+
+if(sessionStorage.getItem("userRole")==null) {
+    window.location.href = contextPath+"/html/errorPage/error.html";
+    console.log(sessionStorage.getItem("userRole"));
+}
 var pageUtils = {
     showModal: function (p_title, p_content) {
         var $modal = $("#common-modal");
