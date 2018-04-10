@@ -1,7 +1,7 @@
 package controller;
 
 import Util.AjaxResponse;
-import Util.LogsUtil;
+import entity.Login;
 import entity.Logs;
 import entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,38 +19,39 @@ import java.util.List;
 /**
  * @ Author : dell on 2018/2/24.
  * Date :  Created in  10:38.   2018/2/24.
+ * @author WangXinYu
  */
 @Controller
 @RequestMapping("Login")
-public class loginController {
+public class LoginController {
     @Autowired
     private LoginService loginService;
     @Autowired
     private LogsService logsService;
     @ResponseBody
     @RequestMapping("login")
-    public AjaxResponse create(User user,HttpServletRequest request) {
-      AjaxResponse ajaxResponse = new AjaxResponse();
-      HttpSession session = request.getSession(true);
+    public AjaxResponse create(Login login, HttpServletRequest request) {
+        AjaxResponse ajaxResponse = new AjaxResponse();
+        HttpSession session = request.getSession(true);
         ajaxResponse.setState("200");
         ajaxResponse.setResult("NO");
-      List<User> list =loginService.getAllUser();
-        for (User user_ : list
-             ) {
-            if (user.getName().equals(user_.getName())&&user.getPassword().equals(user_ .getPassword())){
+        List<Login> list = loginService.getAllUser();
+        for (Login login_ : list
+                ) {
+            if (login.getUsername().equals(login_.getUsername()) && login.getPassword().equals(login_.getPassword())) {
                 ajaxResponse.setState("200");
                 ajaxResponse.setResult("OK");
-                ajaxResponse.setMessage(user_.getRole());
-               session.setAttribute("loginUser",user_ );
-                Logs logs =new Logs();
-                logs.setUsername(user.getName());
+                ajaxResponse.setMessage("1");
+                session.setAttribute("loginUser", login_);
+                Logs logs = new Logs();
+                logs.setUsername(login.getUsername());
                 logs.setTime(new Date());
                 logs.setDetails("登陆了系统!");
-               logsService.add(logs);
+                logsService.add(logs);
                 break;
             }
         }
-      return  ajaxResponse;
+        return ajaxResponse;
     }
 
 

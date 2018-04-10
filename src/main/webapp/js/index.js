@@ -1,6 +1,5 @@
-jQuery(function () {
-    initDataTables();
-    initOperationLogs();
+$(function () {
+    $('.nav-link.active').click();
 });
 var USER_ROLE=sessionStorage.getItem('userRole');
 function initDataTables() {
@@ -387,7 +386,6 @@ function initClassify() {
         '</div>';
     pageUtils.showModal("新增分类", html);
 }
-
 function addClassify() {
     var $new_classfiy = $("#classify-input").val();
     $.ajax({

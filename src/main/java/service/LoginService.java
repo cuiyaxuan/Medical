@@ -1,6 +1,6 @@
 package service;
 
-import entity.User;
+import entity.Login;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import repository.LoginMapper;
@@ -16,8 +16,8 @@ import java.util.List;
 public class LoginService {
     @Autowired
     private  LoginMapper loginMapper;
-    public List<User> getAllUser(){
-        List<User> list =loginMapper.getAllUser();
+    public List<Login> getAllUser(){
+        List<Login> list =loginMapper.getAllUser();
         return list;
     }
 }

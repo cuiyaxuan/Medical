@@ -18,6 +18,7 @@
     <meta name="renderer" content="webkit">
     <link rel="stylesheet" href="${ctx}/css/login.css">
     <link rel="stylesheet" href="${ctx}/components/semantic/semantic.min.css">
+    <link rel="icon" type="image/png" href="${ctx}/favicon.png">
 </head>
 <body>
 <div class="lg-container">
@@ -27,11 +28,11 @@
         <form class="ui form" method="post">
             <div class="field">
                 <label>用户名</label>
-                <input type="text" id="first-name" name="first-name" placeholder="UserName">
+                <input type="text"  autocomplete="off" id="first-name" name="first-name" placeholder="UserName">
             </div>
             <div class="field">
                 <label>密码</label>
-                <input type="password" id="last-name" name="last-name" placeholder="PassWord">
+                <input type="password" autocomplete="off" id="last-name" name="last-name" placeholder="PassWord">
             </div>
         </form>
         <button class="ui blue button" style="width: 100%;margin-top: 3vh" onclick="login()">登录</button>

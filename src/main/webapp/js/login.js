@@ -16,7 +16,7 @@ function  login() {
           async:false,
           url:'./Login/login',
           data:{
-              name:name,
+              username:name,
               password:pwd
           },
         success:function (result) {

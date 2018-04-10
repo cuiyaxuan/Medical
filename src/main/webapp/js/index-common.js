@@ -1,6 +1,6 @@
 /*主页公共方法的js*/
 $(function () {
-
+    $('#main-content').load('./../html/home.html');
 });
 
 if(sessionStorage.getItem("userRole")==null) {
@@ -33,24 +33,25 @@ var pageUtils = {
     }
 };
 function switchPage(page,th) {
-    $('.tpl-content-wrapper').children().hide();
     $('.nav-link').removeClass('active');
+    $('.tpl-left-nav-item a').removeClass('active');
     $(th).addClass("active");
+    var $main = $('#main-content');
     switch (page){
         case 1:
-            $('#index').show();
+            $main.load('./../html/home.html');
             break;
         case 2:
-            $('#dataTable').show();
+            $main.load('./../html/doctor/patientManage.html');
             break;
         case 3:
-            $('#operationLogs').show();
+            $main.load('./../html/doctor/mRecordManage.html');
             break;
         case 4:
-            $('#dataManage').show();
+            $main.load('./../html/doctor/workRemind.html');
             break;
         case 5:
-            $('#customerManage').show();
+            $main.load('./../html/doctor/paramSetting.html');
             break;
         default:
             break;
