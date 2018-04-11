@@ -1,6 +1,6 @@
 /*主页公共方法的js*/
 $(function () {
-    $('#main-content').load('./../html/home.html');
+    $('#main-content').load('./../html/home/home.html');
 });
 
 if(sessionStorage.getItem("userRole")==null) {
@@ -32,28 +32,12 @@ var pageUtils = {
         $("#common-modal").modal('close');
     }
 };
-function switchPage(page,th) {
+function switchPage(th) {
     $('.nav-link').removeClass('active');
     $('.tpl-left-nav-item a').removeClass('active');
     $(th).addClass("active");
+    var type=$(th).parents('.tpl-left-nav-item').attr('data-type');
+    var htmlPage = $(th).attr('data-html');
     var $main = $('#main-content');
-    switch (page){
-        case 1:
-            $main.load('./../html/home.html');
-            break;
-        case 2:
-            $main.load('./../html/doctor/patientManage.html');
-            break;
-        case 3:
-            $main.load('./../html/doctor/mRecordManage.html');
-            break;
-        case 4:
-            $main.load('./../html/doctor/workRemind.html');
-            break;
-        case 5:
-            $main.load('./../html/doctor/paramSetting.html');
-            break;
-        default:
-            break;
-    }
+    $main.load("../../html/" + type + "/" + htmlPage + ".html");
 }

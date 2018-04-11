@@ -1,5 +1,4 @@
 $(function () {
-    $('.nav-link.active').click();
 });
 var USER_ROLE=sessionStorage.getItem('userRole');
 function initDataTables() {

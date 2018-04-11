@@ -67,13 +67,13 @@
         </div>
         <div class="tpl-left-nav-list">
             <ul class="tpl-left-nav-menu">
-                <li class="tpl-left-nav-item">
-                    <a class="nav-link active" onclick="switchPage(1,this)">
+                <li class="tpl-left-nav-item" data-type="home">
+                    <a class="nav-link active" data-html="home" onclick="switchPage(this)">
                         <i class="am-icon-home"></i>
                         <span>首页</span>
                     </a>
                 </li>
-                <li class="tpl-left-nav-item doctor">
+                <li class="tpl-left-nav-item " data-type="doctor">
                     <a href="javascript:;" class="nav-link tpl-left-nav-link-list">
                         <i class="am-icon-table"></i>
                         <span>医生工作站</span>
@@ -81,32 +81,32 @@
                     </a>
                     <ul class="tpl-left-nav-sub-menu" style="display: none;">
                         <li>
-                            <a href="javascript:void(0)" onclick="switchPage(2,this)">
+                            <a href="javascript:void(0)" data-html="patientManage" onclick="switchPage(this)">
                                 <i class="am-icon-angle-right"></i>
                                 <span>病人管理</span>
                                 <i class="am-icon-star tpl-left-nav-content-ico am-fr am-margin-right"></i>
                             </a>
 
-                            <a href="javascript:void(0)" onclick="switchPage(3,this)">
+                            <a href="javascript:void(0)" data-html="mRecordManage" onclick="switchPage(this)">
                                 <i class="am-icon-angle-right"></i>
                                 <span>病历管理</span>
                                 <i class="tpl-left-nav-content tpl-badge-success">
                                     18
                                 </i>
-                            </a><a href="javascript:void(0)" onclick="switchPage(4,this)">
+                            </a><a href="javascript:void(0)" data-html="workRemind" onclick="switchPage(this)">
                             <i class="am-icon-angle-right"></i>
                             <span>工作提醒</span>
                             <i class="tpl-left-nav-content tpl-badge-primary">
                                 5
                             </i>
-                        </a><a href="javascript:void(0)" onclick="switchPage(5,this)">
+                        </a><a href="javascript:void(0)"  data-html="paramSetting" onclick="switchPage(this)">
                             <i class="am-icon-angle-right"></i>
                             <span>参数设置</span>
                         </a>
                         </li>
                     </ul>
                 </li>
-                <li class="tpl-left-nav-item nurse">
+                <li class="tpl-left-nav-item" data-type="nurse">
                     <a href="javascript:;" class="nav-link tpl-left-nav-link-list">
                         <i class="am-icon-table"></i>
                         <span>护士工作站</span>
@@ -114,32 +114,127 @@
                     </a>
                     <ul class="tpl-left-nav-sub-menu" style="display: none;">
                         <li>
-                            <a href="javascript:void(0)" onclick="switchPage(2,this)">
+                            <a href="javascript:void(0)" data-html="patientManage" onclick="switchPage(this)">
                                 <i class="am-icon-angle-right"></i>
                                 <span>病人管理</span>
                                 <i class="am-icon-star tpl-left-nav-content-ico am-fr am-margin-right"></i>
                             </a>
 
-                            <a href="javascript:void(0)" onclick="switchPage(3,this)">
+                            <a href="javascript:void(0)" data-html="nursingClerical" onclick="switchPage(this)">
                                 <i class="am-icon-angle-right"></i>
-                                <span>病历管理</span>
+                                <span>护理文书</span>
                                 <i class="tpl-left-nav-content tpl-badge-success">
                                     18
                                 </i>
-                            </a><a href="javascript:void(0)" onclick="switchPage(4,this)">
+                            </a><a href="javascript:void(0)" data-html="workRemind" onclick="switchPage(this)">
                             <i class="am-icon-angle-right"></i>
                             <span>工作提醒</span>
                             <i class="tpl-left-nav-content tpl-badge-primary">
                                 5
                             </i>
-                        </a><a href="javascript:void(0)" onclick="switchPage(5,this)">
+                        </a><a href="javascript:void(0)" data-html="paramSetting" onclick="switchPage(this)">
                             <i class="am-icon-angle-right"></i>
                             <span>参数设置</span>
                         </a>
                         </li>
                     </ul>
                 </li>
+                <li class="tpl-left-nav-item" data-type="medicalRecord">
+                    <a href="javascript:;" class="nav-link tpl-left-nav-link-list">
+                        <i class="am-icon-table"></i>
+                        <span>病历管理</span>
+                        <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right"></i>
+                    </a>
+                    <ul class="tpl-left-nav-sub-menu" style="display: none;">
+                        <li>
+                            <a href="javascript:void(0)" data-html="recordScanned" onclick="switchPage(this)">
+                                <i class="am-icon-angle-right"></i>
+                                <span>病历浏览查询</span>
+                                <i class="am-icon-star tpl-left-nav-content-ico am-fr am-margin-right"></i>
+                            </a>
 
+                            <a href="javascript:void(0)" data-html="recordSeal" onclick="switchPage(this)">
+                                <i class="am-icon-angle-right"></i>
+                                <span>病历封存</span>
+                            </a><a href="javascript:void(0)" data-html="recordDeblock" onclick="switchPage(this)">
+                            <i class="am-icon-angle-right"></i>
+                            <span>病历解封</span>
+                        </a><a href="javascript:void(0)" data-html="recordCheck" onclick="switchPage(this)">
+                            <i class="am-icon-angle-right"></i>
+                            <span>病历签收检查</span>
+                        </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="tpl-left-nav-item" data-type="department">
+                    <a href="javascript:;" class="nav-link tpl-left-nav-link-list">
+                        <i class="am-icon-table"></i>
+                        <span>质控工作站</span>
+                        <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right"></i>
+                    </a>
+                    <ul class="tpl-left-nav-sub-menu" style="display: none;">
+                        <li>
+                            <a href="javascript:void(0)" data-html="recordScanned" onclick="switchPage(this)">
+                                <i class="am-icon-angle-right"></i>
+                                <span>病历浏览查询</span>
+                                <i class="am-icon-star tpl-left-nav-content-ico am-fr am-margin-right"></i>
+                            </a>
+
+                            <a href="javascript:void(0)" data-html="recordSeal" onclick="switchPage(this)">
+                                <i class="am-icon-angle-right"></i>
+                                <span>病历封存</span>
+                            </a><a href="javascript:void(0)" data-html="recordQuality" onclick="switchPage(this)">
+                            <i class="am-icon-angle-right"></i>
+                            <span>病历质量监控</span>
+                        </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="tpl-left-nav-item" data-type="data">
+                    <a href="javascript:;" class="nav-link tpl-left-nav-link-list">
+                        <i class="am-icon-table"></i>
+                        <span>数据统计分析</span>
+                        <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right"></i>
+                    </a>
+                    <ul class="tpl-left-nav-sub-menu" style="display: none;">
+                        <li>
+                            <a href="javascript:void(0)" data-html="infection" onclick="switchPage(this)">
+                                <i class="am-icon-angle-right"></i>
+                                <span>传染病统计</span>
+                                <i class="am-icon-star tpl-left-nav-content-ico am-fr am-margin-right"></i>
+                            </a>
+
+                            <a href="javascript:void(0)" data-html="patient" onclick="switchPage(this)">
+                                <i class="am-icon-angle-right"></i>
+                                <span>病人统计</span>
+                            </a><a href="javascript:void(0)" data-html="record" onclick="switchPage(this)">
+                            <i class="am-icon-angle-right"></i>
+                            <span>病历统计</span>
+                        </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="tpl-left-nav-item" data-type="permission">
+                    <a href="javascript:;" class="nav-link tpl-left-nav-link-list">
+                        <i class="am-icon-table"></i>
+                        <span>系统权限管理</span>
+                        <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right"></i>
+                    </a>
+                    <ul class="tpl-left-nav-sub-menu" style="display: none;">
+                        <li>
+                            <a href="javascript:void(0)" data-html="role" onclick="switchPage(this)">
+                                <i class="am-icon-angle-right"></i>
+                                <span>权限管理</span>
+                                <i class="am-icon-star tpl-left-nav-content-ico am-fr am-margin-right"></i>
+                            </a>
+
+                            <a href="javascript:void(0)" data-html="logs" onclick="switchPage(this)">
+                                <i class="am-icon-angle-right"></i>
+                                <span>日志管理</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
             </ul>
         </div>
     </div>
