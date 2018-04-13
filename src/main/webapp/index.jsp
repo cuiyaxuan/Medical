@@ -27,6 +27,8 @@
     <link rel="stylesheet" href="${ctx}/components/amazeui/css/app.css">
     <link rel="stylesheet" href="${ctx}/css/index.css">
     <link rel="stylesheet" href="${ctx}/components/sider/sider.css">
+    <%--表格插件--%>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
     <script src="${ctx}/components/amazeui/js/echarts.min.js"></script>
 </head>
 <body data-type="index">
@@ -34,11 +36,11 @@
 
 <header class="am-topbar am-topbar-inverse admin-header">
     <div class="am-topbar-brand">
-        <a href="javascript:;" class="tpl-logo" style="position: relative;top: 50%">
-            <img src="${ctx}/components/amazeui/img/logo.png" alt="">
+        <a href="javascript:;" class="tpl-logo" style="position: relative;top: 40%">
+            <img src="${ctx}/img/logo.png" alt="">
         </a>
     </div>
-    <div class="am-icon-list tpl-header-nav-hover-ico am-fl am-margin-right" style="position: absolute;top: 50%">
+    <div class="am-icon-list tpl-header-nav-hover-ico am-fl am-margin-right" style="position: absolute;top: 40%">
 
     </div>
 
@@ -84,21 +86,14 @@
                             <a href="javascript:void(0)" data-html="patientManage" onclick="switchPage(this)">
                                 <i class="am-icon-angle-right"></i>
                                 <span>病人管理</span>
-                                <i class="am-icon-star tpl-left-nav-content-ico am-fr am-margin-right"></i>
                             </a>
 
                             <a href="javascript:void(0)" data-html="mRecordManage" onclick="switchPage(this)">
                                 <i class="am-icon-angle-right"></i>
                                 <span>病历管理</span>
-                                <i class="tpl-left-nav-content tpl-badge-success">
-                                    18
-                                </i>
                             </a><a href="javascript:void(0)" data-html="workRemind" onclick="switchPage(this)">
                             <i class="am-icon-angle-right"></i>
                             <span>工作提醒</span>
-                            <i class="tpl-left-nav-content tpl-badge-primary">
-                                5
-                            </i>
                         </a><a href="javascript:void(0)"  data-html="paramSetting" onclick="switchPage(this)">
                             <i class="am-icon-angle-right"></i>
                             <span>参数设置</span>
@@ -108,7 +103,7 @@
                 </li>
                 <li class="tpl-left-nav-item" data-type="nurse">
                     <a href="javascript:;" class="nav-link tpl-left-nav-link-list">
-                        <i class="am-icon-table"></i>
+                        <i class="am-icon-th-large"></i>
                         <span>护士工作站</span>
                         <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right"></i>
                     </a>
@@ -117,21 +112,15 @@
                             <a href="javascript:void(0)" data-html="patientManage" onclick="switchPage(this)">
                                 <i class="am-icon-angle-right"></i>
                                 <span>病人管理</span>
-                                <i class="am-icon-star tpl-left-nav-content-ico am-fr am-margin-right"></i>
+
                             </a>
 
                             <a href="javascript:void(0)" data-html="nursingClerical" onclick="switchPage(this)">
                                 <i class="am-icon-angle-right"></i>
                                 <span>护理文书</span>
-                                <i class="tpl-left-nav-content tpl-badge-success">
-                                    18
-                                </i>
                             </a><a href="javascript:void(0)" data-html="workRemind" onclick="switchPage(this)">
                             <i class="am-icon-angle-right"></i>
                             <span>工作提醒</span>
-                            <i class="tpl-left-nav-content tpl-badge-primary">
-                                5
-                            </i>
                         </a><a href="javascript:void(0)" data-html="paramSetting" onclick="switchPage(this)">
                             <i class="am-icon-angle-right"></i>
                             <span>参数设置</span>
@@ -141,7 +130,7 @@
                 </li>
                 <li class="tpl-left-nav-item" data-type="medicalRecord">
                     <a href="javascript:;" class="nav-link tpl-left-nav-link-list">
-                        <i class="am-icon-table"></i>
+                        <i class="am-icon-list-alt"></i>
                         <span>病历管理</span>
                         <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right"></i>
                     </a>
@@ -150,7 +139,6 @@
                             <a href="javascript:void(0)" data-html="recordScanned" onclick="switchPage(this)">
                                 <i class="am-icon-angle-right"></i>
                                 <span>病历浏览查询</span>
-                                <i class="am-icon-star tpl-left-nav-content-ico am-fr am-margin-right"></i>
                             </a>
 
                             <a href="javascript:void(0)" data-html="recordSeal" onclick="switchPage(this)">
@@ -168,7 +156,7 @@
                 </li>
                 <li class="tpl-left-nav-item" data-type="department">
                     <a href="javascript:;" class="nav-link tpl-left-nav-link-list">
-                        <i class="am-icon-table"></i>
+                        <i class="am-icon-hospital-o"></i>
                         <span>质控工作站</span>
                         <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right"></i>
                     </a>
@@ -177,7 +165,6 @@
                             <a href="javascript:void(0)" data-html="recordScanned" onclick="switchPage(this)">
                                 <i class="am-icon-angle-right"></i>
                                 <span>病历浏览查询</span>
-                                <i class="am-icon-star tpl-left-nav-content-ico am-fr am-margin-right"></i>
                             </a>
 
                             <a href="javascript:void(0)" data-html="recordSeal" onclick="switchPage(this)">
@@ -192,7 +179,7 @@
                 </li>
                 <li class="tpl-left-nav-item" data-type="data">
                     <a href="javascript:;" class="nav-link tpl-left-nav-link-list">
-                        <i class="am-icon-table"></i>
+                        <i class="am-icon-bar-chart"></i>
                         <span>数据统计分析</span>
                         <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right"></i>
                     </a>
@@ -201,7 +188,6 @@
                             <a href="javascript:void(0)" data-html="infection" onclick="switchPage(this)">
                                 <i class="am-icon-angle-right"></i>
                                 <span>传染病统计</span>
-                                <i class="am-icon-star tpl-left-nav-content-ico am-fr am-margin-right"></i>
                             </a>
 
                             <a href="javascript:void(0)" data-html="patient" onclick="switchPage(this)">
@@ -216,7 +202,7 @@
                 </li>
                 <li class="tpl-left-nav-item" data-type="permission">
                     <a href="javascript:;" class="nav-link tpl-left-nav-link-list">
-                        <i class="am-icon-table"></i>
+                        <i class="am-icon-tasks"></i>
                         <span>系统权限管理</span>
                         <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right"></i>
                     </a>
@@ -225,7 +211,6 @@
                             <a href="javascript:void(0)" data-html="role" onclick="switchPage(this)">
                                 <i class="am-icon-angle-right"></i>
                                 <span>权限管理</span>
-                                <i class="am-icon-star tpl-left-nav-content-ico am-fr am-margin-right"></i>
                             </a>
 
                             <a href="javascript:void(0)" data-html="logs" onclick="switchPage(this)">
@@ -277,10 +262,16 @@
 <script src="${ctx}/components/amazeui/js/jquery.min.js"></script>
 <script src="${ctx}/components/amazeui/js/amazeui.min.js"></script>
 <script src="${ctx}/components/amazeui/js/amazeui.datatables.min.js"></script>
+<%--引入网路资源的dataTables--%>
+<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 <script src="components/amazeui/js/dataTables.responsive.min.js"></script>
 <script src="${ctx}/components/amazeui/js/fnAjaxReload.js"></script>
 <script src="${ctx}/components/amazeui/js/iscroll.js"></script>
-<script src="${ctx}/components/amazeui/js/app.js"></script>
+<script src="${ctx}/components/amazeui/js/iscroll.js"></script>
 <script src="${ctx}/js/index-common.js"></script>
 <script src="${ctx}/js/index.js"></script>
+<script src="${ctx}/components/amazeui/js/app.js"></script>
+
+<%---------------------------下面是所有的子页面的js--------------------------------%>
+
 </html>

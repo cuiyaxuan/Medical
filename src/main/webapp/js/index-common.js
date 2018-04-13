@@ -30,6 +30,9 @@ var pageUtils = {
     },
     closeModal: function () {
         $("#common-modal").modal('close');
+    },
+    returnHomePage: function () {
+        $('.nav-link[data-html="home"]').click();
     }
 };
 function switchPage(th) {
