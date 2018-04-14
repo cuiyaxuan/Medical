@@ -12,8 +12,10 @@ import service.logs.LogsService;
 import java.util.List;
 
 /**
-* Created by CodeGenerator on 2018/02/24.
-*/
+*
+ * @author CodeGenerator
+ * @date 2018/02/24
+ */
 @Controller
 @RequestMapping("/logs")
 public class LogsController {
@@ -27,11 +29,11 @@ public class LogsController {
             PageInfo<Logs> pageInfo  =  logsService.get(page);
             ajaxResponse.setState("200");
             ajaxResponse.setResult(pageInfo);
-            ajaxResponse.setMessage("获取商品类别成功!");
+            ajaxResponse.setMessage("获取一条日志成功!");
         }catch (Exception e){
             ajaxResponse.setState("404");
             ajaxResponse.setResult("error");
-            ajaxResponse.setMessage("获取商品类别失败!");
+            ajaxResponse.setMessage("获取一条日志失败!");
         }
         return ajaxResponse;
 
