@@ -8,9 +8,17 @@ import tk.mybatis.mapper.common.BaseMapper;
 
 import java.util.List;
 
+/**
+ * The interface Logs mapper.
+ */
 @Repository
 @Mapper
 public interface LogsMapper  extends BaseMapper<Logs> {
-    @Select("select * from logs  ORDER BY id  DESC  ")
-    List<Logs> getAllGood();
+    /**
+     * Gets all logs.
+     *
+     * @return the all logs
+     */
+    @Select("select * from m_logs  ORDER BY id  DESC  ")
+    List<Logs> getAllLogs();
 }

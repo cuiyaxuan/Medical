@@ -30,13 +30,13 @@ public class LogsService {
         int pageNo = page;
         int pageSize = 10;
         PageHelper.startPage(pageNo, pageSize);  //startPage是告诉拦截器说我要开始分页了。分页参数是这两个。
-        List<Logs> list = logsMapper.getAllGood();
+        List<Logs> list = logsMapper.getAllLogs();
         PageInfo pageInfo = new PageInfo(list);
         return  pageInfo;
     }
 
     public List<Logs> getAll (){
-        List<Logs> list = logsMapper.getAllGood();
+        List<Logs> list = logsMapper.getAllLogs();
         return  list;
     }
 }
