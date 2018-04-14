@@ -1,4 +1,4 @@
-package service;
+package service.logs;
 
 
 import com.github.pagehelper.PageHelper;
@@ -7,7 +7,7 @@ import entity.Logs;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import repository.LogsMapper;
+import repository.logs.LogsMapper;
 
 import java.util.List;
 

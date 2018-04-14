@@ -22,13 +22,13 @@
     <link rel="apple-touch-icon-precomposed" href="${ctx}/components/amazeui/i/app-icon72x72@2x.png">
     <meta name="apple-mobile-web-app-title" content="Amaze UI"/>
     <link rel="stylesheet" href="${ctx}/components/amazeui/css/amazeui.min.css"/>
+    <%--表格插件 css--%>
     <link rel="stylesheet" href="${ctx}/components/amazeui/css/amazeui.datatables.min.css">
     <link rel="stylesheet" href="${ctx}/components/amazeui/css/admin.css">
     <link rel="stylesheet" href="${ctx}/components/amazeui/css/app.css">
     <link rel="stylesheet" href="${ctx}/css/index.css">
     <link rel="stylesheet" href="${ctx}/components/sider/sider.css">
-    <%--表格插件--%>
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+
     <script src="${ctx}/components/amazeui/js/echarts.min.js"></script>
 </head>
 <body data-type="index">
@@ -245,7 +245,7 @@
 <%--confirm 模态框--%>
 <div class="am-modal am-modal-confirm" tabindex="-1" id="my-confirm" style="z-index: 99999">
     <div class="am-modal-dialog">
-        <div class="am-modal-hd">Amaze UI</div>
+        <div class="am-modal-hd">提示</div>
         <div class="am-modal-bd">
             你，确定要删除这条记录吗？
         </div>
@@ -255,18 +255,28 @@
         </div>
     </div>
 </div>
+<%--alert 模态框--%>
+<div class="am-modal am-modal-alert" tabindex="-1" id="my-alert" style="z-index: 99999">
+    <div class="am-modal-dialog">
+        <div class="am-modal-hd">Amaze UI</div>
+        <div class="am-modal-bd">
+            Hello world！
+        </div>
+        <div class="am-modal-footer">
+            <span class="am-modal-btn">确定</span>
+        </div>
+    </div>
+</div>
 </body>
 <script>
     var contextPath = "${ctx}";
 </script>
 <script src="${ctx}/components/amazeui/js/jquery.min.js"></script>
 <script src="${ctx}/components/amazeui/js/amazeui.min.js"></script>
+<%--amazeui 整合的dataTables 不好用的话打死他--%>
 <script src="${ctx}/components/amazeui/js/amazeui.datatables.min.js"></script>
-<%--引入网路资源的dataTables--%>
-<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-<script src="components/amazeui/js/dataTables.responsive.min.js"></script>
+<script src="${ctx}/components/amazeui/js/dataTables.responsive.min.js"></script>
 <script src="${ctx}/components/amazeui/js/fnAjaxReload.js"></script>
-<script src="${ctx}/components/amazeui/js/iscroll.js"></script>
 <script src="${ctx}/components/amazeui/js/iscroll.js"></script>
 <script src="${ctx}/js/index-common.js"></script>
 <script src="${ctx}/js/index.js"></script>

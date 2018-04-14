@@ -1,4 +1,4 @@
-package repository;
+package repository.logs;
 
 import entity.Logs;
 import org.apache.ibatis.annotations.Mapper;

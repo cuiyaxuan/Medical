@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import repository.DataMapper;
-import repository.LogsMapper;
+import repository.logs.LogsMapper;
 
 import java.util.List;
 
