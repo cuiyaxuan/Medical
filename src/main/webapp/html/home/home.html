@@ -266,9 +266,9 @@
                          style="touch-action: pan-y; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
                         <div class="am-tab-panel am-fade am-in am-active" id="tab1">
                             <div id="wrapperA" class="wrapper">
-                                <div id="scroller" class="scroller"
+                                <div id="recordScrollerA" class="scroller"
                                      style="transform: translate(0px, 0px) translateZ(0px);">
-                                    <ul class="tpl-task-list tpl-task-remind">
+                                    <ul class="tpl-task-list tpl-task-remind record-signed">
                                         <li>
                                             <div class="cosB">
                                                 12分钟前
@@ -278,10 +278,11 @@
                         <i class="am-icon-bell-o"></i>
                       </span>
 
-                                                <span> 注意：Chrome 和 Firefox 下， display: inline-block; 或 display: block; 的元素才会应用旋转动画。<span
-                                                        class="tpl-label-info"> 提取文件
+                                                <span> 注意：Chrome 和 Firefox 下， display: inline-block; 或 display: block; 的元素才会应用旋转动画。
+                                                     <!--<span class="tpl-label-info"> 提取文件
                                                             <i class="am-icon-share"></i>
-                                                        </span></span>
+                                                     </span>-->
+                                                </span>
                                             </div>
 
                                         </li>
@@ -298,7 +299,6 @@
                                             </div>
 
                                         </li>
-
                                         <li>
                                             <div class="cosB">
                                                 2小时前
@@ -354,7 +354,6 @@
                                             </div>
 
                                         </li>
-
                                         <li>
                                             <div class="cosB">
                                                 2小时前
@@ -379,9 +378,9 @@
                         </div>
                         <div class="am-tab-panel am-fade" id="tab2">
                             <div id="wrapperB" class="wrapper">
-                                <div id="scroller" class="scroller"
+                                <div id="recordScrollerB" class="scroller"
                                      style="transform: translate(0px, 0px) translateZ(0px);">
-                                    <ul class="tpl-task-list tpl-task-remind">
+                                    <ul class="tpl-task-list tpl-task-remind record-not-signed">
                                         <li>
                                             <div class="cosB">
                                                 12分钟前
@@ -498,7 +497,7 @@
         </div>
     </div>
     <script !src="">
-        var myScrollA = new IScroll('#wrapperA', {
+        var myScrollA = new IScroll('#recordScrollerA', {
             scrollbars: true,
             mouseWheel: true,
             interactiveScrollbars: true,
@@ -507,7 +506,7 @@
             fadeScrollbars: true
         });
 
-        var myScrollB = new IScroll('#wrapperB', {
+        var myScrollB = new IScroll('#recordScrollerB', {
             scrollbars: true,
             mouseWheel: true,
             interactiveScrollbars: true,

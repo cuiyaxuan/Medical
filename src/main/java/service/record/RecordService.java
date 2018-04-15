@@ -1,8 +1,12 @@
 package service.record;
 
+import Util.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import repository.record.RecordMapper;
+
+import java.util.List;
+import java.util.Map;
 
 /**
  * @author: WangXinYu
@@ -13,4 +17,15 @@ import repository.record.RecordMapper;
 public class RecordService {
     @Autowired
     RecordMapper recordMapper;
+
+    public List<Map<String, Object>> listTodaySignedRecord(){
+        String nowDateString=DateUtils.getNowDateString();
+        List<Map<String, Object>> mapList = recordMapper.listTodaySignedRecord(nowDateString);
+        return mapList;
+    }
+
+    public List<Map<String, Object>> listTodayNotSignedRecord(){
+        List<Map<String, Object>> mapList = recordMapper.listTodayNotSignedRecord();
+        return mapList;
+    }
 }
