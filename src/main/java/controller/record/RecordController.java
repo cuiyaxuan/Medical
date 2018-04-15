@@ -88,6 +88,23 @@ public class RecordController {
 
         return ajaxResponse;
     }
+    /**
+     * 病历封存查询单个病历
+     * @return
+     */
+    @RequestMapping("getRecordById")
+    @ResponseBody
+    public AjaxResponse getRecordById(int id){
+        AjaxResponse ajaxResponse = new AjaxResponse();
+        try {
+            Map<String, Object> map = recordService.getRecordById(id);
+            ajaxResponse.setSuccessMessage("查询病历成功！", map);
+        } catch (Exception e) {
+            ajaxResponse.setErrorMessage("查询病历失败！", e);
+        }
+
+        return ajaxResponse;
+    }
 
 
 }

@@ -208,12 +208,12 @@
                     </a>
                     <ul class="tpl-left-nav-sub-menu" style="display: none;">
                         <li>
-                            <a href="javascript:void(0)" data-html="role" onclick="switchPage(this)">
+                            <a href="javascript:void(0)" data-html="role" onclick="switchPage(this);">
                                 <i class="am-icon-angle-right"></i>
                                 <span>权限管理</span>
                             </a>
 
-                            <a href="javascript:void(0)" data-html="logs" onclick="switchPage(this)">
+                            <a href="javascript:void(0)" data-html="logs" onclick="switchPage(this);">
                                 <i class="am-icon-angle-right"></i>
                                 <span>日志管理</span>
                             </a>

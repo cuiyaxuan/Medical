@@ -41,6 +41,16 @@ var pageUtils = {
         $('.nav-link[data-html="home"]').click();
     }
 };
+var commonUtils = {
+    ellipsis:function (str) {
+        //将str转化为10个字之后就是省略号
+        var s = str;//要展示的字符串
+        if(str.length>10){
+            s=str.substring(0,10)+"...";
+        }
+        return s;
+    }
+};
 
 function switchPage(th) {
     $('.nav-link').removeClass('active');

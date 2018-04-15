@@ -38,4 +38,8 @@ public class RecordService {
         List<Map<String, Object>> mapList = recordMapper.listAllRecordByState(state);
         return mapList;
     }
+    public Map<String,Object> getRecordById(int id){
+        Map<String, Object> map = recordMapper.getRecordById(id);
+        return map;
+    }
 }

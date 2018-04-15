@@ -11,3 +11,13 @@ table>thead:first-child>tr:first-child>th{
     height: 20px;
 }
 
+
+/*使字在一行显示 并且超出显示....*/
+.table-layout-fixed{
+    table-layout: fixed;
+}
+.text-one-line{
+     overflow: hidden;
+     text-overflow:ellipsis;
+     white-space: nowrap;
+ }

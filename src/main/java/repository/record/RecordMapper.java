@@ -41,14 +41,31 @@ public interface RecordMapper {
      *
      * @return the list
      */
-    @Select("SELECT *,CASE\n" +
+    @Select("SELECT\n" +
+            "\t*,\n" +
+            "\td.d_name,\n" +
+            "CASE\n" +
             "\trstate \n" +
             "\tWHEN 1 THEN\n" +
             "\t'未封存' \n" +
             "\tWHEN 2 THEN\n" +
             "\t'已封存' \n" +
-            "\t ELSE '未知'\n" +
-            "END AS state FROM `m_record` r INNER JOIN m_patient p ON p.id=r.pid LEFT JOIN m_department d on d.id=r.rdepartment ")
+            "\tWHEN 3 THEN\n" +
+            "\t'未通过' ELSE '未知'\n" +
+            "END AS state,\n" +
+            "\tCASE\n" +
+            "\t\trpass \n" +
+            "\t\tWHEN 0 THEN\n" +
+            "\t\t'未审核' \n" +
+            "\t\tWHEN 1 THEN\n" +
+            "\t\t'已通过' \n" +
+            "\t\tWHEN 2 THEN\n" +
+            "\t\t'未通过' ELSE '未知'\n" +
+            "\tEND AS pass\n" +
+            "FROM\n" +
+            "\t`m_record` r\n" +
+            "\tINNER JOIN m_patient p ON p.id = r.pid\n" +
+            "\tLEFT JOIN m_department d ON d.id = r.rdepartment ")
     List<Map<String, Object>> listAllRecord();
 
     /**
@@ -67,4 +84,21 @@ public interface RecordMapper {
             " ELSE '未知'\n" +
             "END AS state FROM `m_record` r INNER JOIN m_patient p ON p.id=r.pid LEFT JOIN m_department d on d.id=r.rdepartment WHERE r.rstate = #{state}")
     List<Map<String, Object>> listAllRecordByState(int state);
+
+    /**
+     *
+     * 使用id查询单个的病历
+     *
+     * @param id the id
+     * @return the list
+     */
+    @Select("SELECT *,CASE\n" +
+            "\trstate \n" +
+            "\tWHEN 1 THEN\n" +
+            "\t'未封存' \n" +
+            "\tWHEN 2 THEN\n" +
+            "\t'已封存' \n" +
+            " ELSE '未知'\n" +
+            "END AS state FROM `m_record` r INNER JOIN m_patient p ON p.id=r.pid LEFT JOIN m_department d on d.id=r.rdepartment WHERE r.id = #{id}")
+    Map<String, Object> getRecordById(int id);
 }

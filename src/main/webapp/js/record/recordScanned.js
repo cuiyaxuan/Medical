@@ -21,16 +21,26 @@ function initTableRecordScanned() {
             {"data":"rfamily"},
             {"data":"d_name"},
             {"data":"state"},
+            {"data":"pass"},
             {"data":null}
         ],
         columnDefs:[{
-            targets: 9,
-            render: function (data, type, row, meta) {
-                return '<a type="button" class="am-btn am-btn-primary am-btn-xs" onclick="">查看详情</a>' +
-                    '<a type="button" class="am-btn am-btn-success am-btn-xs" onclick="">下载  <i class="am-icon-cloud-download"></i></a>';
+            targets: 10,
+            render: function (data, tclassype, row, meta) {
+                return '<div class="doc-dropdown-justify-js">\n' +
+                    '  <div class="am-dropdown doc-dropdown-js">\n' +
+                    '    <button class="am-btn am-btn-danger am-dropdown-toggle">操作 <span class="am-icon-caret-down"></span></button>\n' +
+                    '    <div class="am-dropdown-content">' +
+                    '  <ul class="" >\n' +
+                    '    <li><a href="#">查看详情</a></li>\n' +
+                    '    <li class="am-active"><a href="#">下载</a></li>\n' +
+                    '  </ul>' +
+                    '</div>\n' +
+                    '  </div>\n' +
+                    '</div>'
             }
         },
-            { "orderable": false, "targets": 9 }
+            { "orderable": false, "targets": 10 }
         ],
         language: {
             "sProcessing": "处理中...",
@@ -53,6 +63,25 @@ function initTableRecordScanned() {
             }
         },
         destroy: true,
-        autoWidth: false
+        autoWidth: false,
+        // "sScrollX": "100%",
+        // "bScrollCollapse": true,
+        fnInitComplete:function (oSettings, json) {
+            $('#table_record_scanned').addClass('table-layout-fixed');
+            $('#table_record_scanned td:not(:last-of-type)').addClass("text-one-line");
+            $('.doc-dropdown-js').dropdown({justify: '.doc-dropdown-justify-js'});
+        }
     });
+
+}
+
+function initModalRecord(id) {
+    $.ajax({
+        method:"post",
+        url:contextPath+"/record/getRecordById",
+        data:{id: id},
+        success:function (data) {
+            var html=''
+        }
+    })
 }
