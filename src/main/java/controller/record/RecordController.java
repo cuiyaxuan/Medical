@@ -54,4 +54,40 @@ public class RecordController {
 
         return ajaxResponse;
     }
+    /**
+     * 病例浏览查询显示所有病历
+     * @return
+     */
+    @RequestMapping("listAllRecord")
+    @ResponseBody
+    public AjaxResponse listAllRecord(){
+        AjaxResponse ajaxResponse = new AjaxResponse();
+        try {
+            List<Map<String, Object>> mapList = recordService.listAllRecord();
+            ajaxResponse.setSuccessMessage("查询所有病历成功！", mapList);
+        } catch (Exception e) {
+            ajaxResponse.setErrorMessage("查询所有病历失败！", e);
+        }
+
+        return ajaxResponse;
+    }
+    /**
+     * 病历封存查询显示所有病历
+     * @return
+     */
+    @RequestMapping("listAllRecordByState")
+    @ResponseBody
+    public AjaxResponse listAllRecordByState(int state){
+        AjaxResponse ajaxResponse = new AjaxResponse();
+        try {
+            List<Map<String, Object>> mapList = recordService.listAllRecordByState(state);
+            ajaxResponse.setSuccessMessage("查询所有病历成功！", mapList);
+        } catch (Exception e) {
+            ajaxResponse.setErrorMessage("查询所有病历失败！", e);
+        }
+
+        return ajaxResponse;
+    }
+
+
 }

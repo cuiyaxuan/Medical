@@ -28,4 +28,14 @@ public class RecordService {
         List<Map<String, Object>> mapList = recordMapper.listTodayNotSignedRecord();
         return mapList;
     }
+
+    public List<Map<String, Object>> listAllRecord(){
+        List<Map<String, Object>> mapList = recordMapper.listAllRecord();
+        return mapList;
+    }
+
+    public List<Map<String, Object>> listAllRecordByState(int state){
+        List<Map<String, Object>> mapList = recordMapper.listAllRecordByState(state);
+        return mapList;
+    }
 }

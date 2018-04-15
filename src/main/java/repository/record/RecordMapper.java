@@ -18,6 +18,7 @@ import java.util.Map;
 public interface RecordMapper {
     /**
      * List today signed record list.
+     * 查询今日已封存病历
      *
      * @param nowDateString the now date string
      * @return the list
@@ -27,9 +28,43 @@ public interface RecordMapper {
 
     /**
      * List today not signed record list.
+     * 查询今日未封存病历
      *
      * @return the list
      */
     @Select("SELECT * FROM m_record WHERE rstate = 1")
     List<Map<String, Object>> listTodayNotSignedRecord();
+
+    /**
+     * List all record list.
+     * 查询所有的record 关联查询patient表
+     *
+     * @return the list
+     */
+    @Select("SELECT *,CASE\n" +
+            "\trstate \n" +
+            "\tWHEN 1 THEN\n" +
+            "\t'未封存' \n" +
+            "\tWHEN 2 THEN\n" +
+            "\t'已封存' \n" +
+            "\t ELSE '未知'\n" +
+            "END AS state FROM `m_record` r INNER JOIN m_patient p ON p.id=r.pid LEFT JOIN m_department d on d.id=r.rdepartment ")
+    List<Map<String, Object>> listAllRecord();
+
+    /**
+     * List all not signed record list.
+     * 查询所有未封存的病历
+     *
+     * @param state the state
+     * @return the list
+     */
+    @Select("SELECT *,CASE\n" +
+            "\trstate \n" +
+            "\tWHEN 1 THEN\n" +
+            "\t'未封存' \n" +
+            "\tWHEN 2 THEN\n" +
+            "\t'已封存' \n" +
+            " ELSE '未知'\n" +
+            "END AS state FROM `m_record` r INNER JOIN m_patient p ON p.id=r.pid LEFT JOIN m_department d on d.id=r.rdepartment WHERE r.rstate = #{state}")
+    List<Map<String, Object>> listAllRecordByState(int state);
 }
