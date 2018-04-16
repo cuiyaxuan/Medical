@@ -27,6 +27,7 @@
     <link rel="stylesheet" href="${ctx}/components/amazeui/css/admin.css">
     <link rel="stylesheet" href="${ctx}/components/amazeui/css/app.css">
     <link rel="stylesheet" href="${ctx}/css/index.css">
+    <link rel="stylesheet" href="${ctx}/css/main.css">
     <link rel="stylesheet" href="${ctx}/components/sider/sider.css">
 
     <script src="${ctx}/components/amazeui/js/echarts.min.js"></script>
@@ -94,10 +95,10 @@
                             </a><a href="javascript:void(0)" data-html="workRemind" onclick="switchPage(this)">
                             <i class="am-icon-angle-right"></i>
                             <span>工作提醒</span>
-                        </a><a href="javascript:void(0)"  data-html="paramSetting" onclick="switchPage(this)">
+                        </a><%--<a href="javascript:void(0)"  data-html="paramSetting" onclick="switchPage(this)">
                             <i class="am-icon-angle-right"></i>
                             <span>参数设置</span>
-                        </a>
+                        </a>--%>
                         </li>
                     </ul>
                 </li>
@@ -121,10 +122,10 @@
                             </a><a href="javascript:void(0)" data-html="workRemind" onclick="switchPage(this)">
                             <i class="am-icon-angle-right"></i>
                             <span>工作提醒</span>
-                        </a><a href="javascript:void(0)" data-html="paramSetting" onclick="switchPage(this)">
+                        </a><%--<a href="javascript:void(0)" data-html="paramSetting" onclick="switchPage(this)">
                             <i class="am-icon-angle-right"></i>
                             <span>参数设置</span>
-                        </a>
+                        </a>--%>
                         </li>
                     </ul>
                 </li>

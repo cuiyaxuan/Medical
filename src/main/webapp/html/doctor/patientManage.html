@@ -1,22 +1,45 @@
-<!DOCTYPE html>
-<html lang="zh-cn">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <!-- 优先使用 IE 最新版本和 Chrome -->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <!-- 页面描述 -->
-    <meta name="description" content="不超过150个字符"/>
-    <!-- 页面关键词 -->
-    <meta name="keywords" content=""/>
-    <!-- 网页作者 -->
-    <meta name="WangXinYu" content="WangXinYu, comrade.wang.cn@gmail.com"/>
-    <!-- 搜索引擎抓取 -->
-    <meta name="robots" content="index,follow"/>
-    <!-- 为移动设备添加 viewport -->
-    <meta name="viewport" content="initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no">
-</head>
-<body>
-    <h1>病人管理界面（医生）</h1>
-</body>
-</html>
+<div class="tpl-content-page-title">
+    病人管理
+</div>
+<ol class="am-breadcrumb">
+    <li><a href="javascript:void(0)" onclick="pageUtils.returnHomePage()" class="am-icon-home">首页</a></li>
+    <li>医生管理站</li>
+    <li class="am-active">病人管理</li>
+</ol>
+<div class="tpl-portlet-components">
+    <div class="portlet-title">
+        <div class="caption font-green bold">
+            <span class="am-icon-code"></span> 病人管理
+        </div>
+    </div>
+    <div class="tpl-block">
+        <div class="am-g">
+            <div class="am-u-sm-12">
+                <table id="table_doctor_patient" class="am-table am-table-striped am-table-bordered display" style="width: 100%">
+                    <thead>
+                    <tr>
+                        <th>病人名</th>
+                        <th>性别</th>
+                        <th>年龄</th>
+                        <th>籍贯</th>
+                        <th>婚否</th>
+                        <th>出生地</th>
+                        <th>工作单位</th>
+                        <th>职业</th>
+                        <th>户口</th>
+                        <th>供史者</th>
+                        <th>病人入院事件</th>
+                        <th>病史采集时间</th>
+                    </tr>
+                    </thead>
+                    <tbody></tbody>
+                    <!-- tbody是必须的 -->
+
+                </table>
+            </div>
+
+        </div>
+    </div>
+    <div class="tpl-alert"></div>
+</div>
+<script src="../../js/doctor/patientManage.js"></script>
