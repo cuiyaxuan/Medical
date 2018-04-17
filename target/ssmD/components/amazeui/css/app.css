@@ -1417,6 +1417,7 @@ ul.tpl-dropdown-content li>a.tpl-dropdown-content-message:last-child {
     margin-top: 0;
     margin-bottom: 25px;
     position: relative;
+    min-height: 70vh;
 }
 
 .tpl-portlet-components .portlet-title {

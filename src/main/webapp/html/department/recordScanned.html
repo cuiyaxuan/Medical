@@ -1,22 +1,43 @@
-<!DOCTYPE html>
-<html lang="zh-cn">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <!-- 优先使用 IE 最新版本和 Chrome -->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <!-- 页面描述 -->
-    <meta name="description" content="不超过150个字符"/>
-    <!-- 页面关键词 -->
-    <meta name="keywords" content=""/>
-    <!-- 网页作者 -->
-    <meta name="WangXinYu" content="WangXinYu, comrade.wang.cn@gmail.com"/>
-    <!-- 搜索引擎抓取 -->
-    <meta name="robots" content="index,follow"/>
-    <!-- 为移动设备添加 viewport -->
-    <meta name="viewport" content="initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no">
-</head>
-<body>
-    <h1>病历浏览查询(科室)</h1>
-</body>
-</html>
+<div class="tpl-content-page-title">
+    病历浏览查询
+</div>
+<ol class="am-breadcrumb">
+    <li><a href="javascript:void(0)" onclick="pageUtils.returnHomePage()" class="am-icon-home">首页</a></li>
+    <li>病历管理</li>
+    <li class="am-active">病历浏览查询</li>
+</ol>
+<div class="tpl-portlet-components">
+    <div class="portlet-title">
+        <div class="caption font-green bold">
+            <span class="am-icon-code"></span> 病历浏览查询
+        </div>
+    </div>
+    <div class="tpl-block">
+        <div class="am-g">
+            <div class="am-u-sm-12">
+                <table id="table_department_record_scanned" class="am-table am-table-striped am-table-bordered display" style="width: 100%">
+                    <thead>
+                    <tr>
+                        <th>病人名</th>
+                        <th>主诉</th>
+                        <th>现病史</th>
+                        <th>既往史</th>
+                        <th>个人史</th>
+                        <th>婚育史</th>
+                        <th>家族史</th>
+                        <th>所属科室</th>
+                        <th>状态</th>
+                        <th>审核</th>
+                        <th>操作</th>
+                    </tr>
+                    <tbody></tbody>
+                    <!-- tbody是必须的 -->
+                    </thead>
+                </table>
+            </div>
+
+        </div>
+    </div>
+    <div class="tpl-alert"></div>
+</div>
+<script src="../../js/department/recordScanned.js"></script>

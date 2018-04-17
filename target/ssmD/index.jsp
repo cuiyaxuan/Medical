@@ -30,7 +30,8 @@
     <link rel="stylesheet" href="${ctx}/css/main.css">
     <link rel="stylesheet" href="${ctx}/components/sider/sider.css">
 
-    <script src="${ctx}/components/amazeui/js/echarts.min.js"></script>
+    <script src="${ctx}/components/echarts/echarts.min.js"></script>
+    <script src="${ctx}/components/echarts/echarts-gl.min.js"></script>
 </head>
 <body data-type="index">
 
