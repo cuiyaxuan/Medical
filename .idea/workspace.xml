@@ -6,19 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c6c48beb-4c6d-4528-ac0f-04df19885505" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/index/IndexController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/index/IndexController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/MUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/MUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repository/doctor/DoctorMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/doctor/DoctorMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repository/index/IndexMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/index/IndexMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/index/IndexService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/index/IndexService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/jdbc.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/jdbc.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/html/home/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/html/home/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/home/home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/home/home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/jdbc.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/jdbc.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ssmD/WEB-INF/classes/jdbc.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/ssmD/WEB-INF/classes/jdbc.properties" afterDir="false" />
-    </list>
+    <list default="true" id="c6c48beb-4c6d-4528-ac0f-04df19885505" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -107,7 +95,7 @@
       <file leaf-file-name="home.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/js/home/home.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
+            <state relative-caret-position="714">
               <caret line="142" column="25" selection-start-line="142" selection-start-column="25" selection-end-line="142" selection-end-column="25" />
             </state>
           </provider>
@@ -662,7 +650,7 @@
       <workItem from="1524060888568" duration="34000" />
       <workItem from="1524098883324" duration="5014000" />
       <workItem from="1524288580689" duration="5157000" />
-      <workItem from="1524304535834" duration="459000" />
+      <workItem from="1524304535834" duration="575000" />
     </task>
     <task id="LOCAL-00001" summary="加入错误页，以及在进入页面之前进行权限判断。">
       <created>1521287865857</created>
@@ -755,11 +743,18 @@
       <option name="project" value="LOCAL" />
       <updated>1523944783173</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="完成了首页医生排名的推送">
+      <created>1524305064490</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1524305064491</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="236126000" />
+    <option name="totallyTimeSpent" value="236242000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -860,7 +855,8 @@
     <MESSAGE value="4.15 22:46 推送" />
     <MESSAGE value="4.16 22:46 推送" />
     <MESSAGE value="4.17 13:55 推送 基本上每个页面上都有东西了 不是那么空荡荡的了" />
-    <option name="LAST_COMMIT_MESSAGE" value="4.17 13:55 推送 基本上每个页面上都有东西了 不是那么空荡荡的了" />
+    <MESSAGE value="完成了首页医生排名的推送" />
+    <option name="LAST_COMMIT_MESSAGE" value="完成了首页医生排名的推送" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1276,7 +1272,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/js/home/home.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
+        <state relative-caret-position="714">
           <caret line="142" column="25" selection-start-line="142" selection-start-column="25" selection-end-line="142" selection-end-column="25" />
         </state>
       </provider>
