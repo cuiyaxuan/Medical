@@ -47,7 +47,7 @@ public class IndexController {
     @RequestMapping("listSomeDoctor")
     public AjaxResponse listSomeDoctor(){
         AjaxResponse ajaxResponse = new AjaxResponse();
-        List<MUser> mUsers = indexService.listSomeDoctor();
+        List<Map<String,Object>> mUsers = indexService.listSomeDoctor();
         try {
             ajaxResponse.setSuccessMessage("查询首页医生成功!",mUsers);
         } catch (Exception e) {

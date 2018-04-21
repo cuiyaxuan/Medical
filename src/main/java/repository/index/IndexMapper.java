@@ -29,8 +29,8 @@ public interface IndexMapper{
      *
      * @return the list
      */
-    @Select("SELECT * FROM `m_user` WHERE type = 1 LIMIT 8")
-    List<MUser> listSomeDoctors();
+    @Select("SELECT u.*,d.d_name FROM `m_user` u LEFT JOIN m_department d ON u.departmentid=d.id WHERE type = 1 ORDER BY score DESC LIMIT 8")
+    List<Map<String,Object>> listSomeDoctors();
 
     /**
      * List some nurses list.

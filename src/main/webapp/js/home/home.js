@@ -2,6 +2,7 @@ $(function () {
     linkRecord();
     initHomeLogs();
     initTodayRecord();
+    listDoctorSort();
 });
 
 /**
@@ -90,4 +91,69 @@ function initTodayRecord() {
             }
         }
     });
+}
+
+function initHomeInfectionChart() {
+    // 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById('tpl-echarts-A'));
+
+    var xData = function () {
+        var data = [];
+        for (var i = 1; i < 13; i++) {
+            data.push(i + "月份");
+        }
+        return data;
+    }();
+    var option = {
+        xAxis: {
+            type: 'category',
+            data: xData
+        },
+        yAxis: {
+            type: 'value'
+        },
+        series: [{
+            data: [120, 200, 150, 80, 70, 110, 130,165,190,200,211,234],
+            type: 'bar'
+        }]
+    };
+
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+}
+
+/**
+ * 显示医生排名
+ */
+function listDoctorSort() {
+    var $docTable = $('#home-doctor-sort');
+    $.ajax({
+        method:"post",
+        url:contextPath+"/index/listSomeDoctor",
+        data:{},
+        success(data){
+            var docHtml = '';
+            $.each(data.result, function (index, obj) {
+                var type = '';
+                if (obj.type = 1) {
+                    type = '医生';
+                } else {
+                    type = '护士';
+                }
+                docHtml += '<tr>\n' +
+                    '<td>\n' +
+                    '<img src="../../img/headImg.png" alt="" class="user-pic">\n' +
+                    '<a class="user-name" href="###">' + obj.realname + '</a>\n' +
+                    '</td>\n' +
+                    '<td>' + obj.d_name + '</td>\n' +
+                    '<td>' + type + '</td>\n' +
+                    '<td class="font-green bold">' + obj.score + '</td>\n' +
+                    '</tr>'
+            });
+            $docTable.find('tbody').html(docHtml);
+        },
+        error(){
+            alert('error!');
+        }
+    })
 }

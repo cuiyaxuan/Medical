@@ -23,8 +23,8 @@ public class IndexService {
         return mapList;
     }
 
-    public List<MUser> listSomeDoctor(){
-        List<MUser> mUsers = indexMapper.listSomeDoctors();
+    public List<Map<String,Object>> listSomeDoctor(){
+        List<Map<String,Object>> mUsers = indexMapper.listSomeDoctors();
         return mUsers;
     }
     public List<MUser> listSomeNurse(){

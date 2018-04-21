@@ -3,6 +3,7 @@ package entity;
 import javax.persistence.*;
 
 @Entity
+@Table(name="m_user")
 public class MUser {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,6 +23,8 @@ public class MUser {
   private long type;
   @Column(name = "role")
   private long role;
+  @Column(name = "score")
+  private long score;
 
 
   public long getId() {
@@ -95,4 +98,11 @@ public class MUser {
     this.role = role;
   }
 
+  public long getScore() {
+    return score;
+  }
+
+  public void setScore(long score) {
+    this.score = score;
+  }
 }

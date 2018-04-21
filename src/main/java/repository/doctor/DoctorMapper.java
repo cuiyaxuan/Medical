@@ -1,8 +1,10 @@
 package repository.doctor;
 
 import entity.MPatient;
+import entity.MUser;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
+import tk.mybatis.mapper.common.BaseMapper;
 
 import java.util.List;
 import java.util.Map;
@@ -15,7 +17,7 @@ import java.util.Map;
  * @create: 2018年04月16日 08:47
  */
 @Repository
-public interface DoctorMapper {
+public interface DoctorMapper extends BaseMapper<MUser> {
     /**
      * List all patient list.
      * 查询所有未出院病人
@@ -26,7 +28,7 @@ public interface DoctorMapper {
     List<MPatient> listAllPatient();
 
     /**
-     * Gets one patient.
+     * Gets one  patient.
      * 根据id 查询病人
      * @param id the id
      * @return the one patient
