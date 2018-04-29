@@ -24,17 +24,27 @@ function initTablePatientManage() {
             {"data": "pliveplace"},
             {"data": "phistory"},
             {"data": "padmissiontime"},
-            {"data": "phistorytime"}
+            {"data": "phistorytime"},
+            {"data":null}
         ],
         columnDefs: [
-/*            {
-                targets: 9,
+            {
+                targets: 12,
                 render: function (data, type, row, meta) {
-                    return '<a type="button" class="am-btn am-btn-primary am-btn-xs" onclick="">查看详情</a>' +
-                        '<a type="button" class="am-btn am-btn-success am-btn-xs" onclick="">封存<i class="am-icon-cloud-download"></i></a>';
+                    return '<div class="doc-dropdown-justify-js">\n' +
+                        '  <div class="am-dropdown doc-dropdown-js" style="min-width: 100px">\n' +
+                        '    <button class="am-btn am-btn-danger am-dropdown-toggle">操作 <span class="am-icon-caret-down"></span></button>\n' +
+                        '    <div class="am-dropdown-content">' +
+                        '  <ul class="" >\n' +
+                        '    <li><a href="#">查看详情</a></li>\n' +
+                        '    <li class="am-active"><a href="#">下载</a></li>\n' +
+                        '  </ul>' +
+                        '</div>\n' +
+                        '  </div>\n' +
+                        '</div>'
                 }
             },
-            {"orderable": false, "targets": 9}*/
+            {"orderable": false, "targets": 12}
         ],
         language: {
             "sProcessing": "处理中...",
@@ -59,4 +69,60 @@ function initTablePatientManage() {
         destroy: true,
         autoWidth: false
     });
+}
+
+function initAddModal() {
+    var html = '<form class="am-form tpl-form-line-form">\n' +
+        '        <div class="am-g">\n' +
+        '            <div class="am-u-sm-6">\n' +
+        '                <div class="am-form-group">\n' +
+        '                    <label for="user-name" class="am-u-sm-3 am-form-label">姓名 <span class="tpl-form-line-small-title">Name</span></label>\n' +
+        '                    <div class="am-u-sm-9">\n' +
+        '                        <input type="text" class="tpl-form-input"  placeholder="请输入标题文字">\n' +
+        '                    </div>\n' +
+        '                </div>\n' +
+        '            </div>\n' +
+        '            <div class="am-u-sm-6">\n' +
+        '                <div class="am-form-group">\n' +
+        '                    <label for="user-name" class="am-u-sm-3 am-form-label">姓名 <span class="tpl-form-line-small-title">Name</span></label>\n' +
+        '                    <div class="am-u-sm-9">\n' +
+        '                        <input type="text" class="tpl-form-input"  placeholder="请输入标题文字">\n' +
+        '                    </div>\n' +
+        '                </div>\n' +
+        '            </div>\n' +
+        '            <div class="am-u-sm-6">\n' +
+        '                <div class="am-form-group">\n' +
+        '                    <label for="user-name" class="am-u-sm-3 am-form-label">姓名 <span class="tpl-form-line-small-title">Name</span></label>\n' +
+        '                    <div class="am-u-sm-9">\n' +
+        '                        <input type="text" class="tpl-form-input"  placeholder="请输入标题文字">\n' +
+        '                    </div>\n' +
+        '                </div>\n' +
+        '            </div>\n' +
+        '            <div class="am-u-sm-6">\n' +
+        '                <div class="am-form-group">\n' +
+        '                    <label for="user-name" class="am-u-sm-3 am-form-label">姓名 <span class="tpl-form-line-small-title">Name</span></label>\n' +
+        '                    <div class="am-u-sm-9">\n' +
+        '                        <input type="text" class="tpl-form-input"  placeholder="请输入标题文字">\n' +
+        '                    </div>\n' +
+        '                </div>\n' +
+        '            </div>\n' +
+        '            <div class="am-u-sm-6">\n' +
+        '                <div class="am-form-group">\n' +
+        '                    <label for="user-name" class="am-u-sm-3 am-form-label">姓名 <span class="tpl-form-line-small-title">Name</span></label>\n' +
+        '                    <div class="am-u-sm-9">\n' +
+        '                        <input type="text" class="tpl-form-input"  placeholder="请输入标题文字">\n' +
+        '                    </div>\n' +
+        '                </div>\n' +
+        '            </div>\n' +
+        '            <div class="am-u-sm-6">\n' +
+        '                <div class="am-form-group">\n' +
+        '                    <label for="user-name" class="am-u-sm-3 am-form-label">姓名 <span class="tpl-form-line-small-title">Name</span></label>\n' +
+        '                    <div class="am-u-sm-9">\n' +
+        '                        <input type="text" class="tpl-form-input"  placeholder="请输入标题文字">\n' +
+        '                    </div>\n' +
+        '                </div>\n' +
+        '            </div>\n' +
+        '        </div>\n' +
+        '    </form>';
+    pageUtils.showModal('新增病人',html)
 }

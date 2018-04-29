@@ -54,4 +54,54 @@ public class DoctorController {
         }
         return ajaxResponse;
     }
+
+    /**
+     * 新增 病人
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("add")
+    public AjaxResponse add(MPatient patient){
+        AjaxResponse ajaxResponse = new AjaxResponse();
+        try {
+            int i = doctorService.add(patient);
+            ajaxResponse.setSuccessMessage("新增病人成功", i);
+        } catch (Exception e) {
+            ajaxResponse.setErrorMessage("新增病人失败！", e);
+        }
+        return ajaxResponse;
+    }
+    /**
+     * 更新 病人
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("update")
+    public AjaxResponse update(MPatient patient){
+        AjaxResponse ajaxResponse = new AjaxResponse();
+        try {
+            int i = doctorService.update(patient);
+            ajaxResponse.setSuccessMessage("更新病人成功", i);
+        } catch (Exception e) {
+            ajaxResponse.setErrorMessage("更新病人失败！", e);
+        }
+        return ajaxResponse;
+    }
+
+    /**
+     * 删除 病人 update precure
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("delete")
+    public AjaxResponse delete(String id){
+        AjaxResponse ajaxResponse = new AjaxResponse();
+        try {
+            int i = doctorService.delete(id);
+            ajaxResponse.setSuccessMessage("病人出院成功！", i);
+        } catch (Exception e) {
+            ajaxResponse.setErrorMessage("病人出院失败！", e);
+        }
+        return ajaxResponse;
+    }
 }
