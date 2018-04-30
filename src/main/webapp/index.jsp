@@ -281,6 +281,7 @@
 <script src="${ctx}/components/amazeui/js/fnAjaxReload.js"></script>
 <script src="${ctx}/components/amazeui/js/iscroll.js"></script>
 <script src="${ctx}/js/index-common.js"></script>
+<script src="${ctx}/js/common.js"></script>
 <script src="${ctx}/js/index.js"></script>
 <script src="${ctx}/components/amazeui/js/app.js"></script>
 

@@ -30,6 +30,7 @@ public interface DoctorMapper extends BaseMapper<MUser> {
     /**
      * Gets one  patient.
      * 根据id 查询病人
+     *
      * @param id the id
      * @return the one patient
      */
@@ -45,4 +46,48 @@ public interface DoctorMapper extends BaseMapper<MUser> {
             "WHERE\n" +
             "\tprecure =1 AND id=#{id}")
     Map<String,Object> getOnePatientById(int id);
+
+    /**
+     * List all record list.
+     * 查询所有的record 关联查询patient表
+     *
+     * @return the list
+     */
+    @Select("SELECT\n" +
+            "\t*,\n" +
+            "\td.d_name,\n" +
+            "CASE\n" +
+            "\trstate \n" +
+            "\tWHEN 1 THEN\n" +
+            "\t'未封存' \n" +
+            "\tWHEN 2 THEN\n" +
+            "\t'已封存' \n" +
+            "\tWHEN 3 THEN\n" +
+            "\t'未通过' ELSE '未知'\n" +
+            "END AS state,\n" +
+            "\tCASE\n" +
+            "\t\trpass \n" +
+            "\t\tWHEN 0 THEN\n" +
+            "\t\t'未审核' \n" +
+            "\t\tWHEN 1 THEN\n" +
+            "\t\t'已通过' \n" +
+            "\t\tWHEN 2 THEN\n" +
+            "\t\t'未通过' ELSE '未知'\n" +
+            "\tEND AS pass\n" +
+            "FROM\n" +
+            "\t`m_record` r\n" +
+            "\tINNER JOIN m_patient p ON p.id = r.pid\n" +
+            "\tLEFT JOIN m_department d ON d.id = r.rdepartment WHERE r.rdepartment=#{departmentId}")
+    List<Map<String, Object>> listAllRecord(String departmentId);
+
+
+    /**
+     * 根据用户 查询用户的部门
+     *
+     * @param userName the user name
+     * @return the user department
+     */
+    @Select("SELECT u.departmentid FROM m_login l INNER JOIN m_user u ON l.id=u.id WHERE l.username=#{userName}")
+    String getUserDepartment(String userName);
+
 }

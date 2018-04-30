@@ -1,8 +1,10 @@
 package repository.record;
 
+import entity.MRecord;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
+import tk.mybatis.mapper.common.BaseMapper;
 
 import java.util.List;
 import java.util.Map;
@@ -15,7 +17,7 @@ import java.util.Map;
  * @create: 2018年04月14日 21:58
  */
 @Repository
-public interface RecordMapper {
+public interface RecordMapper extends BaseMapper<MRecord> {
     /**
      * List today signed record list.
      * 查询今日已封存病历

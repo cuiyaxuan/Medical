@@ -21,3 +21,8 @@ table>thead:first-child>tr:first-child>th{
      text-overflow:ellipsis;
      white-space: nowrap;
  }
+.center-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -36,13 +36,14 @@ public class LoginController {
         ajaxResponse.setState("200");
         ajaxResponse.setResult("NO");
         List<Login> list = loginService.getAllUser();
-        for (Login login_ : list
-                ) {
+        for (Login login_ : list) {
             if (login.getUsername().equals(login_.getUsername()) && login.getPassword().equals(login_.getPassword())) {
                 ajaxResponse.setState("200");
                 ajaxResponse.setResult("OK");
                 ajaxResponse.setMessage("1");
                 session.setAttribute("loginUser", login_);
+                session.setAttribute("userName", login.getUsername());
+                session.setAttribute("id", login_.getId());
                 Logs logs = new Logs();
                 logs.setUsername(login.getUsername());
                 logs.setTime(new Date());
@@ -51,6 +52,7 @@ public class LoginController {
                 break;
             }
         }
+        String s = session.getAttribute("userName").toString();
         return ajaxResponse;
     }
 

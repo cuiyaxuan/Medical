@@ -2,12 +2,16 @@ package controller.doctor;
 
 import Util.AjaxResponse;
 import entity.MPatient;
+import entity.MRecord;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import service.doctor.DoctorService;
+import service.record.RecordService;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 import java.util.Map;
 
@@ -22,6 +26,8 @@ public class DoctorController {
     @Autowired
     DoctorService doctorService;
 
+    @Autowired
+    RecordService recordService;
     /**
      * 查询所有的病人
      * @return
@@ -101,6 +107,96 @@ public class DoctorController {
             ajaxResponse.setSuccessMessage("病人出院成功！", i);
         } catch (Exception e) {
             ajaxResponse.setErrorMessage("病人出院失败！", e);
+        }
+        return ajaxResponse;
+    }
+
+    /**
+     * 医生工作站 显示所有病历 个人科室的所有病例
+     * @return
+     */
+    @RequestMapping("listAllRecord")
+    @ResponseBody
+    public AjaxResponse listAllRecord(HttpServletRequest request){
+        AjaxResponse ajaxResponse = new AjaxResponse();
+        HttpSession session = request.getSession(true);
+        String userName = session.getAttribute("userName").toString();
+        try {
+            List<Map<String, Object>> mapList = doctorService.listAllRecord(userName);
+            ajaxResponse.setSuccessMessage("查询所有病历成功！", mapList);
+        } catch (Exception e) {
+            ajaxResponse.setErrorMessage("查询所有病历失败！", e);
+        }
+
+        return ajaxResponse;
+    }
+
+    /**
+     * 医生工作站 修改病历 个人科室的所有病例
+     * @return
+     */
+    @RequestMapping("updateRecord")
+    @ResponseBody
+    public AjaxResponse updateRecord(MRecord mRecord,HttpServletRequest request){
+        AjaxResponse ajaxResponse = new AjaxResponse();
+        try {
+            int i = doctorService.updateRecord(mRecord);
+            ajaxResponse.setSuccessMessage("修改病历成功！", i);
+        } catch (Exception e) {
+            ajaxResponse.setErrorMessage("修改病历失败！", e);
+        }
+        return ajaxResponse;
+    }
+
+    /**
+     * 医生工作站 新增病历 个人科室的所有病例
+     * @return
+     */
+    @RequestMapping("addRecord")
+    @ResponseBody
+    public AjaxResponse addRecord(MRecord mRecord,HttpServletRequest request){
+        AjaxResponse ajaxResponse = new AjaxResponse();
+        try {
+            int i = doctorService.addRecord(mRecord);
+            ajaxResponse.setSuccessMessage("新增病历成功！", i);
+        } catch (Exception e) {
+            ajaxResponse.setErrorMessage("新增病历失败！", e);
+        }
+        return ajaxResponse;
+    }
+
+    /**
+     * 查询该用户的所有工作提醒
+     * @return
+     */
+    @RequestMapping("listWorkMind")
+    @ResponseBody
+    public AjaxResponse listWorkMind(HttpServletRequest request){
+        AjaxResponse ajaxResponse = new AjaxResponse();
+        try {
+            HttpSession session = request.getSession(true);
+            String id = session.getAttribute("id").toString();
+            List<Map<String, Object>> mapList = doctorService.listWorkMind(id);
+            ajaxResponse.setSuccessMessage("查询工作提醒成功！", mapList);
+        } catch (Exception e) {
+            ajaxResponse.setErrorMessage("查询工作提醒失败！", e);
+        }
+        return ajaxResponse;
+    }
+
+    /**
+     * 通过id删除工作提醒
+     * @return
+     */
+    @RequestMapping("deleteWorkMind")
+    @ResponseBody
+    public AjaxResponse deleteWorkMind(String id,HttpServletRequest request){
+        AjaxResponse ajaxResponse = new AjaxResponse();
+        try {
+            int i = doctorService.deleteRemind(id);
+            ajaxResponse.setSuccessMessage("查询工作提醒成功！", i);
+        } catch (Exception e) {
+            ajaxResponse.setErrorMessage("查询工作提醒失败！", e);
         }
         return ajaxResponse;
     }
