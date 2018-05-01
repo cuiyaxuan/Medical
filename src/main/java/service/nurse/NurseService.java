@@ -1,7 +1,9 @@
 package service.nurse;
 
+import entity.MNurseDocumentation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import repository.nurse.NurseDocumentMapper;
 import repository.nurse.NurseMapper;
 
 import java.util.List;
@@ -17,6 +19,8 @@ public class NurseService {
     @Autowired
     NurseMapper nurseMapper;
 
+    @Autowired
+    NurseDocumentMapper nurseDocumentMapper;
     public List<Map<String,Object>> listAllDocument() {
         List<Map<String, Object>> mapList = nurseMapper.listAllDocument();
         return mapList;
@@ -24,5 +28,14 @@ public class NurseService {
     public Map<String,Object> getDocumentById(int id) {
         Map<String, Object> map = nurseMapper.getDocumentById(id);
         return map;
+    }
+
+    public int add(MNurseDocumentation mNurseDocumentation){
+        int i = nurseDocumentMapper.insertSelective(mNurseDocumentation);
+        return i;
+    }
+    public int update(MNurseDocumentation mNurseDocumentation){
+        int i = nurseDocumentMapper.updateByPrimaryKeySelective(mNurseDocumentation);
+        return i;
     }
 }

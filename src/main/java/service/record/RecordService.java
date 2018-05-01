@@ -42,4 +42,20 @@ public class RecordService {
         Map<String, Object> map = recordMapper.getRecordById(id);
         return map;
     }
+    public int updateSealRecordById(int id){
+        int i = recordMapper.updateSealRecordById(id);
+        return i;
+    }
+    public int updateDeBlockRecordById(int id){
+        int i = recordMapper.updateDeBlockRecordById(id);
+        return i;
+    }
+    public int passRecordById(int id){
+        int i = recordMapper.passRecordById(id);
+        return i;
+    }
+    public int rejectRecordById(int id){
+        int i = recordMapper.rejectRecordById(id);
+        return i;
+    }
 }

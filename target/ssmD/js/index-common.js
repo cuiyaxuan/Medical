@@ -1,6 +1,9 @@
 /*主页公共方法的js*/
 $(function () {
     $('#main-content').load('./../html/home/home.html');
+    $('#my-confirm').on('closed.modal.amui', function() {
+        $(this).removeData('amui.modal');
+    });
 });
 
 if (sessionStorage.getItem("userRole") == null) {
@@ -36,6 +39,9 @@ var pageUtils = {
     },
     closeConfirm(){
         var $confirm = $('#my-confirm');
+        var $confirmBtn = $confirm.find('[data-am-modal-confirm]');
+        var $cancelBtn = $confirm.find('[data-am-modal-cancel]');
+        // $confirmBtn.off('click.confirm.modal.amui');
         $confirm.modal('close');
     },
     closeModal: function () {

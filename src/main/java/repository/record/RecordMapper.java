@@ -3,6 +3,7 @@ package repository.record;
 import entity.MRecord;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Repository;
 import tk.mybatis.mapper.common.BaseMapper;
 
@@ -84,7 +85,7 @@ public interface RecordMapper extends BaseMapper<MRecord> {
             "\tWHEN 2 THEN\n" +
             "\t'已封存' \n" +
             " ELSE '未知'\n" +
-            "END AS state FROM `m_record` r INNER JOIN m_patient p ON p.id=r.pid LEFT JOIN m_department d on d.id=r.rdepartment WHERE r.rstate = #{state}")
+            "END AS state FROM `m_record` r INNER JOIN m_patient p ON p.id=r.pid LEFT JOIN m_department d on d.id=r.rdepartment WHERE r.rstate = #{state} AND r.rpass!=1")
     List<Map<String, Object>> listAllRecordByState(int state);
 
     /**
@@ -111,4 +112,39 @@ public interface RecordMapper extends BaseMapper<MRecord> {
      */
     @Select("SELECT * FROM m_record WHERE pid=#{id}")
     Map<String, Object> getRecordByPid(String id);
+
+    /**
+     * Update seal record by id int.
+     * 封存病历
+     * @param id the id
+     * @return the int
+     */
+    @Update("UPDATE m_record SET rstate = 2 WHERE id = #{id}")
+    int updateSealRecordById(int id);
+    /**
+     * Update seal record by id int.
+     * 解封病历
+     * @param id the id
+     * @return the int
+     */
+    @Update("UPDATE m_record SET rstate = 1 WHERE id = #{id}")
+    int updateDeBlockRecordById(int id);
+
+    /**
+     * Update seal record by id int.
+     * 通过病历
+     * @param id the id
+     * @return the int
+     */
+    @Update("UPDATE m_record SET rpass = 1 WHERE id = #{id}")
+    int passRecordById(int id);
+    /**
+     * Update seal record by id int.
+     * 拒绝病历
+     * @param id the id
+     * @return the int
+     */
+    @Update("UPDATE m_record SET rpass = 2,rstate=1 WHERE id = #{id}")
+    int rejectRecordById(int id);
+
 }

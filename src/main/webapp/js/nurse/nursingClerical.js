@@ -23,13 +23,13 @@ function initTableRecordDoctor() {
         columnDefs:[{
             targets: 6,
             render: function (data, tclassype, row, meta) {
+                console.log(data);
                 return '<div class="doc-dropdown-justify-js">\n' +
                     '  <div class="am-dropdown doc-dropdown-js" style="min-width: 100px">\n' +
                     '    <button class="am-btn am-btn-danger am-dropdown-toggle">操作 <span class="am-icon-caret-down"></span></button>\n' +
                     '    <div class="am-dropdown-content">' +
                     '  <ul class="" >\n' +
-                    '    <li><a href="#">查看详情</a></li>\n' +
-                    '    <li class="am-active"><a href="#">下载</a></li>\n' +
+                    '    <li><a href="javaScript:void(0)" onclick="initUpdateClericalModal('+data.id+')">修改</a></li>\n' +
                     '  </ul>' +
                     '</div>\n' +
                     '  </div>\n' +
@@ -69,4 +69,78 @@ function initTableRecordDoctor() {
         }
     });
 
+}
+
+function initUpdateClericalModal(id) {
+    var html = '<form class="am-form tpl-form-line-form" id="nurse-clerical-form">\n' +
+        '<input name="pid" transmit="true" hidden>' +
+        '        <div class="am-g">\n' +
+        '            <div class="am-u-sm-6">\n' +
+        '                <div class="am-form-group">\n' +
+        '                    <label for="user-name" class=" am-form-label">体温记录</label>\n' +
+        '                        <input type="text" name="dtemp" transmit="true" class="tpl-form-input"  placeholder="请输入标题文字">\n' +
+        '                </div>\n' +
+        '            </div>\n' +
+        '            <div class="am-u-sm-6">\n' +
+        '                <div class="am-form-group">\n' +
+        '                    <label for="user-name" class=" am-form-label">护理记录 </label>\n' +
+        '                        <input type="text" name="dnursing" transmit="true" class="tpl-form-input"  placeholder="请输入标题文字">\n' +
+        '                </div>\n' +
+        '            </div>\n' +
+        '            <div class="am-u-sm-6">\n' +
+        '                <div class="am-form-group">\n' +
+        '                    <label for="user-name" class=" am-form-label">医嘱记录 </label>\n' +
+        '                        <input type="text" name="dadvice" transmit="true" class="tpl-form-input"  placeholder="请输入标题文字">\n' +
+        '                </div>\n' +
+        '            </div>\n' +
+        '            <div class="am-u-sm-6">\n' +
+        '                <div class="am-form-group">\n' +
+        '                    <label for="user-name" class=" am-form-label">手术记录 </label>\n' +
+        '                        <input type="text" name="doperation" transmit="true" class="tpl-form-input"  placeholder="请输入标题文字">\n' +
+        '                </div>\n' +
+        '            </div>\n' +
+        '            <div class="am-u-sm-6 am-u-end">\n' +
+        '                <div class="am-form-group">\n' +
+        '                    <label for="user-name" class=" am-form-label">所属科室 </label>\n' +
+        '                        <input type="text" name="departmentid" transmit="true" class="tpl-form-input"  placeholder="请输入标题文字">\n' +
+        '                </div>\n' +
+        '            </div>\n' +
+        '        </div>\n' +
+        '    </form>' +
+        '<div class="center-button">' +
+        '<button type="button" onclick="pageUtils.closeModal()" class="am-btn am-btn-danger">取消</button>\n' +
+        '<button type="button" onclick="updateClerical('+id+')" class="am-btn am-btn-success">确定</button>'
+    '</div>';
+    pageUtils.showModal("编辑护理文书", html);
+    $.ajax({
+        type: "post",
+        url: contextPath + "/nurse/getDocumentById",
+        data: {id:id},
+        success: function (data) {
+            $.each(data.result,function (name,value) {
+                $('#nurse-clerical-form input[name=' + name + ']').val(value);
+            })
+        },
+        error: function () {
+
+        }
+    });
+}
+
+function updateClerical(id) {
+    var json = commonSerializeForm("nurse-clerical-form");
+    json.id = id;
+    $.ajax({
+        type: "post",
+        url: contextPath + "/nurse/update",
+        data: json,
+        success: function (result) {
+            pageUtils.closeModal();
+            alert("修改成功！");
+            initTableRecordDoctor();
+        },
+        error: function () {
+
+        }
+    });
 }

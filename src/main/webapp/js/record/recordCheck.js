@@ -6,33 +6,42 @@ function initTableRecordCheck() {
     $('#table_record_check').DataTable({
         ajax: {  //ajax方式向后台发送请求
             "type": "POST",
-            "async":false,
-            "url":contextPath+"/record/listAllRecordByState",
-            "dataType" : "json",
+            "async": false,
+            "url": contextPath + "/record/listAllRecordByState",
+            "dataType": "json",
             "dataSrc": "result",
-            "data":{state:2}
+            "data": {state: 2}
         },
-        columns : [//对接收到的json格式数据进行处理，data为json中对应的key
-            {"data":"pname"},
-            {"data":"rcomplain"} ,
-            {"data":"rpresent"},
-            {"data":"rhistory"},
-            {"data":"rperson"},
-            {"data":"rmarriage"},
-            {"data":"rfamily"},
-            {"data":"d_name"},
-            {"data":"state"},
-            {"data":null}
+        columns: [//对接收到的json格式数据进行处理，data为json中对应的key
+            {"data": "pname"},
+            {"data": "rcomplain"},
+            {"data": "rpresent"},
+            {"data": "rhistory"},
+            {"data": "rperson"},
+            {"data": "rmarriage"},
+            {"data": "rfamily"},
+            {"data": "d_name"},
+            {"data": "state"},
+            {"data": null}
         ],
-        columnDefs:[{
+        columnDefs: [{
             targets: 9,
             render: function (data, type, row, meta) {
-                return '<a type="button" class="am-btn am-btn-primary am-btn-xs" onclick="">查看详情</a>' +
-                    '<a type="button" class="am-btn am-btn-success am-btn-xs" onclick="">通过<i class="am-icon-cloud-download"></i></a>'+
-                    '<a type="button" class="am-btn am-btn-danger am-btn-xs" onclick="">拒绝<i class="am-icon-cloud-download"></i></a>';
+                return '<div class="doc-dropdown-justify-js">\n' +
+                    '  <div class="am-dropdown doc-dropdown-js" style="min-width: 100px">\n' +
+                    '    <button class="am-btn am-btn-danger am-dropdown-toggle">操作 <span class="am-icon-caret-down"></span></button>\n' +
+                    '    <div class="am-dropdown-content">' +
+                    '  <ul class="" >\n' +
+                    '    <li><a href="#">查看详情</a></li>\n' +
+                    '    <li class="am-active"><a href="javaScript:void(0)" onclick="passRecordById('+data.id+')">通过</a></li>\n' +
+                    '    <li><a href="javaScript:void(0)" onclick="rejectRecordById('+data.id+')">拒绝</a></li>\n' +
+                    '  </ul>' +
+                    '</div>\n' +
+                    '  </div>\n' +
+                    '</div>'
             }
         },
-            { "orderable": false, "targets": 9 }
+            {"orderable": false, "targets": 9}
         ],
         language: {
             "sProcessing": "处理中...",
@@ -55,6 +64,58 @@ function initTableRecordCheck() {
             }
         },
         destroy: true,
-        autoWidth: false
+        autoWidth: false,
+        fnInitComplete:function (oSettings, json) {
+            $('#table_record_scanned').addClass('table-layout-fixed');
+            $('#table_record_scanned td:not(:last-of-type)').addClass("text-one-line");
+            $('.doc-dropdown-js').dropdown({justify: '.doc-dropdown-justify-js'});
+        }
     });
+}
+
+function passRecordById(id) {
+    var $confirm = $('#my-confirm');
+    $confirm.find('.am-modal-hd').html("提示");
+    $confirm.find('.am-modal-bd').html("确认通过该病历？");
+    var $confirmBtn = $confirm.find('[data-am-modal-confirm]');
+    var $cancelBtn = $confirm.find('[data-am-modal-cancel]');
+    $confirmBtn.off('click.confirm.modal.amui').on('click', function() {
+        $.ajax({
+            method:'post',
+            url:contextPath+'/record/passRecordById',
+            data:{id: id},
+            async:false,
+            success:function (data) {
+                alert(data.message);
+                initTableRecordCheck();
+                pageUtils.closeConfirm();
+            },
+            error:function () {
+            }
+        })
+    });
+    $confirm.modal();
+}
+function rejectRecordById(id) {
+    var $confirm = $('#my-confirm');
+    $confirm.find('.am-modal-hd').html("提示");
+    $confirm.find('.am-modal-bd').html("确认拒绝该病历？");
+    var $confirmBtn = $confirm.find('[data-am-modal-confirm]');
+    var $cancelBtn = $confirm.find('[data-am-modal-cancel]');
+    $confirmBtn.off('click.confirm.modal.amui').on('click', function() {
+        $.ajax({
+            method:'post',
+            url:contextPath+'/record/rejectRecordById',
+            data:{id: id},
+            async:false,
+            success:function (data) {
+                alert(data.message);
+                initTableRecordCheck();
+                pageUtils.closeConfirm();
+            },
+            error:function () {
+            }
+        })
+    });
+    $confirm.modal();
 }

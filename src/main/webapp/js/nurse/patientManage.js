@@ -1,6 +1,4 @@
-$(function () {
 
-})
 $(function () {
     initTablePatientManage();
 });
@@ -27,17 +25,26 @@ function initTablePatientManage() {
             {"data": "pliveplace"},
             {"data": "phistory"},
             {"data": "padmissiontime"},
-            {"data": "phistorytime"}
+            {"data": "phistorytime"},
+            {'data':null}
         ],
-        columnDefs: [
-            /*            {
-                            targets: 9,
-                            render: function (data, type, row, meta) {
-                                return '<a type="button" class="am-btn am-btn-primary am-btn-xs" onclick="">查看详情</a>' +
-                                    '<a type="button" class="am-btn am-btn-success am-btn-xs" onclick="">封存<i class="am-icon-cloud-download"></i></a>';
-                            }
-                        },
-                        {"orderable": false, "targets": 9}*/
+        columnDefs: [{
+            targets: 12,
+            render: function (data, type, row, meta) {
+                console.log(data);
+                return '<div class="doc-dropdown-justify-js">\n' +
+                    '  <div class="am-dropdown doc-dropdown-js" style="min-width: 100px">\n' +
+                    '    <button class="am-btn am-btn-danger am-dropdown-toggle">操 作<span class="am-icon-caret-down"></span></button>\n' +
+                    '    <div class="am-dropdown-content">' +
+                    '  <ul class="" >\n' +
+                    '    <li><a href="javaScript:void(0)" onclick="initAddNewClericalModal('+data.id+')">添加护理文书</a></li>\n' +
+                    '  </ul>' +
+                    '</div>\n' +
+                    '  </div>\n' +
+                    '</div>'
+            }
+        },
+            {"orderable": false, "targets": 12}
         ],
         language: {
             "sProcessing": "处理中...",
@@ -60,6 +67,76 @@ function initTablePatientManage() {
             }
         },
         destroy: true,
-        autoWidth: false
+        autoWidth: false,
+        fnInitComplete:function (oSettings, json) {
+            $('#table_record_scanned').addClass('table-layout-fixed');
+            $('#table_record_scanned td:not(:last-of-type)').addClass("text-one-line");
+            $('.doc-dropdown-js').dropdown({justify: '.doc-dropdown-justify-js'});
+        }
     });
+}
+
+function initAddNewClericalModal(id) {
+    var html = '<form class="am-form tpl-form-line-form" id="nurse-clerical-form">\n' +
+        '<input name="pid" transmit="true" hidden>' +
+        '        <div class="am-g">\n' +
+        '            <div class="am-u-sm-6">\n' +
+        '                <div class="am-form-group">\n' +
+        '                    <label for="user-name" class=" am-form-label">体温记录</label>\n' +
+        '                        <input type="text" name="dtemp" transmit="true" class="tpl-form-input"  placeholder="请输入标题文字">\n' +
+        '                </div>\n' +
+        '            </div>\n' +
+        '            <div class="am-u-sm-6">\n' +
+        '                <div class="am-form-group">\n' +
+        '                    <label for="user-name" class=" am-form-label">护理记录 </label>\n' +
+        '                        <input type="text" name="dnursing" transmit="true" class="tpl-form-input"  placeholder="请输入标题文字">\n' +
+        '                </div>\n' +
+        '            </div>\n' +
+        '            <div class="am-u-sm-6">\n' +
+        '                <div class="am-form-group">\n' +
+        '                    <label for="user-name" class=" am-form-label">医嘱记录 </label>\n' +
+        '                        <input type="text" name="dadvice" transmit="true" class="tpl-form-input"  placeholder="请输入标题文字">\n' +
+        '                </div>\n' +
+        '            </div>\n' +
+        '            <div class="am-u-sm-6">\n' +
+        '                <div class="am-form-group">\n' +
+        '                    <label for="user-name" class=" am-form-label">手术记录 </label>\n' +
+        '                        <input type="text" name="doperation" transmit="true" class="tpl-form-input"  placeholder="请输入标题文字">\n' +
+        '                </div>\n' +
+        '            </div>\n' +
+        '            <div class="am-u-sm-6 am-u-end">\n' +
+        '                <div class="am-form-group">\n' +
+        '                    <label for="user-name" class=" am-form-label">所属科室 </label>\n' +
+        '                        <input type="text" name="departmentid" transmit="true" class="tpl-form-input"  placeholder="请输入标题文字">\n' +
+        '                </div>\n' +
+        '            </div>\n' +
+        '        </div>\n' +
+        '    </form>' +
+        '<div class="center-button">' +
+        '<button type="button" onclick="pageUtils.closeModal()" class="am-btn am-btn-danger">取消</button>\n' +
+        '<button type="button" onclick="addNewClerical('+id+')" class="am-btn am-btn-success">确定</button>'
+    '</div>';
+    pageUtils.showModal('添加护理文书', html);
+    console.log(id);
+    
+}
+
+function addNewClerical(pid) {
+    var json = commonSerializeForm("nurse-clerical-form");
+    json.pid = pid;
+    $.ajax({
+        type: "post",
+        url: contextPath + "/nurse/add",
+        data: json,
+        success: function (result) {
+            pageUtils.closeModal();
+            alert("添加成功");
+            initTablePatientManage();
+        },
+        error: function () {
+
+        }
+    });
+
+
 }

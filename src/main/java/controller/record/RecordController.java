@@ -89,7 +89,7 @@ public class RecordController {
         return ajaxResponse;
     }
     /**
-     * 病历封存查询单个病历
+     * 病历封存 查询单个病历
      * @return
      */
     @RequestMapping("getRecordById")
@@ -106,5 +106,73 @@ public class RecordController {
         return ajaxResponse;
     }
 
+    /**
+     * 根据id封存病历
+     * @return
+     */
+    @RequestMapping("sealRecordById")
+    @ResponseBody
+    public AjaxResponse sealRecordById(int id){
+        AjaxResponse ajaxResponse = new AjaxResponse();
+        try {
+            int i = recordService.updateSealRecordById(id);
+            ajaxResponse.setSuccessMessage("封存病历成功！", i);
+        } catch (Exception e) {
+            ajaxResponse.setErrorMessage("封存病历失败！", e);
+        }
+
+        return ajaxResponse;
+    }
+    /**
+     * 根据id解封病历
+     * @return
+     */
+    @RequestMapping("deBlockRecordById")
+    @ResponseBody
+    public AjaxResponse deBlockRecordById(int id){
+        AjaxResponse ajaxResponse = new AjaxResponse();
+        try {
+            int i = recordService.updateDeBlockRecordById(id);
+            ajaxResponse.setSuccessMessage("解封病历成功！", i);
+        } catch (Exception e) {
+            ajaxResponse.setErrorMessage("解封病历失败！", e);
+        }
+
+        return ajaxResponse;
+    }
+    /**
+     * 根据id通过病历
+     * @return
+     */
+    @RequestMapping("passRecordById")
+    @ResponseBody
+    public AjaxResponse passRecordById(int id){
+        AjaxResponse ajaxResponse = new AjaxResponse();
+        try {
+            int i = recordService.passRecordById(id);
+            ajaxResponse.setSuccessMessage("通过病历成功！", i);
+        } catch (Exception e) {
+            ajaxResponse.setErrorMessage("通过病历失败！", e);
+        }
+
+        return ajaxResponse;
+    }
+    /**
+     * 根据id通过病历
+     * @return
+     */
+    @RequestMapping("rejectRecordById")
+    @ResponseBody
+    public AjaxResponse rejectRecordById(int id){
+        AjaxResponse ajaxResponse = new AjaxResponse();
+        try {
+            int i = recordService.rejectRecordById(id);
+            ajaxResponse.setSuccessMessage("拒绝病历成功！", i);
+        } catch (Exception e) {
+            ajaxResponse.setErrorMessage("拒绝病历失败！", e);
+        }
+
+        return ajaxResponse;
+    }
 
 }

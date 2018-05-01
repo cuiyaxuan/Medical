@@ -160,7 +160,6 @@ public class DoctorController {
     public AjaxResponse updateRecord(MRecord mRecord,HttpServletRequest request){
         AjaxResponse ajaxResponse = new AjaxResponse();
         try {
-
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
             String date = sdf.format(new Date());
             mRecord.setGmtCreate(date);
