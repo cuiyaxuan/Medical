@@ -21,7 +21,7 @@ var pageUtils = {
         $confirm.modal({
             relatedTarget: this,
             onConfirm: function (options) {
-                yes_event();
+                yes_event;
             },
             // closeOnConfirm: false,
             onCancel: function () {
@@ -33,6 +33,10 @@ var pageUtils = {
         $modal.find(".am-modal-hd").empty().html(p_title);
         $modal.find(".am-modal-bd").empty().html(p_content);
         $("#my-alert").modal();
+    },
+    closeConfirm(){
+        var $confirm = $('#my-confirm');
+        $confirm.modal('close');
     },
     closeModal: function () {
         $("#common-modal").modal('close');
@@ -49,7 +53,15 @@ var commonUtils = {
             s=str.substring(0,10)+"...";
         }
         return s;
+    },
+    convertDateFromString(dateString) {
+    if (dateString) {
+        var arr1 = dateString.split(" ");
+        var sdate = arr1[0].split('-');
+        var date = new Date(sdate[0], sdate[1]-1, sdate[2]);
+        return date;
     }
+}
 };
 
 function switchPage(th) {

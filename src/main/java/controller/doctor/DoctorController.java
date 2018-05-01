@@ -12,6 +12,8 @@ import service.record.RecordService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -132,6 +134,24 @@ public class DoctorController {
     }
 
     /**
+     * 医生工作站 显示所有病历 个人科室的所有病例
+     * @return
+     */
+    @RequestMapping("getOneRecordByPid")
+    @ResponseBody
+    public AjaxResponse getOneRecordById(String id,HttpServletRequest request){
+        AjaxResponse ajaxResponse = new AjaxResponse();
+        try {
+            Map<String,Object> obj = doctorService.getOneRecordById(id);
+            ajaxResponse.setSuccessMessage("查询病历成功！", obj);
+        } catch (Exception e) {
+            ajaxResponse.setErrorMessage("查询病历失败！", e);
+        }
+
+        return ajaxResponse;
+    }
+
+    /**
      * 医生工作站 修改病历 个人科室的所有病例
      * @return
      */
@@ -140,6 +160,10 @@ public class DoctorController {
     public AjaxResponse updateRecord(MRecord mRecord,HttpServletRequest request){
         AjaxResponse ajaxResponse = new AjaxResponse();
         try {
+
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            String date = sdf.format(new Date());
+            mRecord.setGmtCreate(date);
             int i = doctorService.updateRecord(mRecord);
             ajaxResponse.setSuccessMessage("修改病历成功！", i);
         } catch (Exception e) {
@@ -149,7 +173,7 @@ public class DoctorController {
     }
 
     /**
-     * 医生工作站 新增病历 个人科室的所有病例
+     * 医生工作站 新增病历
      * @return
      */
     @RequestMapping("addRecord")

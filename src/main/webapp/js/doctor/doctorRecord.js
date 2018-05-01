@@ -2,12 +2,12 @@ $(function () {
     initTableRecordDoctor();
 });
 
-function initTableRecordDoctor() {
+function initTableRecordDoctor(){
     $('#table_doctor_record').DataTable({
         ajax: {  //ajax方式向后台发送请求
             "type": "POST",
             "async":false,
-            "url":contextPath+"/record/listAllRecord",
+            "url":contextPath+"/doctor/listAllRecord",
             "dataType" : "json",
             "dataSrc": "result"
         },
@@ -32,8 +32,9 @@ function initTableRecordDoctor() {
                     '    <button class="am-btn am-btn-danger am-dropdown-toggle">操作 <span class="am-icon-caret-down"></span></button>\n' +
                     '    <div class="am-dropdown-content">' +
                     '  <ul class="" >\n' +
-                    '    <li><a href="#">查看详情</a></li>\n' +
-                    '    <li class="am-active"><a href="#">下载</a></li>\n' +
+/*                    '    <li><a href="#">查看详情</a></li>\n' +
+                    '    <li class="am-active"><a href="#">下载</a></li>\n' +*/
+                    '    <li><a href="javaScript:void(0)" onclick="initUpdatePatientRecordModal('+data.pid+')">修改</a></li>\n' +
                     '  </ul>' +
                     '</div>\n' +
                     '  </div>\n' +
@@ -73,4 +74,132 @@ function initTableRecordDoctor() {
         }
     });
 
+}
+
+/**
+ * 加载修改modal
+ */
+function initUpdatePatientRecordModal(id) {
+    var html = '<form class="am-form tpl-form-line-form" id="doctor-record-form">\n' +
+        '<input name="pid" transmit="true" hidden>' +
+        '        <div class="am-g">\n' +
+        '            <div class="am-u-sm-6">\n' +
+        '                <div class="am-form-group">\n' +
+        '                    <label for="user-name" class="am-u-sm-3 am-form-label">主诉</label>\n' +
+        '                    <div class="am-u-sm-9">\n' +
+        '                        <input type="text" name="rcomplain" transmit="true" class="tpl-form-input"  placeholder="请输入标题文字">\n' +
+        '                    </div>\n' +
+        '                </div>\n' +
+        '            </div>\n' +
+        '            <div class="am-u-sm-6">\n' +
+        '                <div class="am-form-group">\n' +
+        '                    <label for="user-name" class="am-u-sm-3 am-form-label">现病史 <span class="tpl-form-line-small-title">Name</span></label>\n' +
+        '                    <div class="am-u-sm-9">\n' +
+        '                        <input type="text" name="rpresent" transmit="true" class="tpl-form-input"  placeholder="请输入标题文字">\n' +
+        '                    </div>\n' +
+        '                </div>\n' +
+        '            </div>\n' +
+        '            <div class="am-u-sm-6">\n' +
+        '                <div class="am-form-group">\n' +
+        '                    <label for="user-name" class="am-u-sm-3 am-form-label">既往史 <span class="tpl-form-line-small-title">Name</span></label>\n' +
+        '                    <div class="am-u-sm-9">\n' +
+        '                        <input type="text" name="rhistory" transmit="true" class="tpl-form-input"  placeholder="请输入标题文字">\n' +
+        '                    </div>\n' +
+        '                </div>\n' +
+        '            </div>\n' +
+        '            <div class="am-u-sm-6">\n' +
+        '                <div class="am-form-group">\n' +
+        '                    <label for="user-name" class="am-u-sm-3 am-form-label">个人史 <span class="tpl-form-line-small-title">Name</span></label>\n' +
+        '                    <div class="am-u-sm-9">\n' +
+        '                        <input type="text" name="rperson" transmit="true" class="tpl-form-input"  placeholder="请输入标题文字">\n' +
+        '                    </div>\n' +
+        '                </div>\n' +
+        '            </div>\n' +
+        '            <div class="am-u-sm-6">\n' +
+        '                <div class="am-form-group">\n' +
+        '                    <label for="user-name" class="am-u-sm-3 am-form-label">婚育史 <span class="tpl-form-line-small-title">Name</span></label>\n' +
+        '                    <div class="am-u-sm-9">\n' +
+        '                        <input type="text" name="rmarriage" transmit="true" class="tpl-form-input"  placeholder="请输入标题文字">\n' +
+        '                    </div>\n' +
+        '                </div>\n' +
+        '            </div>\n' +
+        '            <div class="am-u-sm-6">\n' +
+        '                <div class="am-form-group">\n' +
+        '                    <label for="user-name" class="am-u-sm-3 am-form-label">家族史 <span class="tpl-form-line-small-title">Name</span></label>\n' +
+        '                    <div class="am-u-sm-9">\n' +
+        '                        <input type="text" name="rfamily" transmit="true" class="tpl-form-input"  placeholder="请输入标题文字">\n' +
+        '                    </div>\n' +
+        '                </div>\n' +
+        '            </div>\n' +
+        '            <div class="am-u-sm-6">\n' +
+        '                <div class="am-form-group">\n' +
+        '                    <label for="user-name" class="am-u-sm-3 am-form-label">部门 </label>\n' +
+        '                    <div class="am-u-sm-9">\n' +
+        '                        <input type="text" name="rdepartment" transmit="true" class="tpl-form-input"  placeholder="请输入标题文字">\n' +
+        '                    </div>\n' +
+        '                </div>\n' +
+        '            </div>\n' +
+        '            <div class="am-u-sm-6">\n' +
+        '                <div class="am-form-group">\n' +
+        '                    <label for="user-name" class="am-u-sm-3 am-form-label">封存状态</label>\n' +
+        '                    <div class="am-u-sm-9">\n' +
+        '                        <input type="text" name="rstate" transmit="true" class="tpl-form-input"  placeholder="请输入标题文字">\n' +
+        '                    </div>\n' +
+        '                </div>\n' +
+        '            </div>\n' +
+        '            <div class="am-u-sm-6">\n' +
+        '                <div class="am-form-group">\n' +
+        '                    <label for="user-name" class="am-u-sm-3 am-form-label">审核状态</label>\n' +
+        '                    <div class="am-u-sm-9">\n' +
+        '                        <input type="text" name="rpass" transmit="true" class="tpl-form-input"  placeholder="请输入标题文字">\n' +
+        '                    </div>\n' +
+        '                </div>\n' +
+        '            </div>\n' +
+        '            <div class="am-u-sm-6">\n' +
+        '                <div class="am-form-group">\n' +
+        '                    <label for="user-name" class="am-u-sm-3 am-form-label">是否传染</label>\n' +
+        '                    <div class="am-u-sm-9">\n' +
+        '                        <input type="text"name="rinfaction" transmit="true" class="tpl-form-input"  placeholder="请输入标题文字">\n' +
+        '                    </div>\n' +
+        '                </div>\n' +
+        '            </div>\n' +
+        '        </div>\n' +
+        '    </form>' +
+        '<div class="center-button">' +
+        '<button type="button" onclick="pageUtils.closeModal()" class="am-btn am-btn-danger">取消</button>\n' +
+        '<button type="button" onclick="updatePatientRecord('+id+')" class="am-btn am-btn-success">确定</button>'
+    '</div>';
+    pageUtils.showModal('添加病历', html);
+    $.ajax({
+        method:'post',
+        url:contextPath+'/doctor/getOneRecordByPid',
+        data:{id:id},
+        success:function(data){
+            console.log(data);
+            $.each(data.result,function (name,value) {
+                $('#doctor-record-form input[name=' + name + ']').val(value);
+            })
+        },
+        error:function () {
+
+        }
+    })
+}
+
+function updatePatientRecord(id) {
+    var json = commonSerializeForm("doctor-record-form");
+    json.id = id;
+    $.ajax({
+        type: "post",
+        url: contextPath + "/doctor/updateRecord",
+        data: json,
+        success: function (result) {
+            pageUtils.closeModal();
+            alert("编辑成功！");
+            initTableRecordDoctor();
+        },
+        error: function () {
+
+        }
+    });
 }

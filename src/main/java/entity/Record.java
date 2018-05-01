@@ -1,63 +1,22 @@
 package entity;
 
 
-import javax.persistence.*;
+public class Record {
 
-@Entity
-@Table(name="m_record")
-public class MRecord {
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  @Column(name = "id")
   private long id;
-  @Column(name = "pid")
   private long pid;
-  @Column(name = "rcomplain")
   private String rcomplain;
-  @Column(name = "rpresent")
   private String rpresent;
-  @Column(name = "rhistory")
   private String rhistory;
-  @Column(name = "rperson")
   private String rperson;
-  @Column(name = "rmarriage")
   private String rmarriage;
-  @Column(name = "rfamily")
   private String rfamily;
-  @Column(name = "rdepartment")
   private long rdepartment;
-  @Column(name = "rstate")
   private long rstate;
-  @Column(name = "gmt_create")
   private String gmtCreate;
-  @Column(name = "rpass")
   private long rpass;
-  @Column(name = "rinfaction")
   private String rinfaction;
 
-  public String getGmtCreate() {
-    return gmtCreate;
-  }
-
-  public void setGmtCreate(String gmtCreate) {
-    this.gmtCreate = gmtCreate;
-  }
-
-  public long getRpass() {
-    return rpass;
-  }
-
-  public void setRpass(long rpass) {
-    this.rpass = rpass;
-  }
-
-  public String getRinfaction() {
-    return rinfaction;
-  }
-
-  public void setRinfaction(String rinfaction) {
-    this.rinfaction = rinfaction;
-  }
 
   public long getId() {
     return id;
@@ -146,6 +105,33 @@ public class MRecord {
 
   public void setRstate(long rstate) {
     this.rstate = rstate;
+  }
+
+
+  public String getGmtCreate() {
+    return gmtCreate;
+  }
+
+  public void setGmtCreate(String gmtCreate) {
+    this.gmtCreate = gmtCreate;
+  }
+
+
+  public long getRpass() {
+    return rpass;
+  }
+
+  public void setRpass(long rpass) {
+    this.rpass = rpass;
+  }
+
+
+  public String getRinfaction() {
+    return rinfaction;
+  }
+
+  public void setRinfaction(String rinfaction) {
+    this.rinfaction = rinfaction;
   }
 
 }

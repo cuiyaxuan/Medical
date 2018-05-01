@@ -88,7 +88,6 @@ public interface RecordMapper extends BaseMapper<MRecord> {
     List<Map<String, Object>> listAllRecordByState(int state);
 
     /**
-     *
      * 使用id查询单个的病历
      *
      * @param id the id
@@ -103,4 +102,13 @@ public interface RecordMapper extends BaseMapper<MRecord> {
             " ELSE '未知'\n" +
             "END AS state FROM `m_record` r INNER JOIN m_patient p ON p.id=r.pid LEFT JOIN m_department d on d.id=r.rdepartment WHERE r.id = #{id}")
     Map<String, Object> getRecordById(int id);
+
+    /**
+     * Gets record by pid.
+     *
+     * @param id the id
+     * @return the record by pid
+     */
+    @Select("SELECT * FROM m_record WHERE pid=#{id}")
+    Map<String, Object> getRecordByPid(String id);
 }

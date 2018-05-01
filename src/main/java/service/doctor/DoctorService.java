@@ -72,18 +72,28 @@ public class DoctorService {
         return mapList;
     }
 
+    public Map<String,Object> getOneRecordById(String pid){
+        Map<String,Object> object = recordMapper.getRecordByPid(pid);
+        return object;
+    }
+
     /**
      * 修改病历
      */
-    public int updateRecord(MRecord record){
-        int i = recordMapper.updateByPrimaryKeySelective(record);
+    public int updateRecord(MRecord mrecord){
+        int i = 0;
+        try {
+            i = recordMapper.updateByPrimaryKeySelective(mrecord);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return i;
     }
     /**
      * 新增病历
      */
     public int addRecord(MRecord record){
-        int i = recordMapper.insertSelective(record);
+        int i = recordMapper.insert(record);
         return i;
     }
     /**
