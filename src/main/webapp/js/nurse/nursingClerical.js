@@ -102,7 +102,18 @@ function initUpdateClericalModal(id) {
         '            <div class="am-u-sm-6 am-u-end">\n' +
         '                <div class="am-form-group">\n' +
         '                    <label for="user-name" class=" am-form-label">所属科室 </label>\n' +
-        '                        <input type="text" name="departmentid" transmit="true" class="tpl-form-input"  placeholder="请输入标题文字">\n' +
+        '<select  name="departmentid" transmit="true" class="patient-department-select" data-am-selected>\n' +
+        '                    <option value="0" selected>所有科室</option>\n' +
+        '                    <option value="1">内科</option>\n' +
+        '                    <option value="2">外科</option>\n' +
+        '                    <option value="3">妇产科</option>\n' +
+        '                    <option value="4">男科</option>\n' +
+        '                    <option value="5">儿科</option>\n' +
+        '                    <option value="6">五官科</option>\n' +
+        '                    <option value="7">皮肤科</option>\n' +
+        '                    <option value="8">传染病科</option>\n' +
+        '                    <option value="9">肛肠科</option>\n' +
+        '                </select>'+
         '                </div>\n' +
         '            </div>\n' +
         '        </div>\n' +
@@ -119,6 +130,9 @@ function initUpdateClericalModal(id) {
         success: function (data) {
             $.each(data.result,function (name,value) {
                 $('#nurse-clerical-form input[name=' + name + ']').val(value);
+                if(name=="departmentid") {
+                    $('#nurse-clerical-form select[name=' + name + ']').val(value);
+                }
             })
         },
         error: function () {

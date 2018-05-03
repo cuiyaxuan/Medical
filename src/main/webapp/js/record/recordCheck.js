@@ -32,7 +32,7 @@ function initTableRecordCheck() {
                     '    <button class="am-btn am-btn-danger am-dropdown-toggle">操作 <span class="am-icon-caret-down"></span></button>\n' +
                     '    <div class="am-dropdown-content">' +
                     '  <ul class="" >\n' +
-                    '    <li><a href="#">查看详情</a></li>\n' +
+                    '    <li><a href="javaScript:void(0)" onclick="openRecordHtml('+data.id+')">查看详情</a></li>\n' +
                     '    <li class="am-active"><a href="javaScript:void(0)" onclick="passRecordById('+data.id+')">通过</a></li>\n' +
                     '    <li><a href="javaScript:void(0)" onclick="rejectRecordById('+data.id+')">拒绝</a></li>\n' +
                     '  </ul>' +
@@ -74,12 +74,8 @@ function initTableRecordCheck() {
 }
 
 function passRecordById(id) {
-    var $confirm = $('#my-confirm');
-    $confirm.find('.am-modal-hd').html("提示");
-    $confirm.find('.am-modal-bd').html("确认通过该病历？");
-    var $confirmBtn = $confirm.find('[data-am-modal-confirm]');
-    var $cancelBtn = $confirm.find('[data-am-modal-cancel]');
-    $confirmBtn.off('click.confirm.modal.amui').on('click', function() {
+    var r=confirm("确认拒绝该病历？")
+    if(r==true) {
         $.ajax({
             method:'post',
             url:contextPath+'/record/passRecordById',
@@ -88,21 +84,15 @@ function passRecordById(id) {
             success:function (data) {
                 alert(data.message);
                 initTableRecordCheck();
-                pageUtils.closeConfirm();
             },
             error:function () {
             }
         })
-    });
-    $confirm.modal();
+    }
 }
 function rejectRecordById(id) {
-    var $confirm = $('#my-confirm');
-    $confirm.find('.am-modal-hd').html("提示");
-    $confirm.find('.am-modal-bd').html("确认拒绝该病历？");
-    var $confirmBtn = $confirm.find('[data-am-modal-confirm]');
-    var $cancelBtn = $confirm.find('[data-am-modal-cancel]');
-    $confirmBtn.off('click.confirm.modal.amui').on('click', function() {
+    var r=confirm("确认拒绝该病历？")
+    if(r==true) {
         $.ajax({
             method:'post',
             url:contextPath+'/record/rejectRecordById',
@@ -111,11 +101,15 @@ function rejectRecordById(id) {
             success:function (data) {
                 alert(data.message);
                 initTableRecordCheck();
-                pageUtils.closeConfirm();
             },
             error:function () {
             }
         })
-    });
-    $confirm.modal();
+    }
+}
+
+function openRecordHtml(id) {
+    sessionStorage.setItem("recordDetailId", id);
+    sessionStorage.setItem("contextPath", contextPath);
+    window.open(contextPath+"/html/recordDetail/recordDetail.html");
 }

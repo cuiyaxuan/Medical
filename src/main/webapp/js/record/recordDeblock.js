@@ -27,7 +27,7 @@ function initTableRecordDeblock() {
         columnDefs:[{
             targets: 9,
             render: function (data, type, row, meta) {
-                return '<a type="button" class="am-btn am-btn-primary am-btn-xs" onclick="">查看详情</a>' +
+                return '<a type="button" class="am-btn am-btn-primary am-btn-xs" href="javaScript:void(0)" onclick="openRecordHtml('+data.id+')">查看详情</a>' +
                     '<a type="button" class="am-btn am-btn-success am-btn-xs" onclick="deBlockRecordById('+data.id+')">解封<i class="am-icon-cloud-download"></i></a>';
             }
         },
@@ -59,12 +59,8 @@ function initTableRecordDeblock() {
 }
 
 function deBlockRecordById(id) {
-    var $confirm = $('#my-confirm');
-    $confirm.find('.am-modal-hd').html("提示");
-    $confirm.find('.am-modal-bd').html("确认解封该病历？");
-    var $confirmBtn = $confirm.find('[data-am-modal-confirm]');
-    var $cancelBtn = $confirm.find('[data-am-modal-cancel]');
-    $confirmBtn.off('click.confirm.modal.amui').on('click', function() {
+    var r = confirm("确认解封？");
+    if(r==true){
         $.ajax({
             method:'post',
             url:contextPath+'/record/deBlockRecordById',
@@ -73,11 +69,15 @@ function deBlockRecordById(id) {
             success:function (data) {
                 alert(data.message);
                 initTableRecordDeblock();
-                pageUtils.closeConfirm();
             },
             error:function () {
             }
         })
-    });
-    $confirm.modal();
+    }
+}
+
+function openRecordHtml(id) {
+    sessionStorage.setItem("recordDetailId", id);
+    sessionStorage.setItem("contextPath", contextPath);
+    window.open(contextPath+"/html/recordDetail/recordDetail.html");
 }

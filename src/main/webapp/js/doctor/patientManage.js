@@ -429,7 +429,19 @@ function initAddPatientRecordModal(id) {
         '                <div class="am-form-group">\n' +
         '                    <label for="user-name" class="am-u-sm-3 am-form-label">部门 </label>\n' +
         '                    <div class="am-u-sm-9">\n' +
-        '                        <input type="text" name="rdepartment" transmit="true" class="tpl-form-input"  placeholder="部门">\n' +
+        // '                        <input type="text"  class="tpl-form-input"  placeholder="部门">\n' +
+        '<select name="rdepartment" transmit="true" class="patient-department-select" data-am-selected>\n' +
+        '                    <option value="0" selected>所有科室</option>\n' +
+        '                    <option value="1">内科</option>\n' +
+        '                    <option value="2">外科</option>\n' +
+        '                    <option value="3">妇产科</option>\n' +
+        '                    <option value="4">男科</option>\n' +
+        '                    <option value="5">儿科</option>\n' +
+        '                    <option value="6">五官科</option>\n' +
+        '                    <option value="7">皮肤科</option>\n' +
+        '                    <option value="8">传染病科</option>\n' +
+        '                    <option value="9">肛肠科</option>\n' +
+        '                </select>'+
         '                    </div>\n' +
         '                </div>\n' +
         '            </div>\n' +
