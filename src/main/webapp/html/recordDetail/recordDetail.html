@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>病历详情</title>
+    <!-- 优先使用 IE 最新版本和 Chrome -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <!-- 页面描述 -->
+    <meta name="description" content="不超过150个字符"/>
+    <!-- 页面关键词 -->
+    <meta name="keywords" content=""/>
+    <!-- 网页作者 -->
+    <meta name="WangXinYu" content="WangXinYu, comrade.wang.cn@gmail.com"/>
+    <!-- 搜索引擎抓取 -->
+    <meta name="robots" content="index,follow"/>
+    <!-- 为移动设备添加 viewport -->
+    <meta name="viewport" content="initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="../../components/semantic/semantic.min.css">
+    <link rel="icon" type="image/png" href="../../favicon.png">
+    <style>
+        .record-details{
+            margin: 5px 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="record-details">
+        <div class="ui form">
+            <div class="three fields">
+                <div class="field">
+                    <label>病人姓名</label>
+                    <input type="text" name="rstate" transmit="true" placeholder="病人姓名">
+                </div>
+                <div class="field">
+                    <label>所属科室</label>
+                    <input type="text" name="rdepartment" transmit="true" placeholder="所属科室">
+                </div>
+                <div class="field">
+                    <label>创建时间</label>
+                    <input type="text" name="gmtCreate" transmit="true" placeholder="创建时间">
+                </div>
+            </div>
+            <div class="three fields">
+                <div class="field">
+                    <label>封存状态</label>
+                    <input type="text" name="rstate" transmit="true" placeholder="封存状态">
+                </div>
+                <div class="field">
+                    <label>审核状态</label>
+                    <input type="text" name="rdepartment" transmit="true" placeholder="审核状态">
+                </div>
+                <div class="field">
+                    <label>传染病状态</label>
+                    <input type="text" name="rstate" transmit="true" placeholder="传染病状态">
+                </div>
+            </div>
+            <div class="field">
+                <label>主诉</label>
+                <textarea transmit="true" name="rcomplain"></textarea>
+            </div>
+            <div class="field">
+                <label>现病史</label>
+                <textarea transmit="true" name="rpresent"></textarea>
+            </div>
+            <div class="field">
+                <label>既往史</label>
+                <textarea transmit="true" name="rhistory"></textarea>
+            </div>
+            <div class="field">
+                <label>个人史</label>
+                <textarea transmit="true" name="rperson"></textarea>
+            </div>
+            <div class="field">
+                <label>婚育史</label>
+                <textarea transmit="true" name="rmarriage"></textarea>
+            </div>
+            <div class="field">
+                <label>家族史</label>
+                <textarea transmit="true" name="rfamily"></textarea>
+            </div>
+
+        </div>
+    </div>
+</body>
+<script src="../../js/jquery-3.2.1.min.js"></script>
+<script src="../../components/semantic/semantic.min.js"></script>
+<script>
+    $(function () {
+        initData();
+    });
+    function initData() {
+        $.ajax({
+            method: "post",
+            url: sessionStorage.getItem("contextPath") + "/record/getRecordById",
+            data: {id:sessionStorage.getItem("recordDetailId")},
+            success: function (data) {
+                console.log(data);
+                $.each(data.result,function (name,value) {
+                    $('.record-details input[name=' + name + ']').val(value);
+                    $('.record-details textarea[name=' + name + ']').val(value);
+                })
+            },
+            error: function () {
+
+            }
+        });
+    }
+</script>
+</html>

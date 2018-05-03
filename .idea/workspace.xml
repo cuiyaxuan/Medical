@@ -7,28 +7,39 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c6c48beb-4c6d-4528-ac0f-04df19885505" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/entity/MNurseDocumentation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/repository/nurse/NurseDocumentMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Util/StringUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controller/data/DataController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/repository/data/DataMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/service/data/DataService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/html/recordDetail/recordDetail.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/doctor/DoctorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/doctor/DoctorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/nurse/NurseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/nurse/NurseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/record/RecordController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/record/RecordController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/MPatient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/MPatient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repository/record/RecordMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/record/RecordMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/nurse/NurseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/nurse/NurseService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/record/RecordService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/record/RecordService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/html/nurse/nursingClerical.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/html/nurse/nursingClerical.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/html/nurse/patientManage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/html/nurse/patientManage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/html/nurse/workRemind.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/html/nurse/workRemind.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/DataController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/TestController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repository/DataMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repository/TestMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/DataService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/TestService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/html/data/patient.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/html/data/patient.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/data/infection.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/data/infection.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/data/patient.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/data/patient.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/data/record.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/data/record.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/department/recordQuality.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/department/recordQuality.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/department/recordScanned.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/department/recordScanned.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/department/recordSeal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/department/recordSeal.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/js/index-common.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/index-common.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/nurse/nursingClerical.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/nurse/nursingClerical.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/nurse/patientManage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/nurse/patientManage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/nurse/workRemind.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/nurse/workRemind.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/record/recordCheck.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/record/recordCheck.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/record/recordDeblock.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/record/recordDeblock.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/js/record/recordSeal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/record/recordSeal.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ssmD/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/ssmD/css/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/DataController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/TestController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/repository/DataMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/repository/TestMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/service/DataService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/service/TestService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ssmD/WEB-INF/classes/controller/DataController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ssmD/WEB-INF/classes/controller/TestController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ssmD/WEB-INF/classes/repository/DataMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ssmD/WEB-INF/classes/repository/TestMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ssmD/WEB-INF/classes/service/DataService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ssmD/WEB-INF/classes/service/TestService.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/ssmD/js/index-common.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/ssmD/js/index-common.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
@@ -71,86 +82,79 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="DoctorService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/service/doctor/DoctorService.java">
+      <file leaf-file-name="DataController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/controller/data/DataController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1425">
-              <caret line="85" selection-start-line="85" selection-end-line="85" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="recordSeal.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/js/record/recordSeal.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1520">
-              <caret line="80" column="7" selection-start-line="80" selection-start-column="7" selection-end-line="80" selection-end-column="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="recordDeblock.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/js/record/recordDeblock.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1520">
-              <caret line="80" column="7" selection-start-line="80" selection-start-column="7" selection-end-line="80" selection-end-column="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="recordCheck.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/js/record/recordCheck.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="9" column="62" selection-start-line="9" selection-start-column="42" selection-end-line="9" selection-end-column="62" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index-common.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/js/index-common.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="836">
-              <caret line="44" column="32" selection-start-line="44" selection-start-column="32" selection-end-line="44" selection-end-column="32" />
+            <state relative-caret-position="410">
+              <caret line="130" column="44" selection-start-line="130" selection-start-column="21" selection-end-line="130" selection-end-column="44" />
               <folding>
-                <element signature="n#!!doc" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RecordController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/controller/record/RecordController.java">
+      <file leaf-file-name="patient.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/html/data/patient.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1406">
-              <caret line="82" column="62" selection-start-line="82" selection-start-column="62" selection-end-line="82" selection-end-column="62" />
+            <state relative-caret-position="437">
+              <caret line="38" column="75" selection-start-line="38" selection-start-column="75" selection-end-line="38" selection-end-column="75" />
+              <folding>
+                <element signature="n#select#0;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" />
+                <element signature="n#select#2;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RecordService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/service/record/RecordService.java">
+      <file leaf-file-name="patient.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/js/data/patient.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="570">
-              <caret line="36" column="49" selection-start-line="36" selection-start-column="49" selection-end-line="36" selection-end-column="49" />
+            <state relative-caret-position="548">
+              <caret line="108" column="7" selection-start-line="108" selection-start-column="7" selection-end-line="108" selection-end-column="7" />
+              <folding>
+                <element signature="n#!!block;n#initInfectionChart#0" />
+                <element signature="e#2608#3054#0" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MRecord.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/entity/MRecord.java">
+      <file leaf-file-name="DataService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/service/data/DataService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+            <state relative-caret-position="410">
+              <caret line="218" column="63" selection-start-line="218" selection-start-column="63" selection-end-line="218" selection-end-column="63" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#getRecordData#0;class#DataService#0" />
+                <element signature="method#listRecordData#0;class#DataService#0" />
+                <element signature="e#7310#7319#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RecordMapper.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/repository/record/RecordMapper.java">
+      <file leaf-file-name="DataMapper.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/repository/data/DataMapper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1024">
-              <caret line="85" column="26" lean-forward="true" selection-start-line="85" selection-start-column="26" selection-end-line="85" selection-end-column="26" />
+            <state relative-caret-position="795">
+              <caret line="166" column="111" lean-forward="true" selection-start-line="166" selection-start-column="13" selection-end-line="166" selection-end-column="111" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="infection.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/js/data/infection.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="304">
+              <caret line="101" column="43" selection-start-line="101" selection-start-column="43" selection-end-line="101" selection-end-column="43" />
+              <folding>
+                <element signature="n#!!block;n#initInfectionChart#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -161,9 +165,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Jsp File" />
-        <option value="HTML File" />
         <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="HTML File" />
         <option value="Interface" />
         <option value="Class" />
       </list>
@@ -174,15 +178,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>add</find>
-      <find>addData</find>
-      <find>delete</find>
-      <find>url</find>
-      <find>登出</find>
-      <find>goodId</find>
-      <find>data-change</find>
-      <find>switchPage</find>
-      <find>wrapper</find>
       <find>p_title</find>
       <find>tpl-task-list</find>
       <find>#tab1</find>
@@ -200,10 +195,19 @@
       <find>病历管理</find>
       <find>table_doctor_record</find>
       <find>each</find>
-      <find>update</find>
       <find>工作提醒</find>
       <find>listAllRecord</find>
       <find>listAllRecordByState</find>
+      <find>病历封存</find>
+      <find>confirm</find>
+      <find>AMUI.dialog.confirm</find>
+      <find>onConfirm</find>
+      <find>update</find>
+      <find>病历质量监控</find>
+      <find>session.get</find>
+      <find>data</find>
+      <find>doctor</find>
+      <find>\/\*\*\n     \* List all infection data list\.\n     \* 查询单个科室按月份统计的list\n     \*\n     \* \@param id the id\n     \* \@return the list\n     \*\/\n    \@Select\(\&quot;SELECT DATE_FORMAT\(r\.gmt_create\,\'\%m\'\) months\,COUNT\(\*\) as number FROM \`m_record\` r WHERE r\.rdepartment\=\#\{departmentId\} AND r\.rinfaction\=1 group by months\&quot;\)\n    List\&lt;Map\&lt;String\, Object\&gt;\&gt; listAllInfectionDataByDepartment\(\@Param\(\&quot;departmentId\&quot;\) String id\)\;</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -223,20 +227,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/webapp/js/department/recordQuality.js" />
-        <option value="$PROJECT_DIR$/src/main/webapp/js/data/infection.js" />
-        <option value="$PROJECT_DIR$/src/main/webapp/html/data/infection.html" />
-        <option value="$PROJECT_DIR$/src/main/webapp/html/data/patient.html" />
-        <option value="$PROJECT_DIR$/src/main/webapp/js/data/patient.js" />
-        <option value="$PROJECT_DIR$/src/main/webapp/html/data/record.html" />
-        <option value="$PROJECT_DIR$/src/main/webapp/js/data/record.js" />
-        <option value="$PROJECT_DIR$/src/main/webapp/html/department/recordQuality.html" />
-        <option value="$PROJECT_DIR$/src/main/java/entity/MUser.java" />
-        <option value="$PROJECT_DIR$/src/main/java/repository/index/IndexMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/service/index/IndexService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/controller/index/IndexController.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/html/home/home.html" />
-        <option value="$PROJECT_DIR$/src/main/webapp/js/home/home.js" />
         <option value="$PROJECT_DIR$/src/main/java/repository/doctor/PatientMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/repository/doctor/DoctorMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/controller/LoginController.java" />
@@ -271,9 +261,23 @@
         <option value="$PROJECT_DIR$/src/main/java/service/record/RecordService.java" />
         <option value="$PROJECT_DIR$/src/main/java/controller/record/RecordController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/js/record/recordCheck.js" />
+        <option value="$PROJECT_DIR$/src/main/java/repository/record/RecordMapper.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/js/record/recordSeal.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/js/index-common.js" />
-        <option value="$PROJECT_DIR$/src/main/java/repository/record/RecordMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/js/department/recordSeal.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/js/department/recordScanned.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/html/recordDetail/recordDetail.html" />
+        <option value="$PROJECT_DIR$/src/main/java/repository/data/DataController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/service/DataService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Util/StringUtils.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/js/department/recordQuality.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/js/data/infection.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/js/data/record.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/html/data/patient.html" />
+        <option value="$PROJECT_DIR$/src/main/java/service/data/DataService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/repository/data/DataMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/controller/data/DataController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/js/data/patient.js" />
       </list>
     </option>
   </component>
@@ -328,8 +332,9 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="-10" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="435" />
+    <option name="y" value="100" />
     <option name="width" value="1150" />
     <option name="height" value="1090" />
   </component>
@@ -380,6 +385,15 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="controller" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Medical-management-system" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Medical-management-system" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
               <item name="doctor" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -389,7 +403,7 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="controller" type="462c0819:PsiDirectoryNode" />
-              <item name="nurse" type="462c0819:PsiDirectoryNode" />
+              <item name="record" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Medical-management-system" type="b2602c69:ProjectViewProjectNode" />
@@ -398,7 +412,7 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="controller" type="462c0819:PsiDirectoryNode" />
-              <item name="record" type="462c0819:PsiDirectoryNode" />
+              <item name="role" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Medical-management-system" type="b2602c69:ProjectViewProjectNode" />
@@ -422,8 +436,15 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="repository" type="462c0819:PsiDirectoryNode" />
-              <item name="nurse" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Medical-management-system" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Medical-management-system" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="Util" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Medical-management-system" type="b2602c69:ProjectViewProjectNode" />
@@ -445,14 +466,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Medical-management-system" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Medical-management-system" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
               <item name="html" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -462,7 +475,7 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
               <item name="html" type="462c0819:PsiDirectoryNode" />
-              <item name="doctor" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Medical-management-system" type="b2602c69:ProjectViewProjectNode" />
@@ -471,7 +484,7 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
               <item name="html" type="462c0819:PsiDirectoryNode" />
-              <item name="nurse" type="462c0819:PsiDirectoryNode" />
+              <item name="recordDetail" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Medical-management-system" type="b2602c69:ProjectViewProjectNode" />
@@ -480,6 +493,24 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
               <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Medical-management-system" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Medical-management-system" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Medical-management-system" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Medical-management-system" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="department" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -505,16 +536,19 @@
     <property name="settings.editor.selected.configurable" value="application.passwordSafe" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="G:\project\Medical-management-system\src\main\java\entity" />
-      <recent name="G:\project\Medical-management-system\src\main\webapp\html\home" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="G:\project\Medical-management-system\src\main\java\entity" />
       <recent name="G:\project\Medical-management-system\src\main\webapp\js" />
       <recent name="G:\project\Medical-management-system\src\main\webapp\components\echarts" />
       <recent name="G:\project\Medical-management-system\src\main\webapp\js\department" />
       <recent name="G:\project\Medical-management-system" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="repository.data" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="G:\project\Medical-management-system\src\main\java\entity" />
+      <recent name="G:\project\Medical-management-system\src\main\webapp\html\home" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -799,7 +833,10 @@
       <workItem from="1525082606933" duration="10167000" />
       <workItem from="1525133774067" duration="9651000" />
       <workItem from="1525164353724" duration="9128000" />
-      <workItem from="1525182438001" duration="239000" />
+      <workItem from="1525182438001" duration="5159000" />
+      <workItem from="1525219091016" duration="4922000" />
+      <workItem from="1525244334475" duration="17261000" />
+      <workItem from="1525306248258" duration="7298000" />
     </task>
     <task id="LOCAL-00001" summary="加入错误页，以及在进入页面之前进行权限判断。">
       <created>1521287865857</created>
@@ -927,11 +964,18 @@
       <option name="project" value="LOCAL" />
       <updated>1525141121689</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="基操勿6">
+      <created>1525182679714</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1525182679714</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="273970000" />
+    <option name="totallyTimeSpent" value="308371000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -943,7 +987,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="878" extended-state="7" />
+    <frame x="-7" y="-7" width="1550" height="878" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Key Promoter X" order="3" weight="0.3297587" />
@@ -963,7 +1007,7 @@
       <window_info anchor="right" id="JSF" order="11" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="3" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.4914163" visible="true" weight="0.47593582" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4914163" weight="0.51336896" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.328877" />
       <window_info anchor="bottom" id="Messages" order="13" sideWeight="0.49570817" weight="0.37299466" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
@@ -974,7 +1018,7 @@
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49785408" weight="0.328877" />
       <window_info anchor="bottom" id="Spring" order="14" />
       <window_info anchor="bottom" id="Terminal" order="9" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49795082" visible="true" weight="0.20978552" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49795082" visible="true" weight="0.21782842" />
       <window_info anchor="right" id="Bean Validation" order="12" weight="0.3297587" />
       <window_info id="Web" order="5" side_tool="true" />
       <window_info id="JRebel" order="6" sideWeight="0.5020492" side_tool="true" weight="0.20710456" />
@@ -1000,6 +1044,7 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" id="JSF" order="11" />
       <window_info id="UI Designer" order="3" />
+      <window_info id="Web" order="5" side_tool="true" />
       <window_info id="Favorites" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info id="Capture Tool" order="2" />
@@ -1007,7 +1052,6 @@
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50858366" side_tool="true" weight="0.4879679" />
       <window_info anchor="bottom" id="Messages" order="13" sideWeight="0.49570817" weight="0.37834224" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.3295583" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Key Promoter X" order="3" weight="0.3297587" />
       <window_info anchor="bottom" id="Java Enterprise" order="15" />
@@ -1019,7 +1063,7 @@
       <window_info anchor="bottom" id="JRebel Console" order="11" side_tool="true" />
       <window_info anchor="right" id="Database" order="6" weight="0.3297587" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info id="Web" order="5" side_tool="true" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3295583" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Theme Preview" order="9" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -1086,45 +1130,22 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/controller/DataController.java</url>
-          <line>60</line>
-          <properties />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/controller/DataController.java</url>
-          <line>27</line>
-          <properties />
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/controller/DataController.java</url>
-          <line>44</line>
-          <properties />
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/service/DataService.java</url>
-          <line>38</line>
-          <properties />
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/service/DataService.java</url>
-          <line>44</line>
-          <properties />
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/controller/doctor/DoctorController.java</url>
-          <line>180</line>
-          <properties />
-          <option name="timeStamp" value="33" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/controller/nurse/NurseController.java</url>
           <line>68</line>
           <properties />
           <option name="timeStamp" value="39" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/controller/doctor/DoctorController.java</url>
+          <line>74</line>
+          <properties />
+          <option name="timeStamp" value="49" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/controller/doctor/DoctorController.java</url>
+          <line>72</line>
+          <properties />
+          <option name="timeStamp" value="50" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/main/webapp/js/index-common.js</url>
@@ -1133,26 +1154,26 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/main/webapp/js/department/recordQuality.js</url>
-          <line>178</line>
+          <line>187</line>
           <option name="timeStamp" value="27" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/main/webapp/js/department/recordQuality.js</url>
-          <line>210</line>
+          <line>206</line>
           <option name="timeStamp" value="28" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/main/webapp/js/department/recordQuality.js</url>
-          <line>242</line>
+          <line>225</line>
           <option name="timeStamp" value="29" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/main/webapp/js/data/patient.js</url>
-          <line>47</line>
+          <line>46</line>
           <option name="timeStamp" value="30" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="44" />
+      <option name="time" value="51" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory">
@@ -1174,202 +1195,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/repository/index/IndexMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="32" column="33" selection-start-line="32" selection-start-column="33" selection-end-line="32" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controller/index/IndexController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="760">
-          <caret line="49" column="31" selection-start-line="49" selection-start-column="31" selection-end-line="49" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/service/index/IndexService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="25" column="37" selection-start-line="25" selection-start-column="37" selection-end-line="25" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/html/home/home.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3078">
-          <caret line="162" column="24" selection-start-line="162" selection-start-column="24" selection-end-line="170" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/home/home.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="136" column="30" lean-forward="true" selection-start-line="136" selection-start-column="30" selection-end-line="136" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="122">
-          <caret line="66" column="43" lean-forward="true" selection-start-line="66" selection-start-column="43" selection-end-line="66" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/spring-mybatis.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="36" column="46" selection-start-line="36" selection-start-column="46" selection-end-line="36" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/spring-mvc.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="18" column="51" selection-start-line="18" selection-start-column="51" selection-end-line="18" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="189" column="17" selection-start-line="189" selection-start-column="17" selection-end-line="189" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://F:/apache-maven-3.5.2/MavenRepository/tk/mybatis/mapper/3.4.0/mapper-3.4.0-sources.jar!/tk/mybatis/mapper/common/base/insert/InsertSelectiveMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="44" column="8" selection-start-line="44" selection-start-column="8" selection-end-line="44" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/repository/doctor/RemindMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="27" selection-start-line="27" selection-end-line="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/jdbc.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="15" lean-forward="true" selection-start-line="4" selection-start-column="15" selection-end-line="4" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/components/amazeui/js/amazeui.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="103">
-          <caret line="2" column="27140" selection-start-line="2" selection-start-column="27140" selection-end-line="2" selection-end-column="27140" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/index.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-679">
-          <caret line="232" column="6" lean-forward="true" selection-start-line="232" selection-start-column="6" selection-end-line="232" selection-end-column="6" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/html/doctor/patientManage.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="51" column="36" selection-start-line="51" selection-start-column="36" selection-end-line="51" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controller/LoginController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="54" selection-start-line="54" selection-end-line="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/repository/doctor/DoctorMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="43">
-          <caret line="27" column="19" selection-start-line="27" selection-start-column="19" selection-end-line="27" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://F:/apache-maven-3.5.2/MavenRepository/tk/mybatis/mapper/3.4.0/mapper-3.4.0-sources.jar!/tk/mybatis/mapper/common/base/update/UpdateByPrimaryKeyMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="46" column="8" selection-start-line="46" selection-start-column="8" selection-end-line="46" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/repository/doctor/PatientMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="15" column="17" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Util/AjaxResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="54" selection-start-line="54" selection-end-line="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/html/doctor/mRecordManage.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="722">
-          <caret line="41" column="36" selection-start-line="41" selection-start-column="36" selection-end-line="41" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/html/nurse/patientManage.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="608">
-          <caret line="32" column="30" selection-start-line="32" selection-start-column="30" selection-end-line="32" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/doctor/patientManage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2429">
-          <caret line="453" column="13" lean-forward="true" selection-start-line="365" selection-start-column="4" selection-end-line="453" selection-end-column="13" />
-          <folding>
-            <element signature="e#144#375#0" />
-            <element signature="e#394#878#0" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#!!block;n#initAddModal#0" />
-            <element signature="n#!!block;n#deletePatient#0" />
-            <element signature="n#!!block;n#initDeletePatientModal#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/html/nurse/nursingClerical.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="581">
-          <caret line="39" column="36" lean-forward="true" selection-start-line="39" selection-start-column="36" selection-end-line="39" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/nurse/patientManage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="125" column="19" lean-forward="true" selection-start-line="125" selection-start-column="19" selection-end-line="125" selection-end-column="19" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/repository/nurse/NurseMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="49">
-          <caret line="8" column="3" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/entity/MNurseDocumentation.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="73">
@@ -1381,9 +1206,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="228">
           <caret line="12" column="78" selection-start-line="12" selection-start-column="78" selection-end-line="12" selection-end-column="78" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1419,9 +1241,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="524">
           <caret line="131" column="17" selection-start-line="131" selection-start-column="17" selection-end-line="131" selection-end-column="17" />
-          <folding>
-            <element signature="n#!!block;n#initTableRecordDoctor#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1481,13 +1300,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controller/doctor/DoctorController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="82">
-          <caret line="160" selection-start-line="160" selection-end-line="160" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/js/doctor/doctorRecord.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="228">
@@ -1495,48 +1307,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/record/recordDeblock.js">
+    <entry file="file://$PROJECT_DIR$/src/main/java/repository/record/RecordMapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1520">
-          <caret line="80" column="7" selection-start-line="80" selection-start-column="7" selection-end-line="80" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/record/recordSeal.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1520">
-          <caret line="80" column="7" selection-start-line="80" selection-start-column="7" selection-end-line="80" selection-end-column="7" />
+        <state relative-caret-position="116">
+          <caret line="145" column="7" lean-forward="true" selection-start-line="145" selection-start-column="7" selection-end-line="145" selection-end-column="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/entity/MRecord.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
+        <state relative-caret-position="19">
           <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controller/record/RecordController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1406">
-          <caret line="82" column="62" selection-start-line="82" selection-start-column="62" selection-end-line="82" selection-end-column="62" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/service/record/RecordService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
+        <state relative-caret-position="212">
           <caret line="36" column="49" selection-start-line="36" selection-start-column="49" selection-end-line="36" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/index-common.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="836">
-          <caret line="44" column="32" selection-start-line="44" selection-start-column="32" selection-end-line="44" selection-end-column="32" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1547,10 +1335,232 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/repository/record/RecordMapper.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/record/recordDeblock.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1024">
-          <caret line="85" column="26" lean-forward="true" selection-start-line="85" selection-start-column="26" selection-end-line="85" selection-end-column="26" />
+        <state relative-caret-position="173">
+          <caret line="80" column="7" selection-start-line="80" selection-start-column="7" selection-end-line="80" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/html/department/recordSeal.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="779">
+          <caret line="41" column="38" selection-start-line="41" selection-start-column="38" selection-end-line="41" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/record/recordSeal.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1140">
+          <caret line="60" selection-start-line="60" selection-end-line="82" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/components/amazeui/js/amazeui.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="4" column="9453" selection-start-line="4" selection-start-column="9444" selection-end-line="4" selection-end-column="9453" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="276" column="46" selection-start-line="276" selection-start-column="46" selection-end-line="276" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/login.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="410">
+          <caret line="39" column="27" lean-forward="true" selection-start-line="39" selection-start-column="27" selection-end-line="39" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/index-common.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="605">
+          <caret line="43" column="8" selection-start-line="43" selection-start-column="8" selection-end-line="43" selection-end-column="52" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/record/recordScanned.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-839" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/doctor/patientManage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3458">
+          <caret line="348" column="4" selection-start-line="348" selection-start-column="4" selection-end-line="361" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controller/record/RecordController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1786">
+          <caret line="94" column="34" selection-start-line="94" selection-start-column="21" selection-end-line="94" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/department/recordSeal.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1197">
+          <caret line="63" column="44" selection-start-line="63" selection-start-column="44" selection-end-line="63" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/department/recordScanned.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1558">
+          <caret line="91" column="39" selection-start-line="91" selection-start-column="28" selection-end-line="91" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/html/recordDetail/recordDetail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="101" column="14" lean-forward="true" selection-start-line="101" selection-start-column="14" selection-end-line="101" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/html/department/recordQuality.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="23" column="38" selection-start-line="23" selection-start-column="38" selection-end-line="23" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controller/DataController.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/service/DataService.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/service/TestService.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/repository/LoginMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="146">
+          <caret line="15" column="17" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Util/StringUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="14" column="38" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://F:/apache-maven-3.5.2/MavenRepository/org/springframework/spring-web/4.2.5.RELEASE/spring-web-4.2.5.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="111">
+          <caret line="137" selection-start-line="137" selection-end-line="137" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controller/doctor/DoctorController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1197">
+          <caret line="78" selection-start-line="78" selection-end-line="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/html/data/infection.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="703">
+          <caret line="37" column="38" selection-start-line="37" selection-start-column="38" selection-end-line="37" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/html/data/record.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="13" column="56" selection-start-line="13" selection-start-column="31" selection-end-line="13" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/data/record.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="33" column="4" selection-start-line="33" selection-start-column="4" selection-end-line="33" selection-end-column="4" />
+          <folding>
+            <element signature="e#14#1076#0" />
+            <element signature="e#147#1072#0" />
+            <element signature="n#!!block;n#initDataRecordChart#0" />
+            <element signature="n#!!block;n#initRecordData#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/department/recordQuality.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="38" column="17" selection-start-line="38" selection-start-column="17" selection-end-line="38" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/data/infection.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="101" column="43" selection-start-line="101" selection-start-column="43" selection-end-line="101" selection-end-column="43" />
+          <folding>
+            <element signature="n#!!block;n#initInfectionChart#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controller/data/DataController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="410">
+          <caret line="130" column="44" selection-start-line="130" selection-start-column="21" selection-end-line="130" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/service/data/DataService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="410">
+          <caret line="218" column="63" selection-start-line="218" selection-start-column="63" selection-end-line="218" selection-end-column="63" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#getRecordData#0;class#DataService#0" />
+            <element signature="method#listRecordData#0;class#DataService#0" />
+            <element signature="e#7310#7319#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/repository/data/DataMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="795">
+          <caret line="166" column="111" lean-forward="true" selection-start-line="166" selection-start-column="13" selection-end-line="166" selection-end-column="111" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/html/data/patient.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="38" column="75" selection-start-line="38" selection-start-column="75" selection-end-line="38" selection-end-column="75" />
+          <folding>
+            <element signature="n#select#0;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" />
+            <element signature="n#select#2;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/data/patient.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="548">
+          <caret line="108" column="7" selection-start-line="108" selection-start-column="7" selection-end-line="108" selection-end-column="7" />
+          <folding>
+            <element signature="n#!!block;n#initInfectionChart#0" />
+            <element signature="e#2608#3054#0" />
+          </folding>
         </state>
       </provider>
     </entry>

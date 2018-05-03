@@ -3,6 +3,28 @@ $(function () {
 });
 
 function initQualityChart() {
+    //图表中有的数据
+    var sum = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    var defaultState=[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    var passState=[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    var rejectState=[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    //获取数据
+    $.ajax({
+        method: "post",
+        url: contextPath + "/data/getDepartmentOneYearData",
+        data: {year:"2018"},
+        async:false,
+        success: function (data) {
+            defaultState = data.result.defaultState;
+            passState = data.result.passState;
+            rejectState = data.result.rejectState;
+            for (var i = 0; i <12; i++) {
+                sum.push(parseInt(defaultState[i]) + parseInt(passState[i]) + parseInt(rejectState[i]));
+            }
+        },
+        error: function () {
+        }
+    });
     // 基于准备好的dom，初始化echarts实例
     var myChart = echarts.init(document.getElementById('main'));
 
@@ -161,20 +183,7 @@ function initQualityChart() {
                     }
                 }
             },
-            "data": [
-                709,
-                1917,
-                2455,
-                2610,
-                1719,
-                1433,
-                1544,
-                3285,
-                5208,
-                3372,
-                2484,
-                4078
-            ],
+            "data": defaultState,
         },
             {
                 "name": "已通过",
@@ -193,20 +202,7 @@ function initQualityChart() {
                         }
                     }
                 },
-                "data": [
-                    327,
-                    1776,
-                    507,
-                    1200,
-                    800,
-                    482,
-                    204,
-                    1390,
-                    1001,
-                    951,
-                    381,
-                    220
-                ]
+                "data": passState,
             },
             {
                 "name": "未通过",
@@ -225,20 +221,7 @@ function initQualityChart() {
                         }
                     }
                 },
-                "data": [
-                    256,
-                    373,
-                    489,
-                    100,
-                    156,
-                    157,
-                    538,
-                    639,
-                    727,
-                    356,
-                    357,
-                    220
-                ]
+                "data": rejectState
             },
             {
                 "name": "总数",
@@ -259,20 +242,7 @@ function initQualityChart() {
                         }
                     }
                 },
-                "data": [
-                    1036,
-                    3693,
-                    2962,
-                    3810,
-                    2519,
-                    1915,
-                    1748,
-                    4675,
-                    6209,
-                    4323,
-                    2865,
-                    4298
-                ]
+                "data": sum
             },
         ]
     }

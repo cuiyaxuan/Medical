@@ -37,11 +37,11 @@ var pageUtils = {
         $modal.find(".am-modal-bd").empty().html(p_content);
         $("#my-alert").modal();
     },
-    closeConfirm(){
+    closeConfirm:function (){
         var $confirm = $('#my-confirm');
         var $confirmBtn = $confirm.find('[data-am-modal-confirm]');
         var $cancelBtn = $confirm.find('[data-am-modal-cancel]');
-        // $confirmBtn.off('click.confirm.modal.amui');
+        $confirmBtn.off('click.confirm.modal.amui');
         $confirm.modal('close');
     },
     closeModal: function () {

@@ -32,7 +32,7 @@ function initTableDepartmentRecordScanned() {
                     '    <button class="am-btn am-btn-danger am-dropdown-toggle">操作 <span class="am-icon-caret-down"></span></button>\n' +
                     '    <div class="am-dropdown-content">' +
                     '  <ul class="" >\n' +
-                    '    <li><a href="#">查看详情</a></li>\n' +
+                    '    <li><a href="javaScript:void(0)" onclick="openRecordHtml('+data.id+')">查看详情</a></li>\n' +
                     '    <li class="am-active"><a href="#">下载</a></li>\n' +
                     '  </ul>' +
                     '</div>\n' +
@@ -84,4 +84,10 @@ function initModalRecord(id) {
             var html=''
         }
     })
+}
+
+function openRecordHtml(id) {
+    window.open(contextPath+"/html/recordDetail/recordDetail.html");
+    sessionStorage.setItem("recordDetailId", id);
+    sessionStorage.setItem("contextPath", contextPath);
 }

@@ -1,7 +1,8 @@
 $(function () {
-    initInfectionChart();
+    initData();
     initSelectDepartment();
 });
+var dataAll = [];
 
 function initInfectionChart() {
     // 基于准备好的dom，初始化echarts实例
@@ -15,14 +16,12 @@ function initInfectionChart() {
         return data;
     }();
 
-    var dataAll = [296,287,389, 259, 262, 324, 232, 176, 196, 214, 133, 370];
     var yAxisData = ['原因1','原因2','原因3','原因4','原因5','原因6','原因7','原因8','原因9','原因10'];
     var option = {
         backgroundColor: '',
         title:[
-            {text:"爆发月份TOP5",x: '2%', y: '1%',textStyle:{color:"#000",fontSize:"14"}},
-            {text:"年度传染病趋势",x: '40%', y: '1%',textStyle:{color:"#000",fontSize:"14"}},
-            {text:"处理传染病最多科室TOP5",x: '2%', y: '50%',textStyle:{color:"#000",fontSize:"14"}},
+            {text:"病人最多月份TOP5",x: '2%', y: '1%',textStyle:{color:"#000",fontSize:"14"}},
+            {text:"病人年度趋势",x: '40%', y: '1%',textStyle:{color:"#000",fontSize:"14"}},
         ],
         grid: [
             {x: '50%', y: '7%', width: '45%', height: '90%'},
@@ -41,10 +40,10 @@ function initInfectionChart() {
         ],
         series: [
             {
-                name: '爆发月份TOP5',
+                name: '病人最多月份TOP5',
                 type: 'pie',
                 radius : '30%',
-                center: ['22%', '25%'],
+                center: ['22%', '50%'],
                 color:['#f47d72','#ec8464','#d24736','#a61d0d','#970003'],
                 data:[
                     {value:335, name:'10月份'},
@@ -57,23 +56,7 @@ function initInfectionChart() {
                 itemStyle: {normal: {label:{ show: true,  formatter: '{b} \n ({d}%)', textStyle:{color:'#B1B9D3'}} },},
             },
             {
-                name: '处理传染病最多科室TOP5',
-                type: 'pie',
-                radius : '30%',
-                center: ['22%', '75%'],
-                color:['#f47d72','#ec8464','#d24736','#a61d0d','#970003'],
-                labelLine:{normal:{show:false}},
-                data:[
-                    {value:335, name:'传染病科'},
-                    {value:310, name:'内科'},
-                    {value:234, name:'男科'},
-                    {value:135, name:'外科'},
-                    {value:135, name:'儿科'},
-                ],
-                itemStyle: {normal: {label:{ show: true,  formatter: '{b} \n ({d}%)', textStyle:{color:'#B1B9D3'}} },},
-            },
-            {
-                name: '年度传染病趋势',
+                name: '病人年度趋势',
                 type: 'bar',xAxisIndex: 0,yAxisIndex: 0,barWidth:'45%',
                 itemStyle:{normal:{color:'#c23531'}},
                 label:{normal:{show:true, position:"right",textStyle:{color:"#9EA7C4"}}},
@@ -89,4 +72,39 @@ function initInfectionChart() {
 
 function initSelectDepartment() {
     $('.patient-department-select').selected();
+    $('.patient-age-select').selected();
+    $('.patient-sex-select').selected();
+
+}
+function initData() {
+    $.ajax({
+        method:"post",
+        url:contextPath+"/data/listAllPatientMonthData",
+        data:{departmentId:$('.patient-department-select').val(),page:$('.patient-age-select').val(),psex:$('.patient-sex-select').val()},
+        success:function (data) {
+            console.log(data.result);
+            if(data.state="200") {
+                dataAll = data.result.reverse();
+                initInfectionChart();
+            }
+        }
+    })
+}
+function initSearch() {
+    $.ajax({
+        method: "post",
+        url: contextPath + "/data/listPatientMonthDataBySex",
+        data: {
+            departmentId: $('.patient-department-select').val(),
+            page: $('.patient-age-select').val(),
+            psex: $('.patient-sex-select').val()
+        },
+        success: function (data) {
+            console.log(data.result);
+            if (data.state = "200") {
+                dataAll = data.result.reverse();
+                initInfectionChart();
+            }
+        }
+    });
 }

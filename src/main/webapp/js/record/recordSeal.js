@@ -80,5 +80,4 @@ function sealRecordById(id) {
         })
     });
     $confirm.modal();
-
 }
