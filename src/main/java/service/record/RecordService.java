@@ -25,7 +25,8 @@ public class RecordService {
     }
 
     public List<Map<String, Object>> listTodayNotSignedRecord(){
-        List<Map<String, Object>> mapList = recordMapper.listTodayNotSignedRecord();
+        String nowDateString=DateUtils.getNowDateString();
+        List<Map<String, Object>> mapList = recordMapper.listTodayNotSignedRecord(nowDateString);
         return mapList;
     }
 

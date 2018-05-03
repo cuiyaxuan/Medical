@@ -35,8 +35,8 @@ public interface RecordMapper extends BaseMapper<MRecord> {
      *
      * @return the list
      */
-    @Select("SELECT * FROM m_record WHERE rstate = 1")
-    List<Map<String, Object>> listTodayNotSignedRecord();
+    @Select("SELECT * FROM m_record WHERE rstate = 1 AND gmt_create = #{nowDateString}")
+    List<Map<String, Object>> listTodayNotSignedRecord(@Param("nowDateString") String nowDateString);
 
     /**
      * List all record list.

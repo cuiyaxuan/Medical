@@ -39,4 +39,12 @@ public interface IndexMapper{
      */
     @Select("SELECT * FROM `m_user` WHERE type = 2 LIMIT 8")
     List<MUser> listSomeNurses();
+
+    /**
+     * List count reject record int.
+     *
+     * @return the int
+     */
+    @Select("SELECT COUNT(*)  FROM `m_record` mr WHERE rpass=2")
+    int listCountRejectRecord();
 }

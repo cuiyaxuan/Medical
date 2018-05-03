@@ -40,6 +40,23 @@ public class IndexController {
     }
 
     /**
+     * 查询未通过的数量
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("listCountRejectRecord")
+    public AjaxResponse listCountRejectRecord(){
+        AjaxResponse ajaxResponse = new AjaxResponse();
+        int i = indexService.listCountRejectRecord();
+        try {
+            ajaxResponse.setSuccessMessage("查询各类型病历总和成功!",i);
+        } catch (Exception e) {
+            ajaxResponse.setSuccessMessage("查询各类型病历总和失败!"+e,i);
+        }
+        return ajaxResponse;
+    }
+
+    /**
      * 查询首页医生
      * @return
      */

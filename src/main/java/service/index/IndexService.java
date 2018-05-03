@@ -31,4 +31,8 @@ public class IndexService {
         List<MUser> mUsers = indexMapper.listSomeNurses();
         return mUsers;
     }
+    public int listCountRejectRecord(){
+        int i= indexMapper.listCountRejectRecord();
+        return i;
+    }
 }

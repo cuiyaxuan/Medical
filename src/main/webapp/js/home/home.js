@@ -3,8 +3,10 @@ $(function () {
     initHomeLogs();
     initTodayRecord();
     listDoctorSort();
+    listRecord();
+    selectAllInfection();
 });
-
+var dataAll = [];
 /**
  * 跳转到病例管理
  */
@@ -113,7 +115,7 @@ function initHomeInfectionChart() {
             type: 'value'
         },
         series: [{
-            data: [120, 200, 150, 80, 70, 110, 130,165,190,200,211,234],
+            data: dataAll,
             type: 'bar'
         }]
     };
@@ -156,4 +158,55 @@ function listDoctorSort() {
             alert('error!');
         }
     })
+}
+
+/**
+ * 查询病历
+ */
+function listRecord() {
+    $.ajax({
+        method:"post",
+        url:contextPath+"/index/listCountRecord",
+        data:{},
+        success:function (data) {
+            var sum = 0;
+            $.each(data.result,function (index,obj) {
+                if(obj.rstate==1) {
+                    $('.recordDefault').html(obj.number);
+                }else if(obj.rstate==2) {
+                    $('.recordSeal').html(obj.number);
+                }
+                sum += obj.number;
+            })
+            $('.recordAll').html(sum);
+        }
+    })
+    $.ajax({
+        method:"post",
+        url:contextPath+"/index/listCountRejectRecord",
+        data:{},
+        success:function (data) {
+            $('.recordReject').html(data.result);
+        }
+    })
+}
+
+/**
+ * 查询传染病数据
+ */
+function selectAllInfection() {
+    $.ajax({
+        method: 'post',
+        url: contextPath + "/data/listAllInfectionData",
+        data: {},
+        async: false,
+        success: function (data) {
+            dataAll = data.result;
+            console.log(dataAll);
+        },
+        error: function () {
+
+        }
+    });
+    initHomeInfectionChart();
 }
