@@ -7,40 +7,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c6c48beb-4c6d-4528-ac0f-04df19885505" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Util/StringUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/data/DataController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/repository/data/DataMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/service/data/DataService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/html/recordDetail/recordDetail.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/DataController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/TestController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repository/DataMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repository/TestMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/DataService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/TestService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/html/data/patient.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/html/data/patient.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/data/infection.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/data/infection.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/data/patient.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/data/patient.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/data/record.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/data/record.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/department/recordQuality.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/department/recordQuality.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/department/recordScanned.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/department/recordScanned.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/department/recordSeal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/department/recordSeal.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/index-common.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/index-common.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/record/recordSeal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/record/recordSeal.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controller/DataController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controller/TestController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/repository/DataMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/repository/TestMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/service/DataService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/service/TestService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ssmD/WEB-INF/classes/controller/DataController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ssmD/WEB-INF/classes/controller/TestController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ssmD/WEB-INF/classes/repository/DataMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ssmD/WEB-INF/classes/repository/TestMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ssmD/WEB-INF/classes/service/DataService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ssmD/WEB-INF/classes/service/TestService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ssmD/js/index-common.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/ssmD/js/index-common.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/doctor/doctorRecord.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/doctor/doctorRecord.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/doctor/patientManage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/doctor/patientManage.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -97,7 +66,7 @@
       <file leaf-file-name="patient.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/html/data/patient.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
+            <state relative-caret-position="209">
               <caret line="38" column="75" selection-start-line="38" selection-start-column="75" selection-end-line="38" selection-end-column="75" />
               <folding>
                 <element signature="n#select#0;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" />
@@ -107,14 +76,44 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="patient.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="patient.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/js/data/patient.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="548">
-              <caret line="108" column="7" selection-start-line="108" selection-start-column="7" selection-end-line="108" selection-end-column="7" />
+            <state relative-caret-position="323">
+              <caret line="92" column="23" lean-forward="true" selection-start-line="92" selection-start-column="23" selection-end-line="92" selection-end-column="23" />
               <folding>
                 <element signature="n#!!block;n#initInfectionChart#0" />
+                <element signature="e#2581#3027#0" />
                 <element signature="e#2608#3054#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="patientManage.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/js/doctor/patientManage.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-703">
+              <caret line="376" selection-start-line="376" selection-end-line="447" selection-end-column="23" />
+              <folding>
+                <element signature="e#144#375#0" />
+                <element signature="e#394#878#0" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#!!block;n#deletePatient#0" />
+                <element signature="n#!!block;n#updatePatient#0" />
+                <element signature="e#18001#18368#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="doctorRecord.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/js/doctor/doctorRecord.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="334">
+              <caret line="82" column="79" selection-start-line="82" selection-start-column="79" selection-end-line="82" selection-end-column="79" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -159,6 +158,15 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="DoctorController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/controller/doctor/DoctorController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="141">
+              <caret line="74" selection-start-line="74" selection-end-line="74" />
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -178,7 +186,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>p_title</find>
       <find>tpl-task-list</find>
       <find>#tab1</find>
       <find>table_record_scanned</find>
@@ -208,6 +215,7 @@
       <find>data</find>
       <find>doctor</find>
       <find>\/\*\*\n     \* List all infection data list\.\n     \* 查询单个科室按月份统计的list\n     \*\n     \* \@param id the id\n     \* \@return the list\n     \*\/\n    \@Select\(\&quot;SELECT DATE_FORMAT\(r\.gmt_create\,\'\%m\'\) months\,COUNT\(\*\) as number FROM \`m_record\` r WHERE r\.rdepartment\=\#\{departmentId\} AND r\.rinfaction\=1 group by months\&quot;\)\n    List\&lt;Map\&lt;String\, Object\&gt;\&gt; listAllInfectionDataByDepartment\(\@Param\(\&quot;departmentId\&quot;\) String id\)\;</find>
+      <find>initAddModal()</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -236,9 +244,7 @@
         <option value="$PROJECT_DIR$/src/main/resources/jdbc.properties" />
         <option value="$PROJECT_DIR$/src/main/webapp/index.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/components/amazeui/js/amazeui.min.js" />
-        <option value="$PROJECT_DIR$/src/main/webapp/js/doctor/patientManage.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/html/doctor/mRecordManage.html" />
-        <option value="$PROJECT_DIR$/src/main/webapp/js/doctor/doctorRecord.js" />
         <option value="$PROJECT_DIR$/src/main/java/entity/Record.java" />
         <option value="$PROJECT_DIR$/src/main/java/entity/MRecord.java" />
         <option value="$PROJECT_DIR$/src/main/java/service/doctor/DoctorService.java" />
@@ -278,6 +284,8 @@
         <option value="$PROJECT_DIR$/src/main/java/repository/data/DataMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/controller/data/DataController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/js/data/patient.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/js/doctor/patientManage.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/js/doctor/doctorRecord.js" />
       </list>
     </option>
   </component>
@@ -511,6 +519,15 @@
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
               <item name="js" type="462c0819:PsiDirectoryNode" />
               <item name="department" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Medical-management-system" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Medical-management-system" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="doctor" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -836,7 +853,7 @@
       <workItem from="1525182438001" duration="5159000" />
       <workItem from="1525219091016" duration="4922000" />
       <workItem from="1525244334475" duration="17261000" />
-      <workItem from="1525306248258" duration="7298000" />
+      <workItem from="1525306248258" duration="9689000" />
     </task>
     <task id="LOCAL-00001" summary="加入错误页，以及在进入页面之前进行权限判断。">
       <created>1521287865857</created>
@@ -971,11 +988,18 @@
       <option name="project" value="LOCAL" />
       <updated>1525182679714</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="基本完成">
+      <created>1525314270941</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1525314270941</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="308371000" />
+    <option name="totallyTimeSpent" value="310762000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1018,16 +1042,16 @@
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49785408" weight="0.328877" />
       <window_info anchor="bottom" id="Spring" order="14" />
       <window_info anchor="bottom" id="Terminal" order="9" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49795082" visible="true" weight="0.21782842" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49795082" visible="true" weight="0.21782842" />
       <window_info anchor="right" id="Bean Validation" order="12" weight="0.3297587" />
       <window_info id="Web" order="5" side_tool="true" />
       <window_info id="JRebel" order="6" sideWeight="0.5020492" side_tool="true" weight="0.20710456" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.29812834" />
       <window_info anchor="right" id="Theme Preview" order="9" />
       <window_info id="Favorites" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.29812834" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="0" />
     </layout>
@@ -1124,7 +1148,8 @@
     <MESSAGE value="医生工作站病人管理 对接完成" />
     <MESSAGE value="医生工作站 所有功能暂时完成" />
     <MESSAGE value="基操勿6" />
-    <option name="LAST_COMMIT_MESSAGE" value="基操勿6" />
+    <MESSAGE value="基本完成" />
+    <option name="LAST_COMMIT_MESSAGE" value="基本完成" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1241,6 +1266,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="524">
           <caret line="131" column="17" selection-start-line="131" selection-start-column="17" selection-end-line="131" selection-end-column="17" />
+          <folding>
+            <element signature="n#!!block;n#initTableRecordDoctor#0" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1297,13 +1325,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="486">
           <caret line="35" column="1" selection-start-line="35" selection-start-column="1" selection-end-line="35" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/doctor/doctorRecord.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="69" selection-start-line="69" selection-end-line="73" selection-end-column="9" />
         </state>
       </provider>
     </entry>
@@ -1392,13 +1413,6 @@
         <state relative-caret-position="-839" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/doctor/patientManage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3458">
-          <caret line="348" column="4" selection-start-line="348" selection-start-column="4" selection-end-line="361" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/controller/record/RecordController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1786">
@@ -1458,13 +1472,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controller/doctor/DoctorController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1197">
-          <caret line="78" selection-start-line="78" selection-end-line="78" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/html/data/infection.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="703">
@@ -1499,16 +1506,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/data/infection.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="101" column="43" selection-start-line="101" selection-start-column="43" selection-end-line="101" selection-end-column="43" />
-          <folding>
-            <element signature="n#!!block;n#initInfectionChart#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/controller/data/DataController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="410">
@@ -1532,6 +1529,25 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/data/patient.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="92" column="23" lean-forward="true" selection-start-line="92" selection-start-column="23" selection-end-line="92" selection-end-column="23" />
+          <folding>
+            <element signature="n#!!block;n#initInfectionChart#0" />
+            <element signature="e#2581#3027#0" />
+            <element signature="e#2608#3054#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controller/doctor/DoctorController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="141">
+          <caret line="74" selection-start-line="74" selection-end-line="74" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/repository/data/DataMapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="795">
@@ -1544,7 +1560,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/html/data/patient.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
+        <state relative-caret-position="209">
           <caret line="38" column="75" selection-start-line="38" selection-start-column="75" selection-end-line="38" selection-end-column="75" />
           <folding>
             <element signature="n#select#0;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" />
@@ -1553,13 +1569,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/data/patient.js">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/data/infection.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="548">
-          <caret line="108" column="7" selection-start-line="108" selection-start-column="7" selection-end-line="108" selection-end-column="7" />
+        <state relative-caret-position="304">
+          <caret line="101" column="43" selection-start-line="101" selection-start-column="43" selection-end-line="101" selection-end-column="43" />
           <folding>
             <element signature="n#!!block;n#initInfectionChart#0" />
-            <element signature="e#2608#3054#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/doctor/patientManage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-703">
+          <caret line="376" selection-start-line="376" selection-end-line="447" selection-end-column="23" />
+          <folding>
+            <element signature="e#144#375#0" />
+            <element signature="e#394#878#0" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#!!block;n#deletePatient#0" />
+            <element signature="n#!!block;n#updatePatient#0" />
+            <element signature="e#18001#18368#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/doctor/doctorRecord.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="334">
+          <caret line="82" column="79" selection-start-line="82" selection-start-column="79" selection-end-line="82" selection-end-column="79" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

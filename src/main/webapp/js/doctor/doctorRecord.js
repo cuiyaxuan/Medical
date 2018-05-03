@@ -87,47 +87,47 @@ function initUpdatePatientRecordModal(id) {
         '                <div class="am-form-group">\n' +
         '                    <label for="user-name" class="am-u-sm-3 am-form-label">主诉</label>\n' +
         '                    <div class="am-u-sm-9">\n' +
-        '                        <input type="text" name="rcomplain" transmit="true" class="tpl-form-input"  placeholder="请输入标题文字">\n' +
+        '                        <input type="text" name="rcomplain" transmit="true" class="tpl-form-input"  placeholder="主诉">\n' +
         '                    </div>\n' +
         '                </div>\n' +
         '            </div>\n' +
         '            <div class="am-u-sm-6">\n' +
         '                <div class="am-form-group">\n' +
-        '                    <label for="user-name" class="am-u-sm-3 am-form-label">现病史 <span class="tpl-form-line-small-title">Name</span></label>\n' +
+        '                    <label for="user-name" class="am-u-sm-3 am-form-label">现病史 </label>\n' +
         '                    <div class="am-u-sm-9">\n' +
-        '                        <input type="text" name="rpresent" transmit="true" class="tpl-form-input"  placeholder="请输入标题文字">\n' +
+        '                        <input type="text" name="rpresent" transmit="true" class="tpl-form-input"  placeholder="现病史">\n' +
         '                    </div>\n' +
         '                </div>\n' +
         '            </div>\n' +
         '            <div class="am-u-sm-6">\n' +
         '                <div class="am-form-group">\n' +
-        '                    <label for="user-name" class="am-u-sm-3 am-form-label">既往史 <span class="tpl-form-line-small-title">Name</span></label>\n' +
+        '                    <label for="user-name" class="am-u-sm-3 am-form-label">既往史 </label>\n' +
         '                    <div class="am-u-sm-9">\n' +
-        '                        <input type="text" name="rhistory" transmit="true" class="tpl-form-input"  placeholder="请输入标题文字">\n' +
+        '                        <input type="text" name="rhistory" transmit="true" class="tpl-form-input"  placeholder="既往史">\n' +
         '                    </div>\n' +
         '                </div>\n' +
         '            </div>\n' +
         '            <div class="am-u-sm-6">\n' +
         '                <div class="am-form-group">\n' +
-        '                    <label for="user-name" class="am-u-sm-3 am-form-label">个人史 <span class="tpl-form-line-small-title">Name</span></label>\n' +
+        '                    <label for="user-name" class="am-u-sm-3 am-form-label">个人史 </label>\n' +
         '                    <div class="am-u-sm-9">\n' +
-        '                        <input type="text" name="rperson" transmit="true" class="tpl-form-input"  placeholder="请输入标题文字">\n' +
+        '                        <input type="text" name="rperson" transmit="true" class="tpl-form-input"  placeholder="个人史">\n' +
         '                    </div>\n' +
         '                </div>\n' +
         '            </div>\n' +
         '            <div class="am-u-sm-6">\n' +
         '                <div class="am-form-group">\n' +
-        '                    <label for="user-name" class="am-u-sm-3 am-form-label">婚育史 <span class="tpl-form-line-small-title">Name</span></label>\n' +
+        '                    <label for="user-name" class="am-u-sm-3 am-form-label">婚育史 </label>\n' +
         '                    <div class="am-u-sm-9">\n' +
-        '                        <input type="text" name="rmarriage" transmit="true" class="tpl-form-input"  placeholder="请输入标题文字">\n' +
+        '                        <input type="text" name="rmarriage" transmit="true" class="tpl-form-input"  placeholder="婚育史">\n' +
         '                    </div>\n' +
         '                </div>\n' +
         '            </div>\n' +
         '            <div class="am-u-sm-6">\n' +
         '                <div class="am-form-group">\n' +
-        '                    <label for="user-name" class="am-u-sm-3 am-form-label">家族史 <span class="tpl-form-line-small-title">Name</span></label>\n' +
+        '                    <label for="user-name" class="am-u-sm-3 am-form-label">家族史 </label>\n' +
         '                    <div class="am-u-sm-9">\n' +
-        '                        <input type="text" name="rfamily" transmit="true" class="tpl-form-input"  placeholder="请输入标题文字">\n' +
+        '                        <input type="text" name="rfamily" transmit="true" class="tpl-form-input"  placeholder="家族史">\n' +
         '                    </div>\n' +
         '                </div>\n' +
         '            </div>\n' +
@@ -135,23 +135,7 @@ function initUpdatePatientRecordModal(id) {
         '                <div class="am-form-group">\n' +
         '                    <label for="user-name" class="am-u-sm-3 am-form-label">部门 </label>\n' +
         '                    <div class="am-u-sm-9">\n' +
-        '                        <input type="text" name="rdepartment" transmit="true" class="tpl-form-input"  placeholder="请输入标题文字">\n' +
-        '                    </div>\n' +
-        '                </div>\n' +
-        '            </div>\n' +
-        '            <div class="am-u-sm-6">\n' +
-        '                <div class="am-form-group">\n' +
-        '                    <label for="user-name" class="am-u-sm-3 am-form-label">封存状态</label>\n' +
-        '                    <div class="am-u-sm-9">\n' +
-        '                        <input type="text" name="rstate" transmit="true" class="tpl-form-input"  placeholder="请输入标题文字">\n' +
-        '                    </div>\n' +
-        '                </div>\n' +
-        '            </div>\n' +
-        '            <div class="am-u-sm-6">\n' +
-        '                <div class="am-form-group">\n' +
-        '                    <label for="user-name" class="am-u-sm-3 am-form-label">审核状态</label>\n' +
-        '                    <div class="am-u-sm-9">\n' +
-        '                        <input type="text" name="rpass" transmit="true" class="tpl-form-input"  placeholder="请输入标题文字">\n' +
+        '                        <input type="text" name="rdepartment" transmit="true" class="tpl-form-input"  placeholder="部门">\n' +
         '                    </div>\n' +
         '                </div>\n' +
         '            </div>\n' +
@@ -159,7 +143,10 @@ function initUpdatePatientRecordModal(id) {
         '                <div class="am-form-group">\n' +
         '                    <label for="user-name" class="am-u-sm-3 am-form-label">是否传染</label>\n' +
         '                    <div class="am-u-sm-9">\n' +
-        '                        <input type="text"name="rinfaction" transmit="true" class="tpl-form-input"  placeholder="请输入标题文字">\n' +
+        '<select name="rinfaction" transmit="true">' +
+        '<option value="1">是</option>' +
+        '<option value="2">否</option>' +
+        '</select>' +
         '                    </div>\n' +
         '                </div>\n' +
         '            </div>\n' +
@@ -169,7 +156,7 @@ function initUpdatePatientRecordModal(id) {
         '<button type="button" onclick="pageUtils.closeModal()" class="am-btn am-btn-danger">取消</button>\n' +
         '<button type="button" onclick="updatePatientRecord('+id+')" class="am-btn am-btn-success">确定</button>'
     '</div>';
-    pageUtils.showModal('添加病历', html);
+    pageUtils.showModal('编辑病历', html);
     $.ajax({
         method:'post',
         url:contextPath+'/doctor/getOneRecordByPid',

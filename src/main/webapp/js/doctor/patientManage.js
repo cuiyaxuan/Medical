@@ -25,25 +25,25 @@ function initTablePatientManage() {
             {"data": "phistory"},
             {"data": "padmissiontime"},
             {"data": "phistorytime"},
-            {"data":null}
+            {"data": null}
         ],
         columnDefs: [{
-                targets: 12,
-                render: function (data, type, row, meta) {
-                    return '<div class="doc-dropdown-justify-js">\n' +
-                        '  <div class="am-dropdown doc-dropdown-js" style="min-width: 100px">\n' +
-                        '    <button class="am-btn am-btn-danger am-dropdown-toggle">操 作<span class="am-icon-caret-down"></span></button>\n' +
-                        '    <div class="am-dropdown-content">' +
-                        '  <ul class="" >\n' +
-                        '    <li><a href="javaScript:void(0)" onclick="initDeletePatientModal('+data.id+')">出院</a></li>\n' +
-                        '    <li><a href="javaScript:void(0)" onclick="initUpdatePatientModal('+data.id+')">修改</a></li>\n' +
-                        '    <li><a href="javaScript:void(0)" onclick="initAddPatientRecordModal('+data.id+')">新增病例</a></li>\n' +
-                        '  </ul>' +
-                        '</div>\n' +
-                        '  </div>\n' +
-                        '</div>'
-                }
-            },
+            targets: 12,
+            render: function (data, type, row, meta) {
+                return '<div class="doc-dropdown-justify-js">\n' +
+                    '  <div class="am-dropdown doc-dropdown-js" style="min-width: 100px">\n' +
+                    '    <button class="am-btn am-btn-danger am-dropdown-toggle">操 作<span class="am-icon-caret-down"></span></button>\n' +
+                    '    <div class="am-dropdown-content">' +
+                    '  <ul class="" >\n' +
+                    '    <li><a href="javaScript:void(0)" onclick="initDeletePatientModal(' + data.id + ')">出院</a></li>\n' +
+                    '    <li><a href="javaScript:void(0)" onclick="initUpdatePatientModal(' + data.id + ')">修改</a></li>\n' +
+                    '    <li><a href="javaScript:void(0)" onclick="initAddPatientRecordModal(' + data.id + ')">新增病例</a></li>\n' +
+                    '  </ul>' +
+                    '</div>\n' +
+                    '  </div>\n' +
+                    '</div>'
+            }
+        },
             {"orderable": false, "targets": 12}
         ],
         language: {
@@ -68,7 +68,7 @@ function initTablePatientManage() {
         },
         destroy: true,
         autoWidth: false,
-        fnInitComplete:function (oSettings, json) {
+        fnInitComplete: function (oSettings, json) {
             $('#table_record_scanned').addClass('table-layout-fixed');
             $('#table_record_scanned td:not(:last-of-type)').addClass("text-one-line");
             $('.doc-dropdown-js').dropdown({justify: '.doc-dropdown-justify-js'});
@@ -83,47 +83,54 @@ function initAddModal() {
         '                <div class="am-form-group">\n' +
         '                    <label for="user-name" class="am-u-sm-3 am-form-label">姓名</label>\n' +
         '                    <div class="am-u-sm-9">\n' +
-        '                        <input type="text" name="pname" transmit="true" class="tpl-form-input"  placeholder="请输入标题文字">\n' +
+        '                        <input type="text" name="pname" transmit="true" class="tpl-form-input"  placeholder="姓名">\n' +
         '                    </div>\n' +
         '                </div>\n' +
         '            </div>\n' +
         '            <div class="am-u-sm-6">\n' +
         '                <div class="am-form-group">\n' +
-        '                    <label for="user-name" class="am-u-sm-3 am-form-label">性别 <span class="tpl-form-line-small-title">Name</span></label>\n' +
+        '                    <label for="user-name" class="am-u-sm-3 am-form-label">性别</label>\n' +
         '                    <div class="am-u-sm-9">\n' +
-        '                        <input type="text" name="psex" transmit="true" class="tpl-form-input"  placeholder="请输入标题文字">\n' +
+/*        '                        <input type="text" name="psex" transmit="true" class="tpl-form-input"  placeholder="请输入标题文字">\n' +*/
+        '<select name="psex" transmit="true">' +
+        '<option value="1">男</option>' +
+        '<option value="2">女</option>' +
+        '</select>' +
         '                    </div>\n' +
         '                </div>\n' +
         '            </div>\n' +
         '            <div class="am-u-sm-6">\n' +
         '                <div class="am-form-group">\n' +
-        '                    <label for="user-name" class="am-u-sm-3 am-form-label">年龄 <span class="tpl-form-line-small-title">Name</span></label>\n' +
+        '                    <label for="user-name" class="am-u-sm-3 am-form-label">年龄 </label>\n' +
         '                    <div class="am-u-sm-9">\n' +
-        '                        <input type="text" name="page" transmit="true" class="tpl-form-input"  placeholder="请输入标题文字">\n' +
+        '                        <input type="text" name="page" transmit="true" class="tpl-form-input"  placeholder="年龄">\n' +
         '                    </div>\n' +
         '                </div>\n' +
         '            </div>\n' +
         '            <div class="am-u-sm-6">\n' +
         '                <div class="am-form-group">\n' +
-        '                    <label for="user-name" class="am-u-sm-3 am-form-label">籍贯 <span class="tpl-form-line-small-title">Name</span></label>\n' +
+        '                    <label for="user-name" class="am-u-sm-3 am-form-label">籍贯 </label>\n' +
         '                    <div class="am-u-sm-9">\n' +
-        '                        <input type="text" name="porigin" transmit="true" class="tpl-form-input"  placeholder="请输入标题文字">\n' +
+        '                        <input type="text" name="porigin" transmit="true" class="tpl-form-input"  placeholder="籍贯">\n' +
         '                    </div>\n' +
         '                </div>\n' +
         '            </div>\n' +
         '            <div class="am-u-sm-6">\n' +
         '                <div class="am-form-group">\n' +
-        '                    <label for="user-name" class="am-u-sm-3 am-form-label">婚否 <span class="tpl-form-line-small-title">Name</span></label>\n' +
+        '                    <label for="user-name" class="am-u-sm-3 am-form-label">婚否 </label>\n' +
         '                    <div class="am-u-sm-9">\n' +
-        '                        <input type="text" name="pmarriage" transmit="true" class="tpl-form-input"  placeholder="请输入标题文字">\n' +
+        '<select name="pmarriage" transmit="true">' +
+        '<option value="1">是</option>' +
+        '<option value="2">否</option>' +
+        '</select>' +
         '                    </div>\n' +
         '                </div>\n' +
         '            </div>\n' +
         '            <div class="am-u-sm-6">\n' +
         '                <div class="am-form-group">\n' +
-        '                    <label for="user-name" class="am-u-sm-3 am-form-label">出生地 <span class="tpl-form-line-small-title">Name</span></label>\n' +
+        '                    <label for="user-name" class="am-u-sm-3 am-form-label">出生地 </label>\n' +
         '                    <div class="am-u-sm-9">\n' +
-        '                        <input type="text" name="pbirthplace" transmit="true" class="tpl-form-input"  placeholder="请输入标题文字">\n' +
+        '                        <input type="text" name="pbirthplace" transmit="true" class="tpl-form-input"  placeholder="出生地">\n' +
         '                    </div>\n' +
         '                </div>\n' +
         '            </div>\n' +
@@ -131,7 +138,7 @@ function initAddModal() {
         '                <div class="am-form-group">\n' +
         '                    <label for="user-name" class="am-u-sm-3 am-form-label">工作单位 </label>\n' +
         '                    <div class="am-u-sm-9">\n' +
-        '                        <input type="text" name="pworkplace" transmit="true" class="tpl-form-input"  placeholder="请输入标题文字">\n' +
+        '                        <input type="text" name="pworkplace" transmit="true" class="tpl-form-input"  placeholder="工作单位">\n' +
         '                    </div>\n' +
         '                </div>\n' +
         '            </div>\n' +
@@ -139,7 +146,7 @@ function initAddModal() {
         '                <div class="am-form-group">\n' +
         '                    <label for="user-name" class="am-u-sm-3 am-form-label">职业</label>\n' +
         '                    <div class="am-u-sm-9">\n' +
-        '                        <input type="text" name="pwork" transmit="true" class="tpl-form-input"  placeholder="请输入标题文字">\n' +
+        '                        <input type="text" name="pwork" transmit="true" class="tpl-form-input"  placeholder="职业">\n' +
         '                    </div>\n' +
         '                </div>\n' +
         '            </div>\n' +
@@ -147,7 +154,7 @@ function initAddModal() {
         '                <div class="am-form-group">\n' +
         '                    <label for="user-name" class="am-u-sm-3 am-form-label">户口</label>\n' +
         '                    <div class="am-u-sm-9">\n' +
-        '                        <input type="text" name="pliveplace" transmit="true" class="tpl-form-input"  placeholder="请输入标题文字">\n' +
+        '                        <input type="text" name="pliveplace" transmit="true" class="tpl-form-input"  placeholder="户口">\n' +
         '                    </div>\n' +
         '                </div>\n' +
         '            </div>\n' +
@@ -155,7 +162,7 @@ function initAddModal() {
         '                <div class="am-form-group">\n' +
         '                    <label for="user-name" class="am-u-sm-3 am-form-label">供史者</label>\n' +
         '                    <div class="am-u-sm-9">\n' +
-        '                        <input type="text"name="phistory" transmit="true" class="tpl-form-input"  placeholder="请输入标题文字">\n' +
+        '                        <input type="text"name="phistory" transmit="true" class="tpl-form-input"  placeholder="供史者">\n' +
         '                    </div>\n' +
         '                </div>\n' +
         '            </div>\n' +
@@ -163,7 +170,7 @@ function initAddModal() {
         '                <div class="am-form-group">\n' +
         '                    <label for="user-name" class="am-u-sm-3 am-form-label">入院时间 </label>\n' +
         '                    <div class="am-u-sm-9">\n' +
-        '                        <p><input type="text" class="am-form-field" id="patient-dataTimePicker" placeholder="日历组件" data-am-datepicker="{theme: \'success\'}" readonly/></p>' +
+        '                        <p><input type="text" class="am-form-field" id="patient-dataTimePicker" placeholder="入院时间" data-am-datepicker="{theme: \'success\'}" readonly/></p>' +
         '                    </div>\n' +
         '                </div>\n' +
         '            </div>\n' +
@@ -172,11 +179,12 @@ function initAddModal() {
         '<div class="center-button">' +
         '<button type="button" onclick="pageUtils.closeModal()" class="am-btn am-btn-danger">取消</button>\n' +
         '<button type="button" onclick="addNewPatient()" class="am-btn am-btn-success">确定</button>'
-        '</div>';
+    '</div>';
 
     pageUtils.showModal('新增病人', html);
-    $('#patient-dataTimePicker').datepicker({format: 'yyyy-mm-dd',endDate:new Date()});
+    $('#patient-dataTimePicker').datepicker({format: 'yyyy-mm-dd', endDate: new Date()});
 }
+
 function addNewPatient() {
     var json = commonSerializeForm("patient-form");
     var time = commonUtils.convertDateFromString($('#patient-dataTimePicker').val());
@@ -199,12 +207,13 @@ function addNewPatient() {
 
 
 }
+
 function deletePatient(id) {
     $.ajax({
         type: "post",
         url: contextPath + "/doctor/delete",
-        data: {id:id},
-        async:false,
+        data: {id: id},
+        async: false,
         success: function (result) {
             alert("出院成功！");
             initTablePatientManage();
@@ -214,20 +223,14 @@ function deletePatient(id) {
         }
     });
 }
+
 function initDeletePatientModal(id) {
-    var $confirm = $('#my-confirm');
-    $confirm.find('.am-modal-hd').html(p_title);
-    $confirm.find('.am-modal-bd').html(p_content);
-    $confirm.modal({
-        relatedTarget: this,
-        onConfirm: function (options) {
-            deletePatient(id)
-        },
-        // closeOnConfirm: false,
-        onCancel: function () {
-        }
-    });
+    var r = confirm("确定出院？");
+    if(r==true){
+        deletePatient(id);
+    }
 }
+
 function updatePatient(id) {
     var json = commonSerializeForm("patient-form");
     var time = commonUtils.convertDateFromString($('#patient-update-dataTimePicker').val());
@@ -247,6 +250,7 @@ function updatePatient(id) {
         }
     });
 }
+
 function initUpdatePatientModal(id) {
     var html = '<form class="am-form tpl-form-line-form" id="patient-form">\n' +
         '        <div class="am-g">\n' +
@@ -254,47 +258,54 @@ function initUpdatePatientModal(id) {
         '                <div class="am-form-group">\n' +
         '                    <label for="user-name" class="am-u-sm-3 am-form-label">姓名</label>\n' +
         '                    <div class="am-u-sm-9">\n' +
-        '                        <input type="text" name="pname" transmit="true" class="tpl-form-input"  placeholder="请输入标题文字">\n' +
+        '                        <input type="text" name="pname" transmit="true" class="tpl-form-input"  placeholder="姓名">\n' +
         '                    </div>\n' +
         '                </div>\n' +
         '            </div>\n' +
         '            <div class="am-u-sm-6">\n' +
         '                <div class="am-form-group">\n' +
-        '                    <label for="user-name" class="am-u-sm-3 am-form-label">性别 <span class="tpl-form-line-small-title">Name</span></label>\n' +
+        '                    <label for="user-name" class="am-u-sm-3 am-form-label">性别</label>\n' +
         '                    <div class="am-u-sm-9">\n' +
-        '                        <input type="text" name="psex" transmit="true" class="tpl-form-input"  placeholder="请输入标题文字">\n' +
+        /*        '                        <input type="text" name="psex" transmit="true" class="tpl-form-input"  placeholder="请输入标题文字">\n' +*/
+        '<select name="psex" transmit="true">' +
+        '<option value="1">男</option>' +
+        '<option value="2">女</option>' +
+        '</select>' +
         '                    </div>\n' +
         '                </div>\n' +
         '            </div>\n' +
         '            <div class="am-u-sm-6">\n' +
         '                <div class="am-form-group">\n' +
-        '                    <label for="user-name" class="am-u-sm-3 am-form-label">年龄 <span class="tpl-form-line-small-title">Name</span></label>\n' +
+        '                    <label for="user-name" class="am-u-sm-3 am-form-label">年龄 </label>\n' +
         '                    <div class="am-u-sm-9">\n' +
-        '                        <input type="text" name="page" transmit="true" class="tpl-form-input"  placeholder="请输入标题文字">\n' +
+        '                        <input type="text" name="page" transmit="true" class="tpl-form-input"  placeholder="年龄">\n' +
         '                    </div>\n' +
         '                </div>\n' +
         '            </div>\n' +
         '            <div class="am-u-sm-6">\n' +
         '                <div class="am-form-group">\n' +
-        '                    <label for="user-name" class="am-u-sm-3 am-form-label">籍贯 <span class="tpl-form-line-small-title">Name</span></label>\n' +
+        '                    <label for="user-name" class="am-u-sm-3 am-form-label">籍贯 </label>\n' +
         '                    <div class="am-u-sm-9">\n' +
-        '                        <input type="text" name="porigin" transmit="true" class="tpl-form-input"  placeholder="请输入标题文字">\n' +
+        '                        <input type="text" name="porigin" transmit="true" class="tpl-form-input"  placeholder="籍贯">\n' +
         '                    </div>\n' +
         '                </div>\n' +
         '            </div>\n' +
         '            <div class="am-u-sm-6">\n' +
         '                <div class="am-form-group">\n' +
-        '                    <label for="user-name" class="am-u-sm-3 am-form-label">婚否 <span class="tpl-form-line-small-title">Name</span></label>\n' +
+        '                    <label for="user-name" class="am-u-sm-3 am-form-label">婚否 </label>\n' +
         '                    <div class="am-u-sm-9">\n' +
-        '                        <input type="text" name="pmarriage" transmit="true" class="tpl-form-input"  placeholder="请输入标题文字">\n' +
+        '<select name="pmarriage" transmit="true">' +
+        '<option value="1">是</option>' +
+        '<option value="2">否</option>' +
+        '</select>' +
         '                    </div>\n' +
         '                </div>\n' +
         '            </div>\n' +
         '            <div class="am-u-sm-6">\n' +
         '                <div class="am-form-group">\n' +
-        '                    <label for="user-name" class="am-u-sm-3 am-form-label">出生地 <span class="tpl-form-line-small-title">Name</span></label>\n' +
+        '                    <label for="user-name" class="am-u-sm-3 am-form-label">出生地 </label>\n' +
         '                    <div class="am-u-sm-9">\n' +
-        '                        <input type="text" name="pbirthplace" transmit="true" class="tpl-form-input"  placeholder="请输入标题文字">\n' +
+        '                        <input type="text" name="pbirthplace" transmit="true" class="tpl-form-input"  placeholder="出生地">\n' +
         '                    </div>\n' +
         '                </div>\n' +
         '            </div>\n' +
@@ -302,7 +313,7 @@ function initUpdatePatientModal(id) {
         '                <div class="am-form-group">\n' +
         '                    <label for="user-name" class="am-u-sm-3 am-form-label">工作单位 </label>\n' +
         '                    <div class="am-u-sm-9">\n' +
-        '                        <input type="text" name="pworkplace" transmit="true" class="tpl-form-input"  placeholder="请输入标题文字">\n' +
+        '                        <input type="text" name="pworkplace" transmit="true" class="tpl-form-input"  placeholder="工作单位">\n' +
         '                    </div>\n' +
         '                </div>\n' +
         '            </div>\n' +
@@ -310,7 +321,7 @@ function initUpdatePatientModal(id) {
         '                <div class="am-form-group">\n' +
         '                    <label for="user-name" class="am-u-sm-3 am-form-label">职业</label>\n' +
         '                    <div class="am-u-sm-9">\n' +
-        '                        <input type="text" name="pwork" transmit="true" class="tpl-form-input"  placeholder="请输入标题文字">\n' +
+        '                        <input type="text" name="pwork" transmit="true" class="tpl-form-input"  placeholder="职业">\n' +
         '                    </div>\n' +
         '                </div>\n' +
         '            </div>\n' +
@@ -318,7 +329,7 @@ function initUpdatePatientModal(id) {
         '                <div class="am-form-group">\n' +
         '                    <label for="user-name" class="am-u-sm-3 am-form-label">户口</label>\n' +
         '                    <div class="am-u-sm-9">\n' +
-        '                        <input type="text" name="pliveplace" transmit="true" class="tpl-form-input"  placeholder="请输入标题文字">\n' +
+        '                        <input type="text" name="pliveplace" transmit="true" class="tpl-form-input"  placeholder="户口">\n' +
         '                    </div>\n' +
         '                </div>\n' +
         '            </div>\n' +
@@ -326,7 +337,7 @@ function initUpdatePatientModal(id) {
         '                <div class="am-form-group">\n' +
         '                    <label for="user-name" class="am-u-sm-3 am-form-label">供史者</label>\n' +
         '                    <div class="am-u-sm-9">\n' +
-        '                        <input type="text"name="phistory" transmit="true" class="tpl-form-input"  placeholder="请输入标题文字">\n' +
+        '                        <input type="text"name="phistory" transmit="true" class="tpl-form-input"  placeholder="供史者">\n' +
         '                    </div>\n' +
         '                </div>\n' +
         '            </div>\n' +
@@ -334,7 +345,7 @@ function initUpdatePatientModal(id) {
         '                <div class="am-form-group">\n' +
         '                    <label for="user-name" class="am-u-sm-3 am-form-label">入院时间 </label>\n' +
         '                    <div class="am-u-sm-9">\n' +
-        '                        <p><input type="text" name="padmissiontime" class="am-form-field" id="patient-update-dataTimePicker" placeholder="日历组件" data-am-datepicker="{theme: \'success\'}" readonly/></p>' +
+        '                        <p><input type="text" class="am-form-field" id="patient-dataTimePicker" placeholder="入院时间" data-am-datepicker="{theme: \'success\'}" readonly/></p>' +
         '                    </div>\n' +
         '                </div>\n' +
         '            </div>\n' +
@@ -342,17 +353,17 @@ function initUpdatePatientModal(id) {
         '    </form>' +
         '<div class="center-button">' +
         '<button type="button" onclick="pageUtils.closeModal()" class="am-btn am-btn-danger">取消</button>\n' +
-        '<button type="button" onclick="updatePatient('+id+')" class="am-btn am-btn-success">确定</button>'
+        '<button type="button" onclick="updatePatient(' + id + ')" class="am-btn am-btn-success">确定</button>'
     '</div>';
     pageUtils.showModal('编辑病人', html);
-    $('#patient-update-dataTimePicker').datepicker({format: 'yyyy-mm-dd',endDate:new Date()});
+    $('#patient-update-dataTimePicker').datepicker({format: 'yyyy-mm-dd', endDate: new Date()});
     $.ajax({
         type: "post",
         url: contextPath + "/doctor/getOnePatientById",
-        data: {id:id},
+        data: {id: id},
         success: function (data) {
             console.log(data);
-            $.each(data.result,function (name,value) {
+            $.each(data.result, function (name, value) {
                 $('#patient-form input[name=' + name + ']').val(value);
             })
         },
@@ -370,47 +381,47 @@ function initAddPatientRecordModal(id) {
         '                <div class="am-form-group">\n' +
         '                    <label for="user-name" class="am-u-sm-3 am-form-label">主诉</label>\n' +
         '                    <div class="am-u-sm-9">\n' +
-        '                        <input type="text" name="rcomplain" transmit="true" class="tpl-form-input"  placeholder="请输入标题文字">\n' +
+        '                        <input type="text" name="rcomplain" transmit="true" class="tpl-form-input"  placeholder="主诉">\n' +
         '                    </div>\n' +
         '                </div>\n' +
         '            </div>\n' +
         '            <div class="am-u-sm-6">\n' +
         '                <div class="am-form-group">\n' +
-        '                    <label for="user-name" class="am-u-sm-3 am-form-label">现病史 <span class="tpl-form-line-small-title">Name</span></label>\n' +
+        '                    <label for="user-name" class="am-u-sm-3 am-form-label">现病史 </label>\n' +
         '                    <div class="am-u-sm-9">\n' +
-        '                        <input type="text" name="rpresent" transmit="true" class="tpl-form-input"  placeholder="请输入标题文字">\n' +
+        '                        <input type="text" name="rpresent" transmit="true" class="tpl-form-input"  placeholder="现病史">\n' +
         '                    </div>\n' +
         '                </div>\n' +
         '            </div>\n' +
         '            <div class="am-u-sm-6">\n' +
         '                <div class="am-form-group">\n' +
-        '                    <label for="user-name" class="am-u-sm-3 am-form-label">既往史 <span class="tpl-form-line-small-title">Name</span></label>\n' +
+        '                    <label for="user-name" class="am-u-sm-3 am-form-label">既往史 </label>\n' +
         '                    <div class="am-u-sm-9">\n' +
-        '                        <input type="text" name="rhistory" transmit="true" class="tpl-form-input"  placeholder="请输入标题文字">\n' +
+        '                        <input type="text" name="rhistory" transmit="true" class="tpl-form-input"  placeholder="既往史">\n' +
         '                    </div>\n' +
         '                </div>\n' +
         '            </div>\n' +
         '            <div class="am-u-sm-6">\n' +
         '                <div class="am-form-group">\n' +
-        '                    <label for="user-name" class="am-u-sm-3 am-form-label">个人史 <span class="tpl-form-line-small-title">Name</span></label>\n' +
+        '                    <label for="user-name" class="am-u-sm-3 am-form-label">个人史 </label>\n' +
         '                    <div class="am-u-sm-9">\n' +
-        '                        <input type="text" name="rperson" transmit="true" class="tpl-form-input"  placeholder="请输入标题文字">\n' +
+        '                        <input type="text" name="rperson" transmit="true" class="tpl-form-input"  placeholder="个人史">\n' +
         '                    </div>\n' +
         '                </div>\n' +
         '            </div>\n' +
         '            <div class="am-u-sm-6">\n' +
         '                <div class="am-form-group">\n' +
-        '                    <label for="user-name" class="am-u-sm-3 am-form-label">婚育史 <span class="tpl-form-line-small-title">Name</span></label>\n' +
+        '                    <label for="user-name" class="am-u-sm-3 am-form-label">婚育史 </label>\n' +
         '                    <div class="am-u-sm-9">\n' +
-        '                        <input type="text" name="rmarriage" transmit="true" class="tpl-form-input"  placeholder="请输入标题文字">\n' +
+        '                        <input type="text" name="rmarriage" transmit="true" class="tpl-form-input"  placeholder="婚育史">\n' +
         '                    </div>\n' +
         '                </div>\n' +
         '            </div>\n' +
         '            <div class="am-u-sm-6">\n' +
         '                <div class="am-form-group">\n' +
-        '                    <label for="user-name" class="am-u-sm-3 am-form-label">家族史 <span class="tpl-form-line-small-title">Name</span></label>\n' +
+        '                    <label for="user-name" class="am-u-sm-3 am-form-label">家族史 </label>\n' +
         '                    <div class="am-u-sm-9">\n' +
-        '                        <input type="text" name="rfamily" transmit="true" class="tpl-form-input"  placeholder="请输入标题文字">\n' +
+        '                        <input type="text" name="rfamily" transmit="true" class="tpl-form-input"  placeholder="家族史">\n' +
         '                    </div>\n' +
         '                </div>\n' +
         '            </div>\n' +
@@ -418,23 +429,7 @@ function initAddPatientRecordModal(id) {
         '                <div class="am-form-group">\n' +
         '                    <label for="user-name" class="am-u-sm-3 am-form-label">部门 </label>\n' +
         '                    <div class="am-u-sm-9">\n' +
-        '                        <input type="text" name="rdepartment" transmit="true" class="tpl-form-input"  placeholder="请输入标题文字">\n' +
-        '                    </div>\n' +
-        '                </div>\n' +
-        '            </div>\n' +
-        '            <div class="am-u-sm-6">\n' +
-        '                <div class="am-form-group">\n' +
-        '                    <label for="user-name" class="am-u-sm-3 am-form-label">封存状态</label>\n' +
-        '                    <div class="am-u-sm-9">\n' +
-        '                        <input type="text" name="rstate" transmit="true" class="tpl-form-input"  placeholder="请输入标题文字">\n' +
-        '                    </div>\n' +
-        '                </div>\n' +
-        '            </div>\n' +
-        '            <div class="am-u-sm-6">\n' +
-        '                <div class="am-form-group">\n' +
-        '                    <label for="user-name" class="am-u-sm-3 am-form-label">审核状态</label>\n' +
-        '                    <div class="am-u-sm-9">\n' +
-        '                        <input type="text" name="rpass" transmit="true" class="tpl-form-input"  placeholder="请输入标题文字">\n' +
+        '                        <input type="text" name="rdepartment" transmit="true" class="tpl-form-input"  placeholder="部门">\n' +
         '                    </div>\n' +
         '                </div>\n' +
         '            </div>\n' +
@@ -442,7 +437,10 @@ function initAddPatientRecordModal(id) {
         '                <div class="am-form-group">\n' +
         '                    <label for="user-name" class="am-u-sm-3 am-form-label">是否传染</label>\n' +
         '                    <div class="am-u-sm-9">\n' +
-        '                        <input type="text"name="rinfaction" transmit="true" class="tpl-form-input"  placeholder="请输入标题文字">\n' +
+        '<select name="rinfaction" transmit="true">' +
+        '<option value="1">是</option>' +
+        '<option value="2">否</option>' +
+        '</select>' +
         '                    </div>\n' +
         '                </div>\n' +
         '            </div>\n' +
@@ -450,7 +448,7 @@ function initAddPatientRecordModal(id) {
         '    </form>' +
         '<div class="center-button">' +
         '<button type="button" onclick="pageUtils.closeModal()" class="am-btn am-btn-danger">取消</button>\n' +
-        '<button type="button" onclick="addNewPatientRecord('+id+')" class="am-btn am-btn-success">确定</button>'
+        '<button type="button" onclick="addNewPatientRecord(' + id + ')" class="am-btn am-btn-success">确定</button>'
     '</div>';
     pageUtils.showModal('添加病历', html);
 }
