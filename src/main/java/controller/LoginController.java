@@ -1,6 +1,7 @@
 package controller;
 
 import Util.AjaxResponse;
+import Util.CosUtil;
 import entity.Login;
 import entity.Logs;
 import entity.User;
@@ -14,12 +15,11 @@ import service.logs.LogsService;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.Date;
-import java.util.List;
 
 /**
+ * @author WangXinYu
  * @ Author : dell on 2018/2/24.
  * Date :  Created in  10:38.   2018/2/24.
- * @author WangXinYu
  */
 @Controller
 @RequestMapping("Login")
@@ -28,54 +28,55 @@ public class LoginController {
     private LoginService loginService;
     @Autowired
     private LogsService logsService;
+
     @ResponseBody
     @RequestMapping("login")
     public AjaxResponse create(Login login, HttpServletRequest request) {
         AjaxResponse ajaxResponse = new AjaxResponse();
         HttpSession session = request.getSession(true);
-        ajaxResponse.setState("200");
-        ajaxResponse.setResult("NO");
-        List<Login> list = loginService.getAllUser();
-        for (Login login_ : list) {
-            if (login.getUsername().equals(login_.getUsername()) && login.getPassword().equals(login_.getPassword())) {
-                ajaxResponse.setState("200");
-                ajaxResponse.setResult("OK");
-                ajaxResponse.setMessage("1");
-                session.setAttribute("loginUser", login_);
-                session.setAttribute("userName", login.getUsername());
-                session.setAttribute("id", login_.getId());
-                Logs logs = new Logs();
-                logs.setUsername(login.getUsername());
-                logs.setTime(new Date());
-                logs.setDetails("登陆了系统!");
-                logsService.add(logs);
-                break;
+        Login returnLogin = loginService.getUser(login);
+        if (login.getUsername().equals(returnLogin.getUsername()) && login.getPassword().equals(returnLogin.getPassword())) {
+            try {
+                ajaxResponse.setSuccessMessage("登录成功!",returnLogin);
+            } catch (Exception e) {
+                ajaxResponse.setErrorMessage("登录失败!"+e,returnLogin);
             }
+            session.setAttribute("loginUser", returnLogin);
+            session.setAttribute("userName", login.getUsername());
+            session.setAttribute("id", returnLogin.getId());
+            Logs logs = new Logs();
+            logs.setUsername(login.getUsername());
+            logs.setTime(new Date());
+            logs.setDetails(login.getUsername()+"登录了系统!");
+            logsService.add(logs);
         }
         String s = session.getAttribute("userName").toString();
         return ajaxResponse;
     }
 
 
-
-
     @ResponseBody
     @RequestMapping("test")
-    public AjaxResponse test(  ) {
+    public AjaxResponse test() {
         AjaxResponse ajaxResponse = new AjaxResponse();
-        ajaxResponse.setResult("OK");
+        String url = "";
+        try {
+            url=CosUtil.picCOS().toString();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        ajaxResponse.setResult(url);
         ajaxResponse.setMessage("me");
-
-        return  ajaxResponse;
+        return ajaxResponse;
     }
 
     @RequestMapping("/getRole")
     @ResponseBody
-    public AjaxResponse getRole(HttpServletRequest request){
-        AjaxResponse ajaxResponse=new AjaxResponse();
+    public AjaxResponse getRole(HttpServletRequest request) {
+        AjaxResponse ajaxResponse = new AjaxResponse();
         HttpSession session = request.getSession(true);
-        User user= (User) session.getAttribute("loginUser");
-        String role=user.getRole();
+        User user = (User) session.getAttribute("loginUser");
+        String role = user.getRole();
         ajaxResponse.setResult(role);
         return ajaxResponse;
     }

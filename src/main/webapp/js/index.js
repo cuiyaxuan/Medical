@@ -335,7 +335,16 @@ function addClassify() {
 }
 
 function returnLogin() {
-    window.location.href = "http://localhost:8080/";
+    var r = confirm("是否退出本系统？");
+    if (r==true)
+    {
+        window.location.href = "http://localhost:8080/";
+    }
+    else
+    {
+        pageUtils.showAlert('提示', '操作已取消！');
+    }
+
 }
 
 //凉凉夜色为你思念成河

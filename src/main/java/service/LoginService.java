@@ -20,4 +20,9 @@ public class LoginService {
         List<Login> list =loginMapper.getAllUser();
         return list;
     }
+    public Login getUser(Login login){
+        String userName = login.getUsername();
+        Login login1 =loginMapper.getUserByName(userName);
+        return login1;
+    }
 }

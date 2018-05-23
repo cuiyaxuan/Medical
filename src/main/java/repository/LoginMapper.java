@@ -8,9 +8,9 @@ import java.util.List;
 
 
 /**
- * @author WangXinYu
- * @ Author : dell on 2018/2/24.
- * Date :  Created in  10:39.   2018/2/24.
+ * The interface Login mapper.
+ *
+ * @author WangXinYu  @ Author : dell on 2018/2/24. Date :  Created in  10:39.   2018/2/24.
  */
 @Repository
 public interface LoginMapper {
@@ -22,4 +22,13 @@ public interface LoginMapper {
      */
     @Select(" select * from  m_login ")
     List<Login> getAllUser();
+
+    /**
+     * Gets user by name.
+     *
+     * @param userName the user name
+     * @return the user by name
+     */
+    @Select(" select * from  m_login where username=#{userName}")
+    Login getUserByName(String userName);
 }
