@@ -22,9 +22,8 @@ function login() {
             },
             success: function (result) {
                 let state = result.state;
-                console.log(result);
                 if (state === "200") {
-                    sessionStorage.setItem('userInfo', "1");
+                    sessionStorage.setItem('userRole', "1");
                     window.location.href = "index.jsp";
                 } else {
                     alert("用户名或者密码错误!");

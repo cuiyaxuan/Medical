@@ -14,8 +14,7 @@ public class User {
     private String name;
     @Column(name = "password")
     private String password;
-    @Column(name = "role")
-    private String role;
+
 
     /**
      * @return id
@@ -57,19 +56,5 @@ public class User {
      */
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    /**
-     * @return role
-     */
-    public String getRole() {
-        return role;
-    }
-
-    /**
-     * @param role
-     */
-    public void setRole(String role) {
-        this.role = role;
     }
 }

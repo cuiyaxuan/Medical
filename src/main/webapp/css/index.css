@@ -14,8 +14,8 @@ table>thead:first-child>tr:first-child>th{
 /*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
 ::-webkit-scrollbar
 {
-    width: 16px;
-    height: 16px;
+    width: 10px;
+    height: 10px;
     background-color: #F5F5F5;
 }
 
@@ -30,9 +30,9 @@ table>thead:first-child>tr:first-child>th{
 /*定义滑块 内阴影+圆角*/
 ::-webkit-scrollbar-thumb
 {
-    border-radius: 10px;
+    border-radius: 5px;
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-    background-color: #555;
+    background-color: rgb(160, 165, 171) !important;
 }
 /*使字在一行显示 并且超出显示....*/
 .table-layout-fixed{

@@ -50,7 +50,7 @@ public class RoleController {
         int i = roleService.updateUserRoleById(id, newRole);
         if(i>0) {
             Logs logs = new Logs();
-            logs.setUsername((String) session.getAttribute("login_"));
+            logs.setUsername((String) session.getAttribute("userName"));
             logs.setTime(new Date());
             logs.setDetails("更新了权限!");
             logsService.add(logs);

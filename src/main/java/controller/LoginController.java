@@ -4,7 +4,7 @@ import Util.AjaxResponse;
 import Util.CosUtil;
 import entity.Login;
 import entity.Logs;
-import entity.User;
+import entity.MUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -70,14 +70,18 @@ public class LoginController {
         return ajaxResponse;
     }
 
-    @RequestMapping("/getRole")
+    @RequestMapping("/getUserInfo")
     @ResponseBody
     public AjaxResponse getRole(HttpServletRequest request) {
         AjaxResponse ajaxResponse = new AjaxResponse();
         HttpSession session = request.getSession(true);
-        User user = (User) session.getAttribute("loginUser");
-        String role = user.getRole();
-        ajaxResponse.setResult(role);
+        String id = session.getAttribute("id").toString();
+        MUser mUser=loginService.getUserInfo(id);
+        try {
+            ajaxResponse.setSuccessMessage("查询用户信息成功!",mUser);
+        } catch (Exception e) {
+            ajaxResponse.setErrorMessage("查询用户信息成功!"+e,mUser);
+        }
         return ajaxResponse;
     }
 

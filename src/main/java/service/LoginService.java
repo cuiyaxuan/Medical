@@ -1,6 +1,7 @@
 package service;
 
 import entity.Login;
+import entity.MUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import repository.LoginMapper;
@@ -24,5 +25,9 @@ public class LoginService {
         String userName = login.getUsername();
         Login login1 =loginMapper.getUserByName(userName);
         return login1;
+    }
+    public MUser getUserInfo (String id){
+        MUser mUser = loginMapper.getUserInfo(id);
+        return mUser;
     }
 }

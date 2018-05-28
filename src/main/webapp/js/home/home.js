@@ -202,7 +202,6 @@ function selectAllInfection() {
         async: false,
         success: function (data) {
             dataAll = data.result;
-            console.log(dataAll);
         },
         error: function () {
 
