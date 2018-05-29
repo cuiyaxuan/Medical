@@ -1,13 +1,12 @@
 package service;
 
 
-import entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import repository.UserMapper;
 
-import javax.annotation.Resource;
+import java.util.Map;
 
 
 /**
@@ -19,8 +18,9 @@ public class UserService {
     @Autowired
     private UserMapper userMapper;
 
-    public  void  add (User user){
-        userMapper.insert(user);
+    public Map<String,Object> getUserInfo(String loginId){
+        Map<String, Object> map = userMapper.getUserInfo(loginId);
+        return map;
     }
 
 }

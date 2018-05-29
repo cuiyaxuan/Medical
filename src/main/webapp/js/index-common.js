@@ -79,3 +79,9 @@ function switchPage(th) {
     var $main = $('#main-content');
     $main.load("../../html/" + type + "/" + htmlPage + ".html");
 }
+
+function imgOnError() {
+    var img=event.srcElement;
+    img.src="../img/error-headImg.jpg";
+    img.onerror=null;
+}

@@ -56,18 +56,9 @@ public class LoginController {
 
 
     @ResponseBody
-    @RequestMapping("test")
-    public AjaxResponse test() {
-        AjaxResponse ajaxResponse = new AjaxResponse();
-        String url = "";
-        try {
-            url=CosUtil.picCOS().toString();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        ajaxResponse.setResult(url);
-        ajaxResponse.setMessage("me");
-        return ajaxResponse;
+    @RequestMapping("/test")
+    public AjaxResponse test(HttpServletRequest request) throws Exception {
+        return CosUtil.uploadImgCloudBase64(request);
     }
 
     @RequestMapping("/getUserInfo")

@@ -24,6 +24,9 @@
     <link rel="stylesheet" href="${ctx}/components/amazeui/css/amazeui.min.css"/>
     <%--表格插件 css--%>
     <link rel="stylesheet" href="${ctx}/components/amazeui/css/amazeui.datatables.min.css">
+    <%--图片上传 css--%>
+    <link rel="stylesheet" href="${ctx}/components/amazeui/css/amazeui.cropper.css">
+    <link rel="stylesheet" href="${ctx}/components/amazeui/css/custom_up_img.css">
     <link rel="stylesheet" href="${ctx}/components/amazeui/css/admin.css">
     <link rel="stylesheet" href="${ctx}/components/amazeui/css/app.css">
     <link rel="stylesheet" href="${ctx}/css/index.css">
@@ -57,10 +60,10 @@
                     class="am-icon-arrows-alt"></span> <span class="admin-fullText">开启全屏</span></a></li>
             <li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
                 <a class="am-dropdown-toggle tpl-header-list-link" href="javascript:;">
-                    <span class="tpl-header-list-user-nick realName">禁言小张</span><span class="tpl-header-list-user-ico"> <img src="./img/headImg.png"></span>
+                    <span class="tpl-header-list-user-nick realName"></span><span class="tpl-header-list-user-ico"> <img src="./img/headImg.png"></span>
                 </a>
                 <ul class="am-dropdown-content">
-                    <li><a href="#"><span class="am-icon-bell-o"></span> 个人资料</a></li>
+                    <li><a href="javascript:void(0)" onclick="getUserInfoModal()"><span class="am-icon-bell-o"></span> 个人资料</a></li>
 <%--                    <li><a href="#"><span class="am-icon-cog"></span> 设置</a></li>
                     <li><a href="#"><span class="am-icon-power-off"></span> 退出</a></li>--%>
                 </ul>
@@ -268,7 +271,7 @@
     </div>
 </div>
 <%--alert 模态框--%>
-<div class="am-modal am-modal-alert" tabindex="-1" id="my-alert" style="z-index: 99999">
+<div class="am-modal am-modal-alert" tabindex="-1" id="my-alert" style="z-index:99999999 ">
     <div class="am-modal-dialog">
         <div class="am-modal-hd">Amaze UI</div>
         <div class="am-modal-bd">
@@ -279,6 +282,67 @@
         </div>
     </div>
 </div>
+<%--图片上传模态框--%>
+<%--上传图片模态框开始----------------------------------------------------%>
+<!--图片上传框-->
+<div class="am-modal am-modal-no-btn up-frame-bj " tabindex="-1" id="doc-modal-1" style="z-index: 99999">
+    <div class="am-modal-dialog up-frame-parent up-frame-radius window-contour">
+        <div class="am-modal-hd up-frame-header ">
+            <label>上传图片</label>
+            <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
+        </div>
+        <div class="am-modal-bd  up-frame-body">
+            <div class="am-g am-fl">
+                <div class="am-form-group am-form-file">
+                    <div class="am-fl">
+                        <button type="button" class="am-btn am-btn-default am-btn-sm">
+                            <i class="am-icon-cloud-upload"></i> 选择要上传的文件</button>
+                    </div>
+                    <input name="pic" type="file" id="inputImage">
+                </div>
+            </div>
+            <div class="am-g am-fl" >
+                <div class="up-pre-before up-frame-radius">
+                    <img alt="" src="" id="image" >
+                </div>
+                <div class="up-pre-after up-frame-radius">
+                </div>
+            </div>
+            <div class="am-g am-fl">
+                <div class="up-control-btns">
+                    <span class="am-icon-rotate-left"  onclick="rotateImgLeft()"></span>
+                    <span class="am-icon-rotate-right" onclick="rotateImgRight()"></span>
+                    <span class="am-icon-check" id="up-btn-ok"></span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!--加载框-->
+<div class="am-modal am-modal-loading am-modal-no-btn" tabindex="-1" id="my-modal-loading">
+    <div class="am-modal-dialog">
+        <div class="am-modal-hd">正在上传...</div>
+        <div class="am-modal-bd">
+            <span class="am-icon-spinner am-icon-spin"></span>
+        </div>
+    </div>
+</div>
+
+<!--警告框-->
+<div class="am-modal am-modal-alert" tabindex="-1" id="my-alert">
+    <div class="am-modal-dialog">
+        <div class="am-modal-hd">信息</div>
+        <div class="am-modal-bd"  id="alert_content">
+            成功了
+        </div>
+        <div class="am-modal-footer">
+            <span class="am-modal-btn">确定</span>
+        </div>
+    </div>
+</div>
+<%--上传图片模态框 结束----------------------------------------------------%>
 </body>
 <script>
     var contextPath = "${ctx}";
@@ -287,6 +351,7 @@
 <script src="${ctx}/components/amazeui/js/amazeui.min.js"></script>
 <%--amazeui 整合的dataTables 不好用的话打死他--%>
 <script src="${ctx}/components/amazeui/js/amazeui.datatables.min.js"></script>
+<script src="${ctx}/components/amazeui/js/cropper.min.js"></script>
 <script src="${ctx}/components/amazeui/js/dataTables.responsive.min.js"></script>
 <script src="${ctx}/components/amazeui/js/fnAjaxReload.js"></script>
 <script src="${ctx}/components/amazeui/js/iscroll.js"></script>

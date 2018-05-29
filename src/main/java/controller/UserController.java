@@ -1,16 +1,16 @@
 package controller;
+
 import Util.AjaxResponse;
-import entity.User;
+import Util.CosUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
 import service.UserService;
 
-import javax.annotation.Resource;
-import java.util.List;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import java.util.Map;
 
 /**
 * Created by CodeGenerator on 2018/02/24.
@@ -20,15 +20,24 @@ import java.util.List;
 public class UserController {
     @Autowired
     private UserService userService;
-    @RequestMapping("/add")
-    @ResponseBody
-    public AjaxResponse add(User user) {
-        AjaxResponse ajaxResponse =new AjaxResponse();
 
+    @ResponseBody
+    @RequestMapping("/uploadImg")
+    public AjaxResponse test(HttpServletRequest request) throws Exception {
+        return CosUtil.uploadImgCloudBase64(request);
+    }
+    @ResponseBody
+    @RequestMapping("/getUserInfo")
+    public AjaxResponse getUserInfo(HttpServletRequest request) throws Exception {
+        AjaxResponse ajaxResponse = new AjaxResponse();
+        HttpSession session = request.getSession(true);
+        String id = session.getAttribute("id").toString();
         try {
-            userService.add(user);
-        }catch (Exception e){
-            ajaxResponse.setMessage("添加用户失败!");
+            Map<String,Object> map=userService.getUserInfo(id);
+            ajaxResponse.setSuccessMessage("查询成功！", map);
+        } catch (Exception e) {
+            ajaxResponse.setErrorMessage("查询失败！", e);
+            e.printStackTrace();
         }
         return ajaxResponse;
     }

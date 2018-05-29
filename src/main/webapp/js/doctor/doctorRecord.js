@@ -2,29 +2,29 @@ $(function () {
     initTableRecordDoctor();
 });
 
-function initTableRecordDoctor(){
+function initTableRecordDoctor() {
     $('#table_doctor_record').DataTable({
         ajax: {  //ajax方式向后台发送请求
             "type": "POST",
-            "async":false,
-            "url":contextPath+"/doctor/listAllRecord",
-            "dataType" : "json",
+            "async": false,
+            "url": contextPath + "/doctor/listAllRecord",
+            "dataType": "json",
             "dataSrc": "result"
         },
-        columns : [//对接收到的json格式数据进行处理，data为json中对应的key
-            {"data":"pname"},
-            {"data":"rcomplain"} ,
-            {"data":"rpresent"},
-            {"data":"rhistory"},
-            {"data":"rperson"},
-            {"data":"rmarriage"},
-            {"data":"rfamily"},
-            {"data":"d_name"},
-            {"data":"state"},
-            {"data":"pass"},
-            {"data":null}
+        columns: [//对接收到的json格式数据进行处理，data为json中对应的key
+            {"data": "pname"},
+            {"data": "rcomplain"},
+            {"data": "rpresent"},
+            {"data": "rhistory"},
+            {"data": "rperson"},
+            {"data": "rmarriage"},
+            {"data": "rfamily"},
+            {"data": "d_name"},
+            {"data": "state"},
+            {"data": "pass"},
+            {"data": null}
         ],
-        columnDefs:[{
+        columnDefs: [{
             targets: 10,
             render: function (data, tclassype, row, meta) {
                 return '<div class="doc-dropdown-justify-js">\n' +
@@ -32,16 +32,16 @@ function initTableRecordDoctor(){
                     '    <button class="am-btn am-btn-danger am-dropdown-toggle">操作 <span class="am-icon-caret-down"></span></button>\n' +
                     '    <div class="am-dropdown-content">' +
                     '  <ul class="" >\n' +
-/*                    '    <li><a href="#">查看详情</a></li>\n' +
-                    '    <li class="am-active"><a href="#">下载</a></li>\n' +*/
-                    '    <li><a href="javaScript:void(0)" onclick="initUpdatePatientRecordModal('+data.pid+')">修改</a></li>\n' +
+                    /*                    '    <li><a href="#">查看详情</a></li>\n' +
+                                        '    <li class="am-active"><a href="#">下载</a></li>\n' +*/
+                    '    <li><a href="javaScript:void(0)" onclick="initUpdatePatientRecordModal(' + data.pid + ')">修改</a></li>\n' +
                     '  </ul>' +
                     '</div>\n' +
                     '  </div>\n' +
                     '</div>'
             }
         },
-            { "orderable": false, "targets": 10 }
+            {"orderable": false, "targets": 10}
         ],
         language: {
             "sProcessing": "处理中...",
@@ -67,7 +67,7 @@ function initTableRecordDoctor(){
         autoWidth: false,
         // "sScrollX": "100%",
         // "bScrollCollapse": true,
-        fnInitComplete:function (oSettings, json) {
+        fnInitComplete: function (oSettings, json) {
             $('#table_record_scanned').addClass('table-layout-fixed');
             $('#table_record_scanned td:not(:last-of-type)').addClass("text-one-line");
             $('.doc-dropdown-js').dropdown({justify: '.doc-dropdown-justify-js'});
@@ -146,7 +146,7 @@ function initUpdatePatientRecordModal(id) {
         '                    <option value="7">皮肤科</option>\n' +
         '                    <option value="8">传染病科</option>\n' +
         '                    <option value="9">肛肠科</option>\n' +
-        '                </select>'+
+        '                </select>' +
         '                    </div>\n' +
         '                </div>\n' +
         '            </div>\n' +
@@ -165,23 +165,23 @@ function initUpdatePatientRecordModal(id) {
         '    </form>' +
         '<div class="center-button">' +
         '<button type="button" onclick="pageUtils.closeModal()" class="am-btn am-btn-danger">取消</button>\n' +
-        '<button type="button" onclick="updatePatientRecord('+id+')" class="am-btn am-btn-success">确定</button>'
+        '<button type="button" onclick="updatePatientRecord(' + id + ')" class="am-btn am-btn-success">确定</button>'
     '</div>';
     pageUtils.showModal('编辑病历', html);
     $.ajax({
-        method:'post',
-        url:contextPath+'/doctor/getOneRecordByPid',
-        data:{id:id},
-        success:function(data){
+        method: 'post',
+        url: contextPath + '/doctor/getOneRecordByPid',
+        data: {id: id},
+        success: function (data) {
             console.log(data);
-            $.each(data.result,function (name,value) {
+            $.each(data.result, function (name, value) {
                 $('#doctor-record-form input[name=' + name + ']').val(value);
-                if(name=="rdepartment"||name=="rinfaction") {
+                if (name == "rdepartment" || name == "rinfaction") {
                     $('#doctor-record-form select[name=' + name + ']').val(value);
                 }
             })
         },
-        error:function () {
+        error: function () {
 
         }
     })

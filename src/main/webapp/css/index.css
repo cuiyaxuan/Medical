@@ -48,3 +48,10 @@ table>thead:first-child>tr:first-child>th{
     justify-content: center;
     align-items: center;
 }
+img[src=""]{
+    opacity: 0;
+}
+
+.form-input{
+    padding: 0 0 0 5px;
+}
