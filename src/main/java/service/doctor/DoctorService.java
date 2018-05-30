@@ -81,12 +81,7 @@ public class DoctorService {
      * 修改病历
      */
     public int updateRecord(MRecord mrecord){
-        int i = 0;
-        try {
-            i = recordMapper.updateByPrimaryKeySelective(mrecord);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        int i = recordMapper.updateByPrimaryKeySelective(mrecord);
         return i;
     }
     /**
@@ -108,6 +103,14 @@ public class DoctorService {
      */
     public int deleteRemind(String id){
         int i = doctorMapper.deleteByPrimaryKey(id);
+        return i;
+    }
+
+    /**
+     * 通过pid查询是否存在病历
+     */
+    public int isRecordExist(String pid){
+        int i = doctorMapper.isRecordExist(pid);
         return i;
     }
 }

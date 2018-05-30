@@ -31,7 +31,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_9" default="false" project-jdk-name="1.8" project-jdk-type="JavaSDK" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_9" default="false" project-jdk-name="9.0" project-jdk-type="JavaSDK" />
   <component name="ideadoc.IdeaDocConfigurationGUI">
     <doccer class="nl.piraya.ideadoc.doccer.DoccerForOverridingMethod" enabled="true">
       <template>/**$s${@inheritDoc}$s$*/</template>

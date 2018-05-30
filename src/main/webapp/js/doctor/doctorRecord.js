@@ -9,7 +9,7 @@ function initTableRecordDoctor() {
             "async": false,
             "url": contextPath + "/doctor/listAllRecord",
             "dataType": "json",
-            "dataSrc": "result"
+            "dataSrc": "result",
         },
         columns: [//对接收到的json格式数据进行处理，data为json中对应的key
             {"data": "pname"},
@@ -34,7 +34,7 @@ function initTableRecordDoctor() {
                     '  <ul class="" >\n' +
                     /*                    '    <li><a href="#">查看详情</a></li>\n' +
                                         '    <li class="am-active"><a href="#">下载</a></li>\n' +*/
-                    '    <li><a href="javaScript:void(0)" onclick="initUpdatePatientRecordModal(' + data.pid + ')">修改</a></li>\n' +
+                    '    <li><a href="javaScript:void(0)" onclick="initUpdatePatientRecordModal(' + data.pid + ','+data.id+')">修改</a></li>\n' +
                     '  </ul>' +
                     '</div>\n' +
                     '  </div>\n' +
@@ -79,11 +79,11 @@ function initTableRecordDoctor() {
 /**
  * 加载修改modal
  */
-function initUpdatePatientRecordModal(id) {
+function initUpdatePatientRecordModal(pid,id) {
     var html = '<form class="am-form tpl-form-line-form" id="doctor-record-form">\n' +
         '<input name="pid" transmit="true" hidden>' +
         '        <div class="am-g">\n' +
-        '            <div class="am-u-sm-6">\n' +
+        '            <div class="am-u-sm-12">\n' +
         '                <div class="am-form-group">\n' +
         '                    <label for="user-name" class="am-u-sm-3 am-form-label">主诉</label>\n' +
         '                    <div class="am-u-sm-9">\n' +
@@ -91,7 +91,7 @@ function initUpdatePatientRecordModal(id) {
         '                    </div>\n' +
         '                </div>\n' +
         '            </div>\n' +
-        '            <div class="am-u-sm-6">\n' +
+        '            <div class="am-u-sm-12">\n' +
         '                <div class="am-form-group">\n' +
         '                    <label for="user-name" class="am-u-sm-3 am-form-label">现病史 </label>\n' +
         '                    <div class="am-u-sm-9">\n' +
@@ -99,7 +99,7 @@ function initUpdatePatientRecordModal(id) {
         '                    </div>\n' +
         '                </div>\n' +
         '            </div>\n' +
-        '            <div class="am-u-sm-6">\n' +
+        '            <div class="am-u-sm-12">\n' +
         '                <div class="am-form-group">\n' +
         '                    <label for="user-name" class="am-u-sm-3 am-form-label">既往史 </label>\n' +
         '                    <div class="am-u-sm-9">\n' +
@@ -107,7 +107,7 @@ function initUpdatePatientRecordModal(id) {
         '                    </div>\n' +
         '                </div>\n' +
         '            </div>\n' +
-        '            <div class="am-u-sm-6">\n' +
+        '            <div class="am-u-sm-12">\n' +
         '                <div class="am-form-group">\n' +
         '                    <label for="user-name" class="am-u-sm-3 am-form-label">个人史 </label>\n' +
         '                    <div class="am-u-sm-9">\n' +
@@ -115,7 +115,7 @@ function initUpdatePatientRecordModal(id) {
         '                    </div>\n' +
         '                </div>\n' +
         '            </div>\n' +
-        '            <div class="am-u-sm-6">\n' +
+        '            <div class="am-u-sm-12">\n' +
         '                <div class="am-form-group">\n' +
         '                    <label for="user-name" class="am-u-sm-3 am-form-label">婚育史 </label>\n' +
         '                    <div class="am-u-sm-9">\n' +
@@ -123,7 +123,7 @@ function initUpdatePatientRecordModal(id) {
         '                    </div>\n' +
         '                </div>\n' +
         '            </div>\n' +
-        '            <div class="am-u-sm-6">\n' +
+        '            <div class="am-u-sm-12">\n' +
         '                <div class="am-form-group">\n' +
         '                    <label for="user-name" class="am-u-sm-3 am-form-label">家族史 </label>\n' +
         '                    <div class="am-u-sm-9">\n' +
@@ -131,7 +131,7 @@ function initUpdatePatientRecordModal(id) {
         '                    </div>\n' +
         '                </div>\n' +
         '            </div>\n' +
-        '            <div class="am-u-sm-6">\n' +
+        '            <div class="am-u-sm-12">\n' +
         '                <div class="am-form-group">\n' +
         '                    <label for="user-name" class="am-u-sm-3 am-form-label">部门 </label>\n' +
         '                    <div class="am-u-sm-9">\n' +
@@ -150,7 +150,7 @@ function initUpdatePatientRecordModal(id) {
         '                    </div>\n' +
         '                </div>\n' +
         '            </div>\n' +
-        '            <div class="am-u-sm-6">\n' +
+        '            <div class="am-u-sm-12">\n' +
         '                <div class="am-form-group">\n' +
         '                    <label for="user-name" class="am-u-sm-3 am-form-label">是否传染</label>\n' +
         '                    <div class="am-u-sm-9">\n' +
@@ -171,7 +171,7 @@ function initUpdatePatientRecordModal(id) {
     $.ajax({
         method: 'post',
         url: contextPath + '/doctor/getOneRecordByPid',
-        data: {id: id},
+        data: {id: pid},
         success: function (data) {
             console.log(data);
             $.each(data.result, function (name, value) {
@@ -190,6 +190,7 @@ function initUpdatePatientRecordModal(id) {
 function updatePatientRecord(id) {
     var json = commonSerializeForm("doctor-record-form");
     json.id = id;
+
     $.ajax({
         type: "post",
         url: contextPath + "/doctor/updateRecord",

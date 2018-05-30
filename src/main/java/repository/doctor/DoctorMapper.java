@@ -51,6 +51,7 @@ public interface DoctorMapper extends BaseMapper<MUser> {
      * List all record list.
      * 查询所有的record 关联查询patient表
      *
+     * @param departmentId the department id
      * @return the list
      */
     @Select("SELECT\n" +
@@ -77,7 +78,7 @@ public interface DoctorMapper extends BaseMapper<MUser> {
             "FROM\n" +
             "\t`m_record` r\n" +
             "\tINNER JOIN m_patient p ON p.id = r.pid\n" +
-            "\tLEFT JOIN m_department d ON d.id = r.rdepartment WHERE r.rdepartment=#{departmentId}")
+            "\tLEFT JOIN m_department d ON d.id = r.rdepartment WHERE r.rdepartment=#{departmentId} AND r.rpass!= 1")
     List<Map<String, Object>> listAllRecord(String departmentId);
 
 
@@ -90,4 +91,12 @@ public interface DoctorMapper extends BaseMapper<MUser> {
     @Select("SELECT u.departmentid FROM m_login l INNER JOIN m_user u ON l.id=u.id WHERE l.username=#{userName}")
     String getUserDepartment(String userName);
 
+    /**
+     * Is record exist int.
+     *
+     * @param pid the pid
+     * @return the int
+     */
+    @Select("SELECT COUNT(*) FROM m_record WHERE pid=#{pid}")
+    int isRecordExist(String pid);
 }

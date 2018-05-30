@@ -21,7 +21,7 @@ import java.util.Date;
  * @create: 2018年05月22日 09:04
  **/
 public class CosUtil {
-    public static URL picCOS(String localFile) throws Exception {
+    public static String picCOS(String localFile) throws Exception {
         File file = new File(localFile);
         // 1 初始化用户身份信息(secretId, secretKey)
         COSCredentials cred = new BasicCOSCredentials("AKIDJSP9gzq1jDUYQ5ikkW5QYTAeuwlMatqa", "d3HUZR7apqfHfpmV1JOFtKYZNxJSN5Zp");
@@ -41,7 +41,8 @@ public class CosUtil {
         cosClient.shutdown();
         Date expiration = new Date(System.currentTimeMillis() + 5 * 60 * 10000);
         URL url = cosClient.generatePresignedUrl(bucketName, key, expiration);
-        return url;
+        String returnData = "https://image-1252351428.cos.ap-beijing.myqcloud.com" + key;
+        return returnData;
     }
 
     /**
@@ -65,7 +66,7 @@ public class CosUtil {
         //上传的文件的后缀
         String fileExt = fileFileName.substring(fileFileName.lastIndexOf(".") + 1).toLowerCase();
         String localFile=FileUtils.GenerateImage(imgBase64,session.getAttribute("userName").toString());
-        String url=CosUtil.picCOS(localFile).toString();
+        String url=CosUtil.picCOS(localFile);
         FileUtils.delFile(localFile);
         ajaxResponse.setSuccessMessage("上传图片成功！", url);
         return ajaxResponse;

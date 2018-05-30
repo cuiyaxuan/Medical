@@ -1,7 +1,6 @@
 package Util;
 
 import org.apache.commons.codec.binary.Base64;
-import sun.misc.BASE64Decoder;
 
 import javax.imageio.ImageIO;
 import javax.xml.bind.DatatypeConverter;
@@ -57,43 +56,6 @@ public class FileUtils {
             file.delete();
         }
     }
-    /**
-     * base64字符串转换成图片
-     * @param imgStr        base64字符串
-     * @param imgFilePath   图片存放路径
-     * @return
-     *
-     * @author ZHANGJL
-     * @dateTime 2018-02-23 14:42:17
-     */
-    public static boolean Base64ToImage(String imgStr,String imgFilePath) {
-        // 对字节数组字符串进行Base64解码并生成图片
-
-        //图像数据为空
-        if (imgStr == null) {
-            return false;
-        }
-        BASE64Decoder decoder = new BASE64Decoder();
-        try {
-            // Base64解码
-            byte[] b = decoder.decodeBuffer(imgStr);
-            for (int i = 0; i < b.length; ++i) {
-                if (b[i] < 0) {
-                    // 调整异常数据
-                    b[i] += 256;
-                }
-            }
-
-            OutputStream out = new FileOutputStream(imgFilePath);
-            out.write(b);
-            out.flush();
-            out.close();
-            return true;
-        } catch (Exception e) {
-            return false;
-        }
-
-    }
 
 
     public static File tr(String imageString,String imgName){
@@ -119,14 +81,14 @@ public class FileUtils {
     public static String GenerateImage(String imgStr,String imageName) {
         System.out.print("已经收到了把字节码转化为图片的方法");
         //对字节数组字符串进行Base64解码并生成图片
-        if (imgStr == null) //图像数据为空
+        if (imgStr == null) {
             return null;
-
-        BASE64Decoder decoder = new BASE64Decoder();
+        }
+//        BASE64Decoder decoder = new BASE64Decoder();
         try
         {
             //Base64解码
-            byte[] b = decoder.decodeBuffer(imgStr);
+            byte[] b = Base64.decodeBase64(imgStr);
             for(int i=0;i<b.length;++i)
             {
                 if(b[i]<0)
@@ -134,9 +96,6 @@ public class FileUtils {
                     b[i]+=256;
                 }
             }
-            //生成jpeg图片
-            String imagePath="c:";
-            //System.currentTimeMillis()
             String imgFilePath = "D:\\image\\"+imageName+".png";//新生成的图片
             OutputStream out = new FileOutputStream(imgFilePath);
             out.write(b);

@@ -134,7 +134,7 @@ public class DoctorController {
     }
 
     /**
-     * 医生工作站 显示所有病历 个人科室的所有病例
+     * 医生工作站 显示所有病历 个人科室的病历
      * @return
      */
     @RequestMapping("getOneRecordByPid")
@@ -179,9 +179,15 @@ public class DoctorController {
     @ResponseBody
     public AjaxResponse addRecord(MRecord mRecord,HttpServletRequest request){
         AjaxResponse ajaxResponse = new AjaxResponse();
+        int flag = doctorService.isRecordExist(String.valueOf(mRecord.getPid()));
         try {
-            int i = doctorService.addRecord(mRecord);
-            ajaxResponse.setSuccessMessage("新增病历成功！", i);
+            if(flag==0) {
+                int i = doctorService.addRecord(mRecord);
+                ajaxResponse.setSuccessMessage("新增病历成功！", i);
+            }else {
+                ajaxResponse.setSuccessMessage("该病人已存在病历，不能重复输入！", null);
+            }
+
         } catch (Exception e) {
             ajaxResponse.setErrorMessage("新增病历失败！", e);
         }
@@ -223,4 +229,5 @@ public class DoctorController {
         }
         return ajaxResponse;
     }
+
 }

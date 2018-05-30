@@ -496,11 +496,12 @@ function addNewPatientRecord(pid) {
         type: "post",
         url: contextPath + "/doctor/addRecord",
         data: json,
-        success: function (result) {
+        success: function (data) {
             pageUtils.closeModal();
-            alert("添加成功");
-            initTablePatientManage();
-
+            if(data.state==="200") {
+                pageUtils.showAlert('提示', data.message);
+                initTablePatientManage();
+            }
         },
         error: function () {
 

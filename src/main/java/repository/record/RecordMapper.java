@@ -107,11 +107,11 @@ public interface RecordMapper extends BaseMapper<MRecord> {
     /**
      * Gets record by pid.
      *
-     * @param id the id
+     * @param pid the id
      * @return the record by pid
      */
-    @Select("SELECT * FROM m_record WHERE pid=#{id}")
-    Map<String, Object> getRecordByPid(String id);
+    @Select("SELECT * FROM m_record WHERE pid=#{pid}")
+    Map<String, Object> getRecordByPid(@Param("pid") String pid);
 
     /**
      * Update seal record by id int.
