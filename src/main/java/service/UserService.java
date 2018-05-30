@@ -1,6 +1,7 @@
 package service;
 
 
+import entity.MUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -23,4 +24,8 @@ public class UserService {
         return map;
     }
 
+    public int updateUserInfo(MUser mUser){
+        int i = userMapper.updateByPrimaryKeySelective(mUser);
+        return i;
+    }
 }

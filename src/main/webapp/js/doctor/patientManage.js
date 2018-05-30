@@ -13,11 +13,29 @@ function initTablePatientManage() {
             "data": {}
         },
         columns: [//对接收到的json格式数据进行处理，data为json中对应的key
-            {"data": "pname"},
-            {"data": "psex"},
+            {
+                "data": "pname",
+            },
+            {
+                "data": "psex",
+                "render": function(data,type,row,meta){
+                    if(data==1) {
+                        return data = '男';
+                    }
+                    return data = '女';
+                }
+            },
             {"data": "page"},
             {"data": "porigin"},
-            {"data": "pmarriage"},
+            {
+                "data": "pmarriage",
+                "render": function(data,type,row,meta){
+                    if(data==1) {
+                        return data = '是';
+                    }
+                    return data = '否';
+                }
+            },
             {"data": "pbirthplace"},
             {"data": "pworkplace"},
             {"data": "pwork"},
@@ -32,12 +50,12 @@ function initTablePatientManage() {
             render: function (data, type, row, meta) {
                 return '<div class="doc-dropdown-justify-js">\n' +
                     '  <div class="am-dropdown doc-dropdown-js" style="min-width: 100px">\n' +
-                    '    <button class="am-btn am-btn-danger am-dropdown-toggle">操 作<span class="am-icon-caret-down"></span></button>\n' +
-                    '    <div class="am-dropdown-content">' +
-                    '  <ul class="" >\n' +
+                    '    <button class="am-btn am-btn-danger am-dropdown-toggle">操 作  <span class="am-icon-caret-down"></span></button>\n' +
+                    '    <div class="am-dropdown-content" style="padding: 0 !important;">' +
+                    '  <ul class="am-list am-list-border" style="margin-bottom: 0 !important;">\n' +
                     '    <li><a href="javaScript:void(0)" onclick="initDeletePatientModal(' + data.id + ')">出院</a></li>\n' +
                     '    <li><a href="javaScript:void(0)" onclick="initUpdatePatientModal(' + data.id + ')">修改</a></li>\n' +
-                    '    <li><a href="javaScript:void(0)" onclick="initAddPatientRecordModal(' + data.id + ')">新增病例</a></li>\n' +
+                    '    <li><a href="javaScript:void(0)" onclick="initAddPatientRecordModal(' + data.id + ')">新增病历</a></li>\n' +
                     '  </ul>' +
                     '</div>\n' +
                     '  </div>\n' +
@@ -79,7 +97,15 @@ function initTablePatientManage() {
 function initAddModal() {
     var html = '<form class="am-form tpl-form-line-form" id="patient-form">\n' +
         '        <div class="am-g">\n' +
-        '            <div class="am-u-sm-6">\n' +
+        '            <div class="am-u-sm-12 am-u-end">\n' +
+        '                <div class="am-form-group">\n' +
+        '                    <label for="user-name" class="am-u-sm-3 am-form-label">入院时间 </label>\n' +
+        '                    <div class="am-u-sm-9">\n' +
+        '                        <p><input type="text" class="am-form-field" id="patient-dataTimePicker" placeholder="入院时间" data-am-datepicker="{theme: \'success\'}" readonly/></p>' +
+        '                    </div>\n' +
+        '                </div>\n' +
+        '            </div>\n' +
+        '            <div class="am-u-sm-12">\n' +
         '                <div class="am-form-group">\n' +
         '                    <label for="user-name" class="am-u-sm-3 am-form-label">姓名</label>\n' +
         '                    <div class="am-u-sm-9">\n' +
@@ -87,7 +113,7 @@ function initAddModal() {
         '                    </div>\n' +
         '                </div>\n' +
         '            </div>\n' +
-        '            <div class="am-u-sm-6">\n' +
+        '            <div class="am-u-sm-12">\n' +
         '                <div class="am-form-group">\n' +
         '                    <label for="user-name" class="am-u-sm-3 am-form-label">性别</label>\n' +
         '                    <div class="am-u-sm-9">\n' +
@@ -99,7 +125,7 @@ function initAddModal() {
         '                    </div>\n' +
         '                </div>\n' +
         '            </div>\n' +
-        '            <div class="am-u-sm-6">\n' +
+        '            <div class="am-u-sm-12">\n' +
         '                <div class="am-form-group">\n' +
         '                    <label for="user-name" class="am-u-sm-3 am-form-label">年龄 </label>\n' +
         '                    <div class="am-u-sm-9">\n' +
@@ -107,7 +133,7 @@ function initAddModal() {
         '                    </div>\n' +
         '                </div>\n' +
         '            </div>\n' +
-        '            <div class="am-u-sm-6">\n' +
+        '            <div class="am-u-sm-12">\n' +
         '                <div class="am-form-group">\n' +
         '                    <label for="user-name" class="am-u-sm-3 am-form-label">籍贯 </label>\n' +
         '                    <div class="am-u-sm-9">\n' +
@@ -115,7 +141,7 @@ function initAddModal() {
         '                    </div>\n' +
         '                </div>\n' +
         '            </div>\n' +
-        '            <div class="am-u-sm-6">\n' +
+        '            <div class="am-u-sm-12">\n' +
         '                <div class="am-form-group">\n' +
         '                    <label for="user-name" class="am-u-sm-3 am-form-label">婚否 </label>\n' +
         '                    <div class="am-u-sm-9">\n' +
@@ -126,7 +152,7 @@ function initAddModal() {
         '                    </div>\n' +
         '                </div>\n' +
         '            </div>\n' +
-        '            <div class="am-u-sm-6">\n' +
+        '            <div class="am-u-sm-12">\n' +
         '                <div class="am-form-group">\n' +
         '                    <label for="user-name" class="am-u-sm-3 am-form-label">出生地 </label>\n' +
         '                    <div class="am-u-sm-9">\n' +
@@ -134,7 +160,7 @@ function initAddModal() {
         '                    </div>\n' +
         '                </div>\n' +
         '            </div>\n' +
-        '            <div class="am-u-sm-6">\n' +
+        '            <div class="am-u-sm-12">\n' +
         '                <div class="am-form-group">\n' +
         '                    <label for="user-name" class="am-u-sm-3 am-form-label">工作单位 </label>\n' +
         '                    <div class="am-u-sm-9">\n' +
@@ -142,7 +168,7 @@ function initAddModal() {
         '                    </div>\n' +
         '                </div>\n' +
         '            </div>\n' +
-        '            <div class="am-u-sm-6">\n' +
+        '            <div class="am-u-sm-12">\n' +
         '                <div class="am-form-group">\n' +
         '                    <label for="user-name" class="am-u-sm-3 am-form-label">职业</label>\n' +
         '                    <div class="am-u-sm-9">\n' +
@@ -150,7 +176,7 @@ function initAddModal() {
         '                    </div>\n' +
         '                </div>\n' +
         '            </div>\n' +
-        '            <div class="am-u-sm-6">\n' +
+        '            <div class="am-u-sm-12">\n' +
         '                <div class="am-form-group">\n' +
         '                    <label for="user-name" class="am-u-sm-3 am-form-label">户口</label>\n' +
         '                    <div class="am-u-sm-9">\n' +
@@ -158,19 +184,11 @@ function initAddModal() {
         '                    </div>\n' +
         '                </div>\n' +
         '            </div>\n' +
-        '            <div class="am-u-sm-6">\n' +
+        '            <div class="am-u-sm-12">\n' +
         '                <div class="am-form-group">\n' +
         '                    <label for="user-name" class="am-u-sm-3 am-form-label">供史者</label>\n' +
         '                    <div class="am-u-sm-9">\n' +
         '                        <input type="text"name="phistory" transmit="true" class="tpl-form-input"  placeholder="供史者">\n' +
-        '                    </div>\n' +
-        '                </div>\n' +
-        '            </div>\n' +
-        '            <div class="am-u-sm-6 am-u-end">\n' +
-        '                <div class="am-form-group">\n' +
-        '                    <label for="user-name" class="am-u-sm-3 am-form-label">入院时间 </label>\n' +
-        '                    <div class="am-u-sm-9">\n' +
-        '                        <p><input type="text" class="am-form-field" id="patient-dataTimePicker" placeholder="入院时间" data-am-datepicker="{theme: \'success\'}" readonly/></p>' +
         '                    </div>\n' +
         '                </div>\n' +
         '            </div>\n' +
@@ -254,7 +272,15 @@ function updatePatient(id) {
 function initUpdatePatientModal(id) {
     var html = '<form class="am-form tpl-form-line-form" id="patient-form">\n' +
         '        <div class="am-g">\n' +
-        '            <div class="am-u-sm-6">\n' +
+        '            <div class="am-u-sm-12 am-u-end">\n' +
+        '                <div class="am-form-group">\n' +
+        '                    <label for="user-name" class="am-u-sm-3 am-form-label">入院时间 </label>\n' +
+        '                    <div class="am-u-sm-9">\n' +
+        '                        <p><input type="text" class="am-form-field" id="patient-update-dataTimePicker" placeholder="入院时间" data-am-datepicker="{theme: \'success\'}" readonly/></p>' +
+        '                    </div>\n' +
+        '                </div>\n' +
+        '            </div>\n' +
+        '            <div class="am-u-sm-12">\n' +
         '                <div class="am-form-group">\n' +
         '                    <label for="user-name" class="am-u-sm-3 am-form-label">姓名</label>\n' +
         '                    <div class="am-u-sm-9">\n' +
@@ -262,7 +288,7 @@ function initUpdatePatientModal(id) {
         '                    </div>\n' +
         '                </div>\n' +
         '            </div>\n' +
-        '            <div class="am-u-sm-6">\n' +
+        '            <div class="am-u-sm-12">\n' +
         '                <div class="am-form-group">\n' +
         '                    <label for="user-name" class="am-u-sm-3 am-form-label">性别</label>\n' +
         '                    <div class="am-u-sm-9">\n' +
@@ -274,7 +300,7 @@ function initUpdatePatientModal(id) {
         '                    </div>\n' +
         '                </div>\n' +
         '            </div>\n' +
-        '            <div class="am-u-sm-6">\n' +
+        '            <div class="am-u-sm-12">\n' +
         '                <div class="am-form-group">\n' +
         '                    <label for="user-name" class="am-u-sm-3 am-form-label">年龄 </label>\n' +
         '                    <div class="am-u-sm-9">\n' +
@@ -282,7 +308,7 @@ function initUpdatePatientModal(id) {
         '                    </div>\n' +
         '                </div>\n' +
         '            </div>\n' +
-        '            <div class="am-u-sm-6">\n' +
+        '            <div class="am-u-sm-12">\n' +
         '                <div class="am-form-group">\n' +
         '                    <label for="user-name" class="am-u-sm-3 am-form-label">籍贯 </label>\n' +
         '                    <div class="am-u-sm-9">\n' +
@@ -290,7 +316,7 @@ function initUpdatePatientModal(id) {
         '                    </div>\n' +
         '                </div>\n' +
         '            </div>\n' +
-        '            <div class="am-u-sm-6">\n' +
+        '            <div class="am-u-sm-12">\n' +
         '                <div class="am-form-group">\n' +
         '                    <label for="user-name" class="am-u-sm-3 am-form-label">婚否 </label>\n' +
         '                    <div class="am-u-sm-9">\n' +
@@ -301,7 +327,7 @@ function initUpdatePatientModal(id) {
         '                    </div>\n' +
         '                </div>\n' +
         '            </div>\n' +
-        '            <div class="am-u-sm-6">\n' +
+        '            <div class="am-u-sm-12">\n' +
         '                <div class="am-form-group">\n' +
         '                    <label for="user-name" class="am-u-sm-3 am-form-label">出生地 </label>\n' +
         '                    <div class="am-u-sm-9">\n' +
@@ -309,7 +335,7 @@ function initUpdatePatientModal(id) {
         '                    </div>\n' +
         '                </div>\n' +
         '            </div>\n' +
-        '            <div class="am-u-sm-6">\n' +
+        '            <div class="am-u-sm-12">\n' +
         '                <div class="am-form-group">\n' +
         '                    <label for="user-name" class="am-u-sm-3 am-form-label">工作单位 </label>\n' +
         '                    <div class="am-u-sm-9">\n' +
@@ -317,7 +343,7 @@ function initUpdatePatientModal(id) {
         '                    </div>\n' +
         '                </div>\n' +
         '            </div>\n' +
-        '            <div class="am-u-sm-6">\n' +
+        '            <div class="am-u-sm-12">\n' +
         '                <div class="am-form-group">\n' +
         '                    <label for="user-name" class="am-u-sm-3 am-form-label">职业</label>\n' +
         '                    <div class="am-u-sm-9">\n' +
@@ -325,7 +351,7 @@ function initUpdatePatientModal(id) {
         '                    </div>\n' +
         '                </div>\n' +
         '            </div>\n' +
-        '            <div class="am-u-sm-6">\n' +
+        '            <div class="am-u-sm-12">\n' +
         '                <div class="am-form-group">\n' +
         '                    <label for="user-name" class="am-u-sm-3 am-form-label">户口</label>\n' +
         '                    <div class="am-u-sm-9">\n' +
@@ -333,19 +359,11 @@ function initUpdatePatientModal(id) {
         '                    </div>\n' +
         '                </div>\n' +
         '            </div>\n' +
-        '            <div class="am-u-sm-6">\n' +
+        '            <div class="am-u-sm-12">\n' +
         '                <div class="am-form-group">\n' +
         '                    <label for="user-name" class="am-u-sm-3 am-form-label">供史者</label>\n' +
         '                    <div class="am-u-sm-9">\n' +
         '                        <input type="text"name="phistory" transmit="true" class="tpl-form-input"  placeholder="供史者">\n' +
-        '                    </div>\n' +
-        '                </div>\n' +
-        '            </div>\n' +
-        '            <div class="am-u-sm-6 am-u-end">\n' +
-        '                <div class="am-form-group">\n' +
-        '                    <label for="user-name" class="am-u-sm-3 am-form-label">入院时间 </label>\n' +
-        '                    <div class="am-u-sm-9">\n' +
-        '                        <p><input type="text" class="am-form-field" id="patient-dataTimePicker" placeholder="入院时间" data-am-datepicker="{theme: \'success\'}" readonly/></p>' +
         '                    </div>\n' +
         '                </div>\n' +
         '            </div>\n' +
@@ -365,6 +383,12 @@ function initUpdatePatientModal(id) {
             console.log(data);
             $.each(data.result, function (name, value) {
                 $('#patient-form input[name=' + name + ']').val(value);
+                if(name==="psex") {
+                    $('#patient-form select[name=' + name + ']').val(value);
+                }
+                if(name==="pmarriage") {
+                    $('#patient-form select[name=' + name + ']').val(value);
+                }
             })
         },
         error: function () {
@@ -377,7 +401,7 @@ function initAddPatientRecordModal(id) {
     var html = '<form class="am-form tpl-form-line-form" id="patient-record-form">\n' +
         '<input name="pid" transmit="true" hidden>' +
         '        <div class="am-g">\n' +
-        '            <div class="am-u-sm-6">\n' +
+        '            <div class="am-u-sm-12">\n' +
         '                <div class="am-form-group">\n' +
         '                    <label for="user-name" class="am-u-sm-3 am-form-label">主诉</label>\n' +
         '                    <div class="am-u-sm-9">\n' +
@@ -385,7 +409,7 @@ function initAddPatientRecordModal(id) {
         '                    </div>\n' +
         '                </div>\n' +
         '            </div>\n' +
-        '            <div class="am-u-sm-6">\n' +
+        '            <div class="am-u-sm-12">\n' +
         '                <div class="am-form-group">\n' +
         '                    <label for="user-name" class="am-u-sm-3 am-form-label">现病史 </label>\n' +
         '                    <div class="am-u-sm-9">\n' +
@@ -393,7 +417,7 @@ function initAddPatientRecordModal(id) {
         '                    </div>\n' +
         '                </div>\n' +
         '            </div>\n' +
-        '            <div class="am-u-sm-6">\n' +
+        '            <div class="am-u-sm-12">\n' +
         '                <div class="am-form-group">\n' +
         '                    <label for="user-name" class="am-u-sm-3 am-form-label">既往史 </label>\n' +
         '                    <div class="am-u-sm-9">\n' +
@@ -401,7 +425,7 @@ function initAddPatientRecordModal(id) {
         '                    </div>\n' +
         '                </div>\n' +
         '            </div>\n' +
-        '            <div class="am-u-sm-6">\n' +
+        '            <div class="am-u-sm-12">\n' +
         '                <div class="am-form-group">\n' +
         '                    <label for="user-name" class="am-u-sm-3 am-form-label">个人史 </label>\n' +
         '                    <div class="am-u-sm-9">\n' +
@@ -409,7 +433,7 @@ function initAddPatientRecordModal(id) {
         '                    </div>\n' +
         '                </div>\n' +
         '            </div>\n' +
-        '            <div class="am-u-sm-6">\n' +
+        '            <div class="am-u-sm-12">\n' +
         '                <div class="am-form-group">\n' +
         '                    <label for="user-name" class="am-u-sm-3 am-form-label">婚育史 </label>\n' +
         '                    <div class="am-u-sm-9">\n' +
@@ -417,7 +441,7 @@ function initAddPatientRecordModal(id) {
         '                    </div>\n' +
         '                </div>\n' +
         '            </div>\n' +
-        '            <div class="am-u-sm-6">\n' +
+        '            <div class="am-u-sm-12">\n' +
         '                <div class="am-form-group">\n' +
         '                    <label for="user-name" class="am-u-sm-3 am-form-label">家族史 </label>\n' +
         '                    <div class="am-u-sm-9">\n' +
@@ -425,7 +449,7 @@ function initAddPatientRecordModal(id) {
         '                    </div>\n' +
         '                </div>\n' +
         '            </div>\n' +
-        '            <div class="am-u-sm-6">\n' +
+        '            <div class="am-u-sm-12">\n' +
         '                <div class="am-form-group">\n' +
         '                    <label for="user-name" class="am-u-sm-3 am-form-label">部门 </label>\n' +
         '                    <div class="am-u-sm-9">\n' +
@@ -445,7 +469,7 @@ function initAddPatientRecordModal(id) {
         '                    </div>\n' +
         '                </div>\n' +
         '            </div>\n' +
-        '            <div class="am-u-sm-6">\n' +
+        '            <div class="am-u-sm-12">\n' +
         '                <div class="am-form-group">\n' +
         '                    <label for="user-name" class="am-u-sm-3 am-form-label">是否传染</label>\n' +
         '                    <div class="am-u-sm-9">\n' +

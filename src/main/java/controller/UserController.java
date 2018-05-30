@@ -2,6 +2,7 @@ package controller;
 
 import Util.AjaxResponse;
 import Util.CosUtil;
+import entity.MUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -37,6 +38,22 @@ public class UserController {
             ajaxResponse.setSuccessMessage("查询成功！", map);
         } catch (Exception e) {
             ajaxResponse.setErrorMessage("查询失败！", e);
+            e.printStackTrace();
+        }
+        return ajaxResponse;
+    }
+    @ResponseBody
+    @RequestMapping("/updateUserInfo")
+    public AjaxResponse updateUserInfo(MUser mUser,HttpServletRequest request) throws Exception {
+        AjaxResponse ajaxResponse = new AjaxResponse();
+        HttpSession session = request.getSession(true);
+        try {
+            int i=userService.updateUserInfo(mUser);
+            if(i>0) {
+                ajaxResponse.setSuccessMessage("修改成功！", i);
+            }
+        } catch (Exception e) {
+            ajaxResponse.setErrorMessage("修改失败！", e);
             e.printStackTrace();
         }
         return ajaxResponse;

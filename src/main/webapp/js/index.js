@@ -43,6 +43,7 @@ function getUserInfo() {
                     initRole(data.result.role);
                     initType(data.result.type);
                     $('.realName').html(data.result.realname);
+                    $('#nav-head-img').attr('src',data.result.headimg);
                 } else {
                     alert(data.message);
                 }
@@ -66,7 +67,8 @@ function getUserInfoModal() {
             success: function (data) {
                 let state = data.state;
                 if (state === "200") {
-                    html = '<form class="am-form tpl-form-line-form" id="user-info-form">\n' +
+                    html = '<form class="am-form tpl-form-line-form" id="user-info-form">' +
+                        '<input type="hidden" name="id" transmit="true">' +
                         '        <div class="am-g">\n' +
                         '            <div class="am-u-sm-12">\n' +
                         '                <div class="am-form-group">\n' +
@@ -91,7 +93,7 @@ function getUserInfoModal() {
                         '                <div class="am-form-group">\n' +
                         '                    <label for="user-name" class="am-u-sm-3 am-form-label">所属部门</label>\n' +
                         '                    <div class="am-u-sm-9">\n' +
-                        '                        <input type="text" name="departmentname" transmit="true" class="tpl-form-input form-input" disabled placeholder="所属部门">\n' +
+                        '                        <input type="text" name="departmentname"  class="tpl-form-input form-input" disabled placeholder="所属部门">\n' +
                         '                    </div>\n' +
                         '                </div>\n' +
                         '            </div>' +
@@ -99,7 +101,7 @@ function getUserInfoModal() {
                         '                <div class="am-form-group">\n' +
                         '                    <label for="user-name" class="am-u-sm-3 am-form-label">用户权限</label>\n' +
                         '                    <div class="am-u-sm-9">\n' +
-                        '                        <input type="text" name="role" transmit="true" class="tpl-form-input form-input" disabled placeholder="用户权限">\n' +
+                        '                        <input type="text" name="role"  class="tpl-form-input form-input" disabled placeholder="用户权限">\n' +
                         '                    </div>\n' +
                         '                </div>\n' +
                         '            </div>' +
@@ -107,20 +109,25 @@ function getUserInfoModal() {
                         '                <div class="am-form-group">\n' +
                         '                    <label for="user-name" class="am-u-sm-3 am-form-label">用户身份</label>\n' +
                         '                    <div class="am-u-sm-9">\n' +
-                        '                        <input type="text" name="type" transmit="true" class="tpl-form-input form-input" disabled placeholder="用户身份">\n' +
+                        '                        <input type="text" name="type" class="tpl-form-input form-input" disabled placeholder="用户身份">\n' +
                         '                    </div>\n' +
                         '                </div>\n' +
                         '            </div>' +
                         '            <div class="am-u-sm-12">' +
                         '                <div class="am-form-group">\n' +
                         '                    <label for="user-name" class="am-u-sm-3 am-form-label">用户头像</label>\n' +
-                        '                    <div class="am-u-sm-9" style="height: 200px">\n' +
+                        '                    <div class="am-u-sm-9" style="height: 200px">' +
+                        '                          <input type="hidden" name="headimg" id="headImgFileUrl" transmit="true">' +
                         '                         <img class="am-img-circle am-img-thumbnail" id="headImgUpload" style="cursor: pointer" src=""  alt="" width="200px" onerror="imgOnError()" onclick="uploadUserInfoImg()">\n' +
                         '                    </div>\n' +
                         '                </div>\n' +
                         '            </div>' +
                         '          </div>' +
-                        '</form>'
+                        '</form>' +
+                        '<div class="center-button">' +
+                        '<button type="button" onclick="pageUtils.closeModal()" class="am-btn am-btn-danger">取消</button>\n' +
+                        '<button type="button" onclick="updateUserInfo()" class="am-btn am-btn-success">保存</button>' +
+                        '</div>'
                 } else {
                     alert(data.message);
                 }
@@ -144,11 +151,13 @@ function getUserInfoByLoginId() {
                 let result = data.result;
                 if (state === "200") {
                     let $form = $('#user-info-form');
+                    $form.find('input[name="id"]').val(result.id);
                     $form.find('input[name="realname"]').val(result.realname);
                     $form.find('select[name="sex"]').val(result.sex);
                     $form.find('input[name="departmentname"]').val(result.d_name);
                     $form.find('input[name="role"]').val(result.role===2?'管理员':'普通用户');
                     $form.find('input[name="type"]').val(result.type===2?'护士':'医生');
+                    $form.find('#headImgUpload').attr('src', result.headimg);
                 } else {
                     alert(data.message);
                 }
@@ -300,5 +309,17 @@ function set_alert_info(content) {
     $("#alert_content").html(content);
 }
 /**********************************图片上传 结束*********************************************/
-//凉凉夜色为你思念成河
+function updateUserInfo() {
+    let json=commonSerializeForm("user-info-form");
+    $ajax('./user/updateUserInfo', json, function (res) {
+            if(res.state=="200") {
+                console.log(res);
+                pageUtils.showAlert('提示', '修改成功！');
+                pageUtils.closeModal();
+                getUserInfo();
+            }
+        }, function (res) {
+
+        });
+}
 

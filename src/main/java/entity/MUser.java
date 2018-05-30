@@ -18,13 +18,13 @@ public class MUser {
   @Column(name = "loginid")
   private String loginid;
   @Column(name = "departmentid")
-  private long departmentid;
+  private String departmentid;
   @Column(name = "type")
-  private long type;
+  private String type;
   @Column(name = "role")
-  private long role;
+  private String role;
   @Column(name = "score")
-  private long score;
+  private String score;
 
 
   public long getId() {
@@ -71,38 +71,35 @@ public class MUser {
     this.loginid = loginid;
   }
 
+    public String getDepartmentid() {
+        return departmentid;
+    }
 
-  public long getDepartmentid() {
-    return departmentid;
-  }
+    public void setDepartmentid(String departmentid) {
+        this.departmentid = departmentid;
+    }
 
-  public void setDepartmentid(long departmentid) {
-    this.departmentid = departmentid;
-  }
+    public String getType() {
+        return type;
+    }
 
+    public void setType(String type) {
+        this.type = type;
+    }
 
-  public long getType() {
-    return type;
-  }
+    public String getRole() {
+        return role;
+    }
 
-  public void setType(long type) {
-    this.type = type;
-  }
+    public void setRole(String role) {
+        this.role = role;
+    }
 
+    public String getScore() {
+        return score;
+    }
 
-  public long getRole() {
-    return role;
-  }
-
-  public void setRole(long role) {
-    this.role = role;
-  }
-
-  public long getScore() {
-    return score;
-  }
-
-  public void setScore(long score) {
-    this.score = score;
-  }
+    public void setScore(String score) {
+        this.score = score;
+    }
 }
