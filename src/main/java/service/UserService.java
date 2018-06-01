@@ -11,7 +11,9 @@ import java.util.Map;
 
 
 /**
- * Created by CodeGenerator on 2018/02/24.
+ *
+ * @author WangXinYu
+ * @date 2018/02/24
  */
 @Service
 @Transactional
@@ -28,4 +30,23 @@ public class UserService {
         int i = userMapper.updateByPrimaryKeySelective(mUser);
         return i;
     }
+    public int insert(String userName,MUser mUser){
+        int i = userMapper.addLogin(userName);
+        int flag = 0;
+        if(i>0) {
+            int id = userMapper.getLoginIdByUserName(userName);
+            mUser.setLoginid(String.valueOf(id));
+            mUser.setScore("0");
+            mUser.setRole("1");
+            mUser.setRealname(userName);
+            userMapper.insert(mUser);
+            flag = 1;
+        }
+        return flag;
+    }
+    public Map<String,Object> getUserInfoByid(String id){
+        Map<String, Object> map = userMapper.getUserInfoById(id);
+        return map;
+    }
+
 }

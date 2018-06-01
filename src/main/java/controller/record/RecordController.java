@@ -1,14 +1,19 @@
 package controller.record;
 
 import Util.AjaxResponse;
+import entity.MRemind;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import service.UserService;
 import service.record.RecordService;
+import service.remind.RemindService;
 
 import java.util.List;
 import java.util.Map;
+
+import static Util.DateUtils.getNowDateString;
 
 /**
  * @author: WangXinYu
@@ -20,6 +25,10 @@ import java.util.Map;
 public class RecordController {
     @Autowired
     RecordService recordService;
+    @Autowired
+    RemindService remindService;
+    @Autowired
+    UserService userService;
 
     /**
      * 在主页显示 今日已封存病历
@@ -129,11 +138,21 @@ public class RecordController {
      */
     @RequestMapping("deBlockRecordById")
     @ResponseBody
-    public AjaxResponse deBlockRecordById(int id){
+    public AjaxResponse deBlockRecordById(int id,String userLoginId){
         AjaxResponse ajaxResponse = new AjaxResponse();
         try {
             int i = recordService.updateDeBlockRecordById(id);
-            ajaxResponse.setSuccessMessage("解封病历成功！", i);
+            if(i>0) {
+                Map<String,Object> map=userService.getUserInfo(userLoginId);
+                String userId =map.get("id").toString();
+                MRemind mRemind = new MRemind();
+                mRemind.setMessage("提交的病历被解封，请重新封存！");
+                mRemind.setGmtCreate(getNowDateString());
+                mRemind.setUserid(Long.parseLong(userId));
+                remindService.insert(mRemind);
+                ajaxResponse.setSuccessMessage("解封病历成功！", i);
+            }
+
         } catch (Exception e) {
             ajaxResponse.setErrorMessage("解封病历失败！", e);
         }

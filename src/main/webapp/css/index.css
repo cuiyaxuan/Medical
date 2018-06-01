@@ -48,6 +48,12 @@ table>thead:first-child>tr:first-child>th{
     justify-content: center;
     align-items: center;
 }
+.center-button button{
+    margin: 5px;
+}
+.modal-button{
+    margin: 5px;
+}
 img[src=""]{
     opacity: 0;
 }

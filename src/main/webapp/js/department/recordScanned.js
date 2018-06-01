@@ -67,8 +67,8 @@ function initTableDepartmentRecordScanned() {
         // "sScrollX": "100%",
         // "bScrollCollapse": true,
         fnInitComplete:function (oSettings, json) {
-            $('#table_record_scanned').addClass('table-layout-fixed');
-            $('#table_record_scanned td:not(:last-of-type)').addClass("text-one-line");
+            $('#table_department_record_scanned').addClass('table-layout-fixed');
+            $('#table_department_record_scanned td:not(:last-of-type)').addClass("text-one-line");
             $('.doc-dropdown-js').dropdown({justify: '.doc-dropdown-justify-js'});
         }
     });

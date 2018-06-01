@@ -16,18 +16,30 @@ import java.util.List;
 @Service
 public class LoginService {
     @Autowired
-    private  LoginMapper loginMapper;
-    public List<Login> getAllUser(){
-        List<Login> list =loginMapper.getAllUser();
+    private LoginMapper loginMapper;
+
+    public List<Login> getAllUser() {
+        List<Login> list = loginMapper.getAllUser();
         return list;
     }
-    public Login getUser(Login login){
+
+    public Login getUser(Login login) {
         String userName = login.getUsername();
-        Login login1 =loginMapper.getUserByName(userName);
+        Login login1 = loginMapper.getUserByName(userName);
         return login1;
     }
-    public MUser getUserInfo (String id){
+
+    public MUser getUserInfo(String id) {
         MUser mUser = loginMapper.getUserInfo(id);
         return mUser;
+    }
+
+    public String getLoginPwd(String id) {
+        String pwd = loginMapper.getLoginPwd(id);
+        return pwd;
+    }
+    public int updatePwd(Login login){
+        int i = loginMapper.updateByPrimaryKeySelective(login);
+        return i;
     }
 }

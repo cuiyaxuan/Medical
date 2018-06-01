@@ -14,8 +14,10 @@ import javax.servlet.http.HttpSession;
 import java.util.Map;
 
 /**
-* Created by CodeGenerator on 2018/02/24.
-*/
+*
+ * @author WangXinYu
+ * @date 2018/02/24
+ */
 @Controller
 @RequestMapping("/user")
 public class UserController {
@@ -35,6 +37,11 @@ public class UserController {
         String id = session.getAttribute("id").toString();
         try {
             Map<String,Object> map=userService.getUserInfo(id);
+            if(map.get("d_leader")==map.get("id")) {
+                map.put("leader", 1);
+            }else {
+                map.put("leader", 0);
+            }
             ajaxResponse.setSuccessMessage("查询成功！", map);
         } catch (Exception e) {
             ajaxResponse.setErrorMessage("查询失败！", e);
@@ -55,6 +62,26 @@ public class UserController {
         } catch (Exception e) {
             ajaxResponse.setErrorMessage("修改失败！", e);
             e.printStackTrace();
+        }
+        return ajaxResponse;
+    }
+
+    /**
+     * 管理员分配账户
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    @ResponseBody
+    @RequestMapping("/add")
+    public AjaxResponse add(String userName,MUser mUser,HttpServletRequest request) throws Exception {
+        AjaxResponse ajaxResponse = new AjaxResponse();
+        HttpSession session = request.getSession(true);
+        int i = userService.insert(userName, mUser);
+        if(i>0) {
+            ajaxResponse.setSuccessMessage("分配账号成功，初始密码为123456", i);
+        }else {
+            ajaxResponse.setErrorMessage("分配账号失败！", i);
         }
         return ajaxResponse;
     }

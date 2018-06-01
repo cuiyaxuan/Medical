@@ -27,20 +27,33 @@ function initType(type) {
     }
 }
 
+/**
+ * 初始化科室主任
+ * @param leader
+ */
+function initLeader(leader) {
+    if (leader == 1) {
+        $('.tpl-left-nav-menu li[data-type="department"]').show();
+    } else if (leader == 0) {
+        $('.tpl-left-nav-menu li[data-type="department"]').hide();
+    }
+}
 //查询用户信息
 function getUserInfo() {
     $.ajax({
             type: 'post',
             async: false,
-            url: './Login/getUserInfo',
+            url: './user/getUserInfo',
             success: function (data) {
                 let state = data.state;
                 if (state === "200") {
                     //获取role
+                    console.log(data.result);
                     sessionStorage.setItem('userRoleId', data.result.role);
                     sessionStorage.setItem('userTypeId', data.result.type);
                     sessionStorage.setItem('realName', data.result.realname);
                     initRole(data.result.role);
+                    initLeader(data.result.leader);
                     initType(data.result.type);
                     $('.realName').html(data.result.realname);
                     $('#nav-head-img').attr('src',data.result.headimg);
@@ -141,6 +154,80 @@ function getUserInfoModal() {
     getUserInfoByLoginId();
 }
 
+/**
+ * 修改密码模态框
+ */
+function changePwdModal() {
+    let html = '<form class="am-form tpl-form-line-form" id="pwd-form">\n' +
+        '        <div class="am-g">\n' +
+        '            <div class="am-u-sm-12">\n' +
+        '                <div class="am-form-group">\n' +
+        '                    <label for="user-name" class="am-u-sm-3 am-form-label">旧密码</label>\n' +
+        '                    <div class="am-u-sm-9">\n' +
+        '                        <input type="password" id="old-pwd" name="" transmit="true" class="tpl-form-input" onkeyup="this.value=this.value.replace(/[\\W]/g,\'\')" placeholder="请输入旧密码">\n' +
+        '                    </div>\n' +
+        '                </div>\n' +
+        '            </div>\n' +
+        '            <div class="am-u-sm-12">\n' +
+        '                <div class="am-form-group">\n' +
+        '                    <label for="user-name" class="am-u-sm-3 am-form-label">新密码</label>\n' +
+        '                    <div class="am-u-sm-9">\n' +
+        '                        <input type="password" id="new-pwd" name="" transmit="true" class="tpl-form-input"  placeholder="请输入新密码">\n' +
+        '                    </div>\n' +
+        '                </div>\n' +
+        '            </div>\n' +
+        '            <div class="am-u-sm-12">\n' +
+        '                <div class="am-form-group">\n' +
+        '                    <label for="user-name" class="am-u-sm-3 am-form-label">新密码</label>\n' +
+        '                    <div class="am-u-sm-9">\n' +
+        '                        <input type="password" id="new-pwd-confirm" name="" transmit="true" class="tpl-form-input"  placeholder="请输入新密码">\n' +
+        '                    </div>\n' +
+        '                </div>\n' +
+        '            </div>\n' +
+        '        </div>\n' +
+        '    </form>' +
+        '<div class="center-button bottom-button">' +
+        '<button type="button" onclick="pageUtils.closeModal()" class="am-btn am-btn-danger">取消</button>\n' +
+        '<button type="button" onclick="vertifyPwd()" class="am-btn am-btn-success">确定</button>'
+    '</div>';
+    pageUtils.showModal('修改密码', html);
+    $('#common-modal').css({height:'50vh'})
+}
+
+function vertifyPwd() {
+    $ajax(contextPath + 'Login/getPwd', {
+        pwd: $('#old-pwd').val()
+    }, function (res) {
+        if (res.state === "200") {
+            changePwd();
+        } else if (res.state === "999") {
+            pageUtils.showAlert('提示', res.message);
+        }
+    }, function (err) {
+
+    })
+}
+function changePwd() {
+    let newPwd1 = $('#new-pwd').val();
+    let newPwd2 = $('#new-pwd-confirm').val();
+    if(newPwd1==newPwd2) {
+        $ajax(contextPath + 'Login/updatePwd', {
+            pwd: newPwd1
+        }, function (res) {
+            if (res.state === "200") {
+                pageUtils.showAlert('提示', res.message);
+                pageUtils.closeModal();
+            } else if (res.state === "999") {
+                pageUtils.showAlert('提示', res.message);
+            }
+        }, function (err) {
+
+        })
+    }else {
+        pageUtils.showAlert('提示', '两次输入的密码不一致！');
+    }
+
+}
 function getUserInfoByLoginId() {
     $.ajax({
             type: 'post',

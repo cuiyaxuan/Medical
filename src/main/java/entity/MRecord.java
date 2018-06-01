@@ -34,6 +34,8 @@ public class MRecord {
   private String rpass;
   @Column(name = "rinfaction")
   private String rinfaction;
+  @Column(name ="userloginid")
+  private String userloginid;
 
   public long getId() {
     return id;
@@ -137,5 +139,13 @@ public class MRecord {
 
   public void setRinfaction(String rinfaction) {
     this.rinfaction = rinfaction;
+  }
+
+  public String getUserloginid() {
+    return userloginid;
+  }
+
+  public void setUserloginid(String userloginid) {
+    this.userloginid = userloginid;
   }
 }

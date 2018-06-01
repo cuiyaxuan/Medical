@@ -76,4 +76,44 @@ public class LoginController {
         return ajaxResponse;
     }
 
+    /**
+     * 验证旧密码是否正确
+     * @param pwd
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    @ResponseBody
+    @RequestMapping("/getPwd")
+    public AjaxResponse getPwd(String pwd,HttpServletRequest request) throws Exception {
+        AjaxResponse ajaxResponse = new AjaxResponse();
+        HttpSession session = request.getSession(true);
+        String id =session.getAttribute("id").toString();
+        String dataBasePwd = loginService.getLoginPwd(id);
+        if(dataBasePwd.equals(pwd)) {
+            ajaxResponse.setSuccessMessage("旧密码输入正确！", pwd);
+        }else {
+            ajaxResponse.setErrorMessage("旧密码输入错误!请重新输入！", pwd);
+        }
+        return ajaxResponse;
+    }
+
+    @ResponseBody
+    @RequestMapping("/updatePwd")
+    public AjaxResponse updatePwd(String pwd,HttpServletRequest request) throws Exception {
+        AjaxResponse ajaxResponse = new AjaxResponse();
+        HttpSession session = request.getSession(true);
+        String id =session.getAttribute("id").toString();
+        Login login = new Login();
+        login.setId(Long.parseLong(id));
+        login.setPassword(pwd);
+        int i = loginService.updatePwd(login);
+        if(i>0) {
+            ajaxResponse.setSuccessMessage("修改密码成功！", pwd);
+        }else {
+            ajaxResponse.setErrorMessage("修改密码失败！", pwd);
+        }
+        return ajaxResponse;
+    }
+
 }

@@ -64,8 +64,8 @@
                 </a>
                 <ul class="am-dropdown-content">
                     <li><a href="javascript:void(0)" onclick="getUserInfoModal()"><span class="am-icon-bell-o"></span> 个人资料</a></li>
-<%--                    <li><a href="#"><span class="am-icon-cog"></span> 设置</a></li>
-                    <li><a href="#"><span class="am-icon-power-off"></span> 退出</a></li>--%>
+                    <li><a href="javascript:void(0)" onclick="changePwdModal()"><span class="am-icon-cog"></span> 修改密码</a></li>
+                    <%--                    <li><a href="#"><span class="am-icon-power-off"></span> 退出</a></li>--%>
                 </ul>
             </li>
             <li><a href="javascript:" onclick="returnLogin()" class="tpl-header-list-link"><span

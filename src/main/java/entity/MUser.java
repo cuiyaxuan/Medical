@@ -8,7 +8,7 @@ public class MUser {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "id")
-  private long id;
+  private String id;
   @Column(name = "realname")
   private String realname;
   @Column(name = "headimg")
@@ -27,14 +27,23 @@ public class MUser {
   private String score;
 
 
-  public long getId() {
+  /**
+   * Getter for property 'id'.
+   *
+   * @return Value for property 'id'.
+   */
+  public String getId() {
     return id;
   }
 
-  public void setId(long id) {
+  /**
+   * Setter for property 'id'.
+   *
+   * @param id Value to set for property 'id'.
+   */
+  public void setId(String id) {
     this.id = id;
   }
-
 
   public String getRealname() {
     return realname;

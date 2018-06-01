@@ -17,6 +17,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+import static Util.DateUtils.getNowDateString;
+
 /**
  * @author: WangXinYu
  * @describe: TODO
@@ -71,6 +73,9 @@ public class DoctorController {
     @RequestMapping("add")
     public AjaxResponse add(MPatient patient){
         AjaxResponse ajaxResponse = new AjaxResponse();
+        patient.setGmtCreate(getNowDateString());
+        patient.setGmtMotified(getNowDateString());
+        patient.setPhistorytime(new Date());
         try {
             int i = doctorService.add(patient);
             ajaxResponse.setSuccessMessage("新增病人成功", i);
@@ -87,6 +92,7 @@ public class DoctorController {
     @RequestMapping("update")
     public AjaxResponse update(MPatient patient){
         AjaxResponse ajaxResponse = new AjaxResponse();
+        patient.setGmtMotified(getNowDateString());
         try {
             int i = doctorService.update(patient);
             ajaxResponse.setSuccessMessage("更新病人成功", i);
@@ -179,9 +185,15 @@ public class DoctorController {
     @ResponseBody
     public AjaxResponse addRecord(MRecord mRecord,HttpServletRequest request){
         AjaxResponse ajaxResponse = new AjaxResponse();
+        HttpSession session = request.getSession(true);
         int flag = doctorService.isRecordExist(String.valueOf(mRecord.getPid()));
         try {
             if(flag==0) {
+                mRecord.setUserloginid(session.getAttribute("id").toString());
+                mRecord.setRstate("1");
+                mRecord.setRpass("0");
+                mRecord.setGmtCreate(getNowDateString());
+                mRecord.setUserloginid(session.getAttribute("id").toString());
                 int i = doctorService.addRecord(mRecord);
                 ajaxResponse.setSuccessMessage("新增病历成功！", i);
             }else {
@@ -223,9 +235,9 @@ public class DoctorController {
         AjaxResponse ajaxResponse = new AjaxResponse();
         try {
             int i = doctorService.deleteRemind(id);
-            ajaxResponse.setSuccessMessage("查询工作提醒成功！", i);
+            ajaxResponse.setSuccessMessage("删除工作提醒成功！", i);
         } catch (Exception e) {
-            ajaxResponse.setErrorMessage("查询工作提醒失败！", e);
+            ajaxResponse.setErrorMessage("删除工作提醒失败！", e);
         }
         return ajaxResponse;
     }

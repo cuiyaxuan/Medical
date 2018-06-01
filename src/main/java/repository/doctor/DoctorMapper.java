@@ -2,6 +2,7 @@ package repository.doctor;
 
 import entity.MPatient;
 import entity.MUser;
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 import tk.mybatis.mapper.common.BaseMapper;
@@ -99,4 +100,7 @@ public interface DoctorMapper extends BaseMapper<MUser> {
      */
     @Select("SELECT COUNT(*) FROM m_record WHERE pid=#{pid}")
     int isRecordExist(String pid);
+
+    @Delete("DELETE FROM m_remind WHERE id=#{id}")
+    int deleteWorkRemind(String id);
 }

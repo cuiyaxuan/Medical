@@ -102,7 +102,7 @@ public class DoctorService {
      * 删除工作提醒
      */
     public int deleteRemind(String id){
-        int i = doctorMapper.deleteByPrimaryKey(id);
+        int i = doctorMapper.deleteWorkRemind(id);
         return i;
     }
 
