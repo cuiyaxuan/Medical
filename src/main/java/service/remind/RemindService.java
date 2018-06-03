@@ -3,7 +3,7 @@ package service.remind;
 import entity.MRemind;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import repository.remind.RemindMapper;
+import repository.doctor.RemindMapper;
 
 import static Util.DateUtils.getNowDateString;
 

@@ -34,8 +34,6 @@ function initTableRecordSeal() {
                     '    <button class="am-btn am-btn-danger am-dropdown-toggle">操作 <span class="am-icon-caret-down"></span></button>\n' +
                     '    <div class="am-dropdown-content" style="padding: 0 !important;">' +
                     '  <ul class="am-list am-list-border" style="margin-bottom: 0 !important;">\n' +
-                    /*                    '    <li><a href="#">查看详情</a></li>\n' +
-                                        '    <li class="am-active"><a href="#">下载</a></li>\n' +*/
                     '    <li><a href="javaScript:void(0)" onclick="openRecordSealHtml('+data.id+')">查看详情</a></li>\n' +
                     '    <li><a href="javaScript:void(0)" onclick="sealRecordById('+data.id+')">封存</a></li>\n' +
                     '  </ul>' +

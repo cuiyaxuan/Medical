@@ -151,7 +151,10 @@ public interface DataMapper {
      * List patient month data by sex list.
      * 按性别查询 月份数据
      *
-     * @param psex the psex
+     * @param departmentId the department id
+     * @param maxAge       the max age
+     * @param minAge       the min age
+     * @param psex         the psex
      * @return the list
      */
     @Select("\tSELECT count(*) as value, DATE_FORMAT(p.padmissiontime,'%m') name FROM m_patient p LEFT JOIN m_record r ON r.pid=p.id\n" +
@@ -162,8 +165,24 @@ public interface DataMapper {
     /**
      * List all patient month data list.
      * 查询全部
+     *
      * @return the list
      */
     @Select("SELECT count(*) as value, DATE_FORMAT(p.padmissiontime,'%m') name FROM `m_patient` p GROUP BY name")
     List<Map<String, Object>> listAllPatientMonthData();
+
+    /**
+     * List depart ment top list.
+     * 查询传染并最多科室top5
+     * @return the list
+     */
+    @Select("SELECT d.d_name name,COUNT(*) as value FROM `m_record` r LEFT JOIN m_department d ON r.rdepartment=d.id WHERE r.rinfaction=1 group by name order by value DESC LIMIT 5")
+    List<Map<String, Object>> listDepartMentTop();
+    /**
+     * List depart ment top list.
+     * 查询病人最多top5
+     * @return the list
+     */
+    @Select("SELECT DATE_FORMAT(p.padmissiontime,'%m') as name,COUNT(*) as value FROM `m_patient` p group by name order by value DESC LIMIT 5")
+    List<Map<String, Object>> listPatientMonthTop();
 }

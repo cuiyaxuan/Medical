@@ -14,11 +14,31 @@ function initTablePatientManage() {
             "data": {}
         },
         columns: [//对接收到的json格式数据进行处理，data为json中对应的key
-            {"data": "pname"},
-            {"data": "psex"},
+            {
+                "data": "pname",
+            },
+            {
+                "data": "psex",
+                render:function (data) {
+                    if(data=="1") {
+                        return data = '男';
+                    }else if(data=="2") {
+                        return data = '女';
+                    }
+                }
+            },
             {"data": "page"},
             {"data": "porigin"},
-            {"data": "pmarriage"},
+            {
+                "data": "pmarriage",
+                render:function (data) {
+                    if(data=="1") {
+                        return data = '是';
+                    }else if(data=="2") {
+                        return data = '否';
+                    }
+                }
+            },
             {"data": "pbirthplace"},
             {"data": "pworkplace"},
             {"data": "pwork"},
@@ -34,10 +54,10 @@ function initTablePatientManage() {
                 console.log(data);
                 return '<div class="doc-dropdown-justify-js">\n' +
                     '  <div class="am-dropdown doc-dropdown-js" style="min-width: 100px">\n' +
-                    '    <button class="am-btn am-btn-danger am-dropdown-toggle">操 作<span class="am-icon-caret-down"></span></button>\n' +
+                    '    <button class="am-btn am-btn-danger am-dropdown-toggle">操 作 <span class="am-icon-caret-down"></span></button>\n' +
                     '    <div class="am-dropdown-content">' +
                     '  <ul class="" >\n' +
-                    '    <li><a href="javaScript:void(0)" onclick="initAddNewClericalModal('+data.id+')">添加护理文书</a></li>\n' +
+                    '    <li><a href="javaScript:void(0)" onclick="initAddNewClericalModal('+data.id+')">护理文书</a></li>\n' +
                     '  </ul>' +
                     '</div>\n' +
                     '  </div>\n' +
@@ -69,8 +89,8 @@ function initTablePatientManage() {
         destroy: true,
         autoWidth: false,
         fnInitComplete:function (oSettings, json) {
-            $('#table_record_scanned').addClass('table-layout-fixed');
-            $('#table_record_scanned td:not(:last-of-type)').addClass("text-one-line");
+            $('#table_nurse_patient').addClass('table-layout-fixed');
+            $('#table_nurse_patient td:not(:last-of-type)').addClass("text-one-line");
             $('.doc-dropdown-js').dropdown({justify: '.doc-dropdown-justify-js'});
         }
     });

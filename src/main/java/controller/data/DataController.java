@@ -89,6 +89,18 @@ public class DataController {
         }
         return ajaxResponse;
     }
+    @ResponseBody
+    @RequestMapping("listDepartmentTop")
+    public AjaxResponse listDepartMentTop(){
+        AjaxResponse ajaxResponse = new AjaxResponse();
+        try {
+            List<Map<String,Object>> list=dataService.listDepartMentTop();
+            ajaxResponse.setSuccessMessage("查询数据成功！",list);
+        } catch (Exception e) {
+            ajaxResponse.setErrorMessage("查询数据失败！", e);
+        }
+        return ajaxResponse;
+    }
     /*******************************传染病统计页面结束**************************************/
 
     @ResponseBody
@@ -139,4 +151,18 @@ public class DataController {
         }
         return ajaxResponse;
     }
+    @ResponseBody
+    @RequestMapping("listPatientMonthTop")
+    public AjaxResponse listPatientMonthTop(HttpServletRequest request){
+        AjaxResponse ajaxResponse = new AjaxResponse();
+        try {
+            List<Map<String,Object>> list = dataService.listPatientMonthTop();
+            ajaxResponse.setSuccessMessage("查询数据成功！",list);
+        } catch (Exception e) {
+            ajaxResponse.setErrorMessage("查询数据失败！", e);
+        }
+        return ajaxResponse;
+    }
+
+
 }

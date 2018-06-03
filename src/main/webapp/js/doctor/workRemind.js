@@ -13,7 +13,7 @@ function initRemindList() {
             $.each(data.result, function (index, obj) {
                 html += '            <li onclick="deleteRemind('+obj.id+')" style="cursor: pointer">\n' +
                     '                <div class="cosB">\n' +
-                    obj.gmtCreate +
+                    obj.gmt_create +
                     '                </div>\n' +
                     '                <div class="cosA">\n' +
                     '                                <span class="cosIco label-info">\n' +

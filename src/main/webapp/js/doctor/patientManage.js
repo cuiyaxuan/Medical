@@ -1,5 +1,6 @@
 $(function () {
     initTablePatientManage();
+
 });
 
 function initTablePatientManage() {
@@ -18,8 +19,8 @@ function initTablePatientManage() {
             },
             {
                 "data": "psex",
-                "render": function(data,type,row,meta){
-                    if(data==1) {
+                "render": function (data, type, row, meta) {
+                    if (data == 1) {
                         return data = '男';
                     }
                     return data = '女';
@@ -29,8 +30,8 @@ function initTablePatientManage() {
             {"data": "porigin"},
             {
                 "data": "pmarriage",
-                "render": function(data,type,row,meta){
-                    if(data==1) {
+                "render": function (data, type, row, meta) {
+                    if (data == 1) {
                         return data = '是';
                     }
                     return data = '否';
@@ -95,13 +96,13 @@ function initTablePatientManage() {
 }
 
 function initAddModal() {
-    var html = '<form class="am-form tpl-form-line-form" id="patient-form">\n' +
+    var html = '<form class="am-form tpl-form-line-form" id="patient-form" data-am-validator>\n' +
         '        <div class="am-g">\n' +
         '            <div class="am-u-sm-12 am-u-end">\n' +
         '                <div class="am-form-group">\n' +
         '                    <label for="user-name" class="am-u-sm-3 am-form-label">入院时间 </label>\n' +
         '                    <div class="am-u-sm-9">\n' +
-        '                        <p><input type="text" class="am-form-field" id="patient-dataTimePicker" placeholder="入院时间" data-am-datepicker="{theme: \'success\'}" readonly/></p>' +
+        '                        <p><input type="text" class="am-form-field" id="patient-dataTimePicker" placeholder="入院时间" data-am-datepicker="{theme: \'success\'}" readonly required/></p>' +
         '                    </div>\n' +
         '                </div>\n' +
         '            </div>\n' +
@@ -109,7 +110,7 @@ function initAddModal() {
         '                <div class="am-form-group">\n' +
         '                    <label for="user-name" class="am-u-sm-3 am-form-label">姓名</label>\n' +
         '                    <div class="am-u-sm-9">\n' +
-        '                        <input type="text" name="pname" transmit="true" class="tpl-form-input"  placeholder="姓名">\n' +
+        '                        <input type="text" name="pname" transmit="true" class="tpl-form-input"  placeholder="姓名" required>\n' +
         '                    </div>\n' +
         '                </div>\n' +
         '            </div>\n' +
@@ -117,8 +118,8 @@ function initAddModal() {
         '                <div class="am-form-group">\n' +
         '                    <label for="user-name" class="am-u-sm-3 am-form-label">性别</label>\n' +
         '                    <div class="am-u-sm-9">\n' +
-/*        '                        <input type="text" name="psex" transmit="true" class="tpl-form-input"  placeholder="请输入标题文字">\n' +*/
-        '<select name="psex" transmit="true">' +
+        /*        '                        <input type="text" name="psex" transmit="true" class="tpl-form-input"  placeholder="请输入标题文字">\n' +*/
+        '<select name="psex" transmit="true" required>' +
         '<option value="1">男</option>' +
         '<option value="2">女</option>' +
         '</select>' +
@@ -129,7 +130,7 @@ function initAddModal() {
         '                <div class="am-form-group">\n' +
         '                    <label for="user-name" class="am-u-sm-3 am-form-label">年龄 </label>\n' +
         '                    <div class="am-u-sm-9">\n' +
-        '                        <input type="text" name="page" transmit="true" class="tpl-form-input"  placeholder="年龄">\n' +
+        '                        <input type="text" name="page" transmit="true" class="tpl-form-input"  placeholder="年龄" required>\n' +
         '                    </div>\n' +
         '                </div>\n' +
         '            </div>\n' +
@@ -137,15 +138,15 @@ function initAddModal() {
         '                <div class="am-form-group">\n' +
         '                    <label for="user-name" class="am-u-sm-3 am-form-label">籍贯 </label>\n' +
         '                    <div class="am-u-sm-9">\n' +
-        '                        <input type="text" name="porigin" transmit="true" class="tpl-form-input"  placeholder="籍贯">\n' +
+        '                        <input type="text" name="porigin" transmit="true" class="tpl-form-input"  placeholder="籍贯" required>\n' +
         '                    </div>\n' +
         '                </div>\n' +
         '            </div>\n' +
         '            <div class="am-u-sm-12">\n' +
         '                <div class="am-form-group">\n' +
-        '                    <label for="user-name" class="am-u-sm-3 am-form-label">婚否 </label>\n' +
+        '                    <label for="user-name" class="am-u-sm-3 am-form-label" >婚否 </label>\n' +
         '                    <div class="am-u-sm-9">\n' +
-        '<select name="pmarriage" transmit="true">' +
+        '<select name="pmarriage" transmit="true" required>' +
         '<option value="1">是</option>' +
         '<option value="2">否</option>' +
         '</select>' +
@@ -156,7 +157,7 @@ function initAddModal() {
         '                <div class="am-form-group">\n' +
         '                    <label for="user-name" class="am-u-sm-3 am-form-label">出生地 </label>\n' +
         '                    <div class="am-u-sm-9">\n' +
-        '                        <input type="text" name="pbirthplace" transmit="true" class="tpl-form-input"  placeholder="出生地">\n' +
+        '                        <input type="text" required name="pbirthplace" transmit="true" class="tpl-form-input"  placeholder="出生地">\n' +
         '                    </div>\n' +
         '                </div>\n' +
         '            </div>\n' +
@@ -164,7 +165,7 @@ function initAddModal() {
         '                <div class="am-form-group">\n' +
         '                    <label for="user-name" class="am-u-sm-3 am-form-label">工作单位 </label>\n' +
         '                    <div class="am-u-sm-9">\n' +
-        '                        <input type="text" name="pworkplace" transmit="true" class="tpl-form-input"  placeholder="工作单位">\n' +
+        '                        <input type="text" required name="pworkplace" transmit="true" class="tpl-form-input"  placeholder="工作单位">\n' +
         '                    </div>\n' +
         '                </div>\n' +
         '            </div>\n' +
@@ -172,7 +173,7 @@ function initAddModal() {
         '                <div class="am-form-group">\n' +
         '                    <label for="user-name" class="am-u-sm-3 am-form-label">职业</label>\n' +
         '                    <div class="am-u-sm-9">\n' +
-        '                        <input type="text" name="pwork" transmit="true" class="tpl-form-input"  placeholder="职业">\n' +
+        '                        <input type="text" required name="pwork" transmit="true" class="tpl-form-input"  placeholder="职业">\n' +
         '                    </div>\n' +
         '                </div>\n' +
         '            </div>\n' +
@@ -180,7 +181,7 @@ function initAddModal() {
         '                <div class="am-form-group">\n' +
         '                    <label for="user-name" class="am-u-sm-3 am-form-label">户口</label>\n' +
         '                    <div class="am-u-sm-9">\n' +
-        '                        <input type="text" name="pliveplace" transmit="true" class="tpl-form-input"  placeholder="户口">\n' +
+        '                        <input type="text" required name="pliveplace" transmit="true" class="tpl-form-input"  placeholder="户口">\n' +
         '                    </div>\n' +
         '                </div>\n' +
         '            </div>\n' +
@@ -188,7 +189,7 @@ function initAddModal() {
         '                <div class="am-form-group">\n' +
         '                    <label for="user-name" class="am-u-sm-3 am-form-label">供史者</label>\n' +
         '                    <div class="am-u-sm-9">\n' +
-        '                        <input type="text"name="phistory" transmit="true" class="tpl-form-input"  placeholder="供史者">\n' +
+        '                        <input type="text" required     name="phistory" transmit="true" class="tpl-form-input"  placeholder="供史者">\n' +
         '                    </div>\n' +
         '                </div>\n' +
         '            </div>\n' +
@@ -201,6 +202,27 @@ function initAddModal() {
 
     pageUtils.showModal('新增病人', html);
     $('#patient-dataTimePicker').datepicker({format: 'yyyy-mm-dd', endDate: new Date()});
+    $('#patient-form').validator({
+        onValid: function(validity) {
+            $(validity.field).closest('.am-form-group').find('.am-alert').hide();
+        },
+
+        onInValid: function(validity) {
+            var $field = $(validity.field);
+            var $group = $field.closest('.am-form-group');
+            var $alert = $group.find('.am-alert');
+            // 使用自定义的提示信息 或 插件内置的提示信息
+            var msg = $field.data('validationMessage') || this.getValidationMessage(validity);
+
+            if (!$alert.length) {
+                $alert = $('<div class="am-alert am-alert-danger"></div>').hide().
+                appendTo($group);
+            }
+
+            $alert.html(msg).show();
+        }
+    });
+
 }
 
 function addNewPatient() {
@@ -244,7 +266,7 @@ function deletePatient(id) {
 
 function initDeletePatientModal(id) {
     var r = confirm("确定出院？");
-    if(r==true){
+    if (r == true) {
         deletePatient(id);
     }
 }
@@ -383,10 +405,10 @@ function initUpdatePatientModal(id) {
             console.log(data);
             $.each(data.result, function (name, value) {
                 $('#patient-form input[name=' + name + ']').val(value);
-                if(name==="psex") {
+                if (name === "psex") {
                     $('#patient-form select[name=' + name + ']').val(value);
                 }
-                if(name==="pmarriage") {
+                if (name === "pmarriage") {
                     $('#patient-form select[name=' + name + ']').val(value);
                 }
             })
@@ -465,7 +487,7 @@ function initAddPatientRecordModal(id) {
         '                    <option value="7">皮肤科</option>\n' +
         '                    <option value="8">传染病科</option>\n' +
         '                    <option value="9">肛肠科</option>\n' +
-        '                </select>'+
+        '                </select>' +
         '                    </div>\n' +
         '                </div>\n' +
         '            </div>\n' +
@@ -498,7 +520,7 @@ function addNewPatientRecord(pid) {
         data: json,
         success: function (data) {
             pageUtils.closeModal();
-            if(data.state==="200") {
+            if (data.state === "200") {
                 pageUtils.showAlert('提示', data.message);
                 initTablePatientManage();
             }
@@ -508,4 +530,5 @@ function addNewPatientRecord(pid) {
         }
     });
 }
+
 

@@ -17,7 +17,32 @@ function initTableRecordDoctor() {
             {"data":"dnursing"},
             {"data":"dadvice"},
             {"data":"doperation"},
-            {"data":"departmentid"},
+            {
+                "data":"departmentid",
+                render:function (data) {
+                    switch (data){
+                        case 1:
+                            return '内科';
+                        case 2:
+                            return '外科';
+                        case 3:
+                            return '妇产科';
+                        case 4:
+                            return '男科';
+                        case 5:
+                            return '儿科';
+                        case 6:
+                            return '五官科';
+                        case 7:
+                            return '皮肤科';
+                        case 8:
+                            return '传染病科';
+                        case 9:
+                            return '肛肠科';
+
+                    }
+                }
+            },
             {"data":null}
         ],
         columnDefs:[{

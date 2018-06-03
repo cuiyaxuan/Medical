@@ -30,11 +30,10 @@ function initTableRecordDoctor() {
                 return '<div class="doc-dropdown-justify-js">\n' +
                     '  <div class="am-dropdown doc-dropdown-js" style="min-width: 100px">\n' +
                     '    <button class="am-btn am-btn-danger am-dropdown-toggle">操作 <span class="am-icon-caret-down"></span></button>\n' +
-                    '    <div class="am-dropdown-content">' +
-                    '  <ul class="" >\n' +
-                    /*                    '    <li><a href="#">查看详情</a></li>\n' +
-                                        '    <li class="am-active"><a href="#">下载</a></li>\n' +*/
+                    '    <div class="am-dropdown-content" style="padding: 0 !important;">' +
+                    '  <ul class="am-list am-list-border" style="margin-bottom: 0 !important;">\n' +
                     '    <li><a href="javaScript:void(0)" onclick="initUpdatePatientRecordModal(' + data.pid + ','+data.id+')">修改</a></li>\n' +
+                    '    <li><a href="javaScript:void(0)" onclick="commonUtils.downloadRecord('+data.id+')">下载病历</a></li>\n' +
                     '  </ul>' +
                     '</div>\n' +
                     '  </div>\n' +
@@ -68,8 +67,8 @@ function initTableRecordDoctor() {
         // "sScrollX": "100%",
         // "bScrollCollapse": true,
         fnInitComplete: function (oSettings, json) {
-            $('#table_record_scanned').addClass('table-layout-fixed');
-            $('#table_record_scanned td:not(:last-of-type)').addClass("text-one-line");
+            $('#table_doctor_record').addClass('table-layout-fixed');
+            $('#table_doctor_record td:not(:last-of-type)').addClass("text-one-line");
             $('.doc-dropdown-js').dropdown({justify: '.doc-dropdown-justify-js'});
         }
     });
@@ -204,4 +203,16 @@ function updatePatientRecord(id) {
 
         }
     });
+}
+
+function downloadRecord(recordId) {
+    $ajax(contextPath+'record/downloadRecordWord',{
+        id:recordId
+    },function (res) {
+        if(res==="200") {
+            pageUtils.showAlert("提示", res.message);
+        }
+    },function (err) {
+        pageUtils.showAlert('提示', res.message);
+    })
 }

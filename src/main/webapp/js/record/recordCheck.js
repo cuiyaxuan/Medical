@@ -30,11 +30,11 @@ function initTableRecordCheck() {
                 return '<div class="doc-dropdown-justify-js">\n' +
                     '  <div class="am-dropdown doc-dropdown-js" style="min-width: 100px">\n' +
                     '    <button class="am-btn am-btn-danger am-dropdown-toggle">操作 <span class="am-icon-caret-down"></span></button>\n' +
-                    '    <div class="am-dropdown-content">' +
-                    '  <ul class="" >\n' +
+                    '    <div class="am-dropdown-content" style="padding: 0 !important;">' +
+                    '  <ul class="am-list am-list-border" style="margin-bottom: 0 !important;">\n' +
                     '    <li><a href="javaScript:void(0)" onclick="openRecordHtml('+data.id+')">查看详情</a></li>\n' +
                     '    <li class="am-active"><a href="javaScript:void(0)" onclick="passRecordById('+data.id+')">通过</a></li>\n' +
-                    '    <li><a href="javaScript:void(0)" onclick="rejectRecordById('+data.id+')">拒绝</a></li>\n' +
+                    '    <li><a href="javaScript:void(0)" onclick="rejectRecordById('+data.id+','+data.userloginid+')">拒绝</a></li>\n' +
                     '  </ul>' +
                     '</div>\n' +
                     '  </div>\n' +
@@ -90,13 +90,13 @@ function passRecordById(id) {
         })
     }
 }
-function rejectRecordById(id) {
+function rejectRecordById(id,userLoginId) {
     var r=confirm("确认拒绝该病历？")
     if(r==true) {
         $.ajax({
             method:'post',
             url:contextPath+'/record/rejectRecordById',
-            data:{id: id},
+            data:{id: id,userLoginId:userLoginId},
             async:false,
             success:function (data) {
                 alert(data.message);

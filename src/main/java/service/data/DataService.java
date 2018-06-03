@@ -96,6 +96,10 @@ public class DataService {
         return mapList;
     }
 
+    public List<Map<String, Object>> listDepartMentTop(){
+        List<Map<String, Object>> mapList = dataMapper.listDepartMentTop();
+        return mapList;
+    };
     /*********************************传染病统计结束*********************************/
     public Map<String, Object> getRecordData(String id, String year) {
         List<String> defaultState = new ArrayList<String>();
@@ -222,6 +226,10 @@ public class DataService {
             list.set(month - 1, Integer.parseInt(mapList.get(i).get("value").toString()));
         }
         return list;
+    }
+    public List<Map<String,Object>> listPatientMonthTop(){
+        List<Map<String, Object>> mapList = dataMapper.listPatientMonthTop();
+        return mapList;
     }
     /*********************病人统计结束了************************************/
 }

@@ -27,8 +27,17 @@ function initTableRecordDeblock() {
         columnDefs:[{
             targets: 9,
             render: function (data, type, row, meta) {
-                return '<a type="button" class="am-btn am-btn-primary am-btn-xs" href="javaScript:void(0)" onclick="openRecordHtml('+data.id+')">查看详情</a>' +
-                    '<a type="button" class="am-btn am-btn-success am-btn-xs" onclick="deBlockRecordById('+data.id+')">解封<i class="am-icon-cloud-download"></i></a>';
+                return '<div class="doc-dropdown-justify-js">\n' +
+                    '  <div class="am-dropdown doc-dropdown-js" style="min-width: 100px">\n' +
+                    '    <button class="am-btn am-btn-danger am-dropdown-toggle">操作 <span class="am-icon-caret-down"></span></button>\n' +
+                    '    <div class="am-dropdown-content" style="padding: 0 !important;">' +
+                    '  <ul class="am-list am-list-border" style="margin-bottom: 0 !important;">\n' +
+                    '    <li><a href="javaScript:void(0)" onclick="openRecordHtml('+data.id+')">查看详情</a></li>\n' +
+                    '    <li><a href="javaScript:void(0)" onclick="deBlockRecordById('+data.id+','+data.userloginid+')">解封</a></li>\n' +
+                    '  </ul>' +
+                    '</div>\n' +
+                    '  </div>\n' +
+                    '</div>'
             }
         },
             { "orderable": false, "targets": 9 }
@@ -54,17 +63,22 @@ function initTableRecordDeblock() {
             }
         },
         destroy: true,
-        autoWidth: false
+        autoWidth: false,
+        fnInitComplete: function (oSettings, json) {
+            $('#table_record_deblock').addClass('table-layout-fixed');
+            $('#table_record_deblock td:not(:last-of-type)').addClass("text-one-line");
+            $('.doc-dropdown-js').dropdown({justify: '.doc-dropdown-justify-js'});
+        }
     });
 }
 
-function deBlockRecordById(id) {
+function deBlockRecordById(id,userloginid) {
     var r = confirm("确认解封？");
     if(r==true){
         $.ajax({
             method:'post',
             url:contextPath+'/record/deBlockRecordById',
-            data:{id: id},
+            data:{id: id,userLoginId:userloginid},
             async:false,
             success:function (data) {
                 alert(data.message);

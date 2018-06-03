@@ -33,6 +33,7 @@ public interface RecordMapper extends BaseMapper<MRecord> {
      * List today not signed record list.
      * 查询今日未封存病历
      *
+     * @param nowDateString the now date string
      * @return the list
      */
     @Select("SELECT * FROM m_record WHERE rstate = 1 AND gmt_create = #{nowDateString}")
@@ -116,14 +117,17 @@ public interface RecordMapper extends BaseMapper<MRecord> {
     /**
      * Update seal record by id int.
      * 封存病历
+     *
      * @param id the id
      * @return the int
      */
     @Update("UPDATE m_record SET rstate = 2 WHERE id = #{id}")
     int updateSealRecordById(int id);
+
     /**
      * Update seal record by id int.
      * 解封病历
+     *
      * @param id the id
      * @return the int
      */
@@ -133,18 +137,29 @@ public interface RecordMapper extends BaseMapper<MRecord> {
     /**
      * Update seal record by id int.
      * 通过病历
+     *
      * @param id the id
      * @return the int
      */
     @Update("UPDATE m_record SET rpass = 1 WHERE id = #{id}")
     int passRecordById(int id);
+
     /**
      * Update seal record by id int.
      * 拒绝病历
+     *
      * @param id the id
      * @return the int
      */
     @Update("UPDATE m_record SET rpass = 2,rstate=1 WHERE id = #{id}")
     int rejectRecordById(int id);
 
+    /**
+     * Gets record and patient info.
+     *
+     * @param id the id
+     * @return the record and patient info
+     */
+    @Select("SELECT r.*,p.* FROM `m_record` r LEFT JOIN m_patient p ON p.id=r.pid WHERE r.id=#{id}")
+    Map<String, Object> getRecordAndPatientInfo(int id);
 }

@@ -3,6 +3,7 @@ $(function () {
     initSelectDepartment();
 });
 var dataAll = [];
+var dataMonth=[]
 
 function initInfectionChart() {
     // 基于准备好的dom，初始化echarts实例
@@ -45,13 +46,13 @@ function initInfectionChart() {
                 radius : '30%',
                 center: ['22%', '50%'],
                 color:['#f47d72','#ec8464','#d24736','#a61d0d','#970003'],
-                data:[
+                data:dataMonth/*[
                     {value:335, name:'10月份'},
                     {value:310, name:'5月份'},
                     {value:234, name:'11月份'},
                     {value:135, name:'4月份'},
                     {value:105, name:'6月份'},
-                ],
+                ]*/,
                 labelLine:{normal:{show:false}},
                 itemStyle: {normal: {label:{ show: true,  formatter: '{b} \n ({d}%)', textStyle:{color:'#B1B9D3'}} },},
             },
@@ -85,6 +86,7 @@ function initData() {
             console.log(data.result);
             if(data.state="200") {
                 dataAll = data.result.reverse();
+                listPatientMonthTop();
                 initInfectionChart();
             }
         }
@@ -107,4 +109,15 @@ function initSearch() {
             }
         }
     });
+}
+function listPatientMonthTop() {
+    $ajax(contextPath+'data/listPatientMonthTop',{
+
+    },res=>{
+        if (res.state = "200") {
+            dataMonth = res.result;
+        }
+    },err=>{
+
+    },false)
 }

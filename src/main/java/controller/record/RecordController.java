@@ -2,6 +2,9 @@ package controller.record;
 
 import Util.AjaxResponse;
 import entity.MRemind;
+import freemarker.template.Configuration;
+import freemarker.template.Template;
+import freemarker.template.TemplateException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,6 +13,8 @@ import service.UserService;
 import service.record.RecordService;
 import service.remind.RemindService;
 
+import javax.servlet.http.HttpServletRequest;
+import java.io.*;
 import java.util.List;
 import java.util.Map;
 
@@ -165,11 +170,12 @@ public class RecordController {
      */
     @RequestMapping("passRecordById")
     @ResponseBody
-    public AjaxResponse passRecordById(int id){
+    public AjaxResponse passRecordById(int id) {
         AjaxResponse ajaxResponse = new AjaxResponse();
         try {
             int i = recordService.passRecordById(id);
             ajaxResponse.setSuccessMessage("通过病历成功！", i);
+
         } catch (Exception e) {
             ajaxResponse.setErrorMessage("通过病历失败！", e);
         }
@@ -177,21 +183,71 @@ public class RecordController {
         return ajaxResponse;
     }
     /**
-     * 根据id通过病历
+     * 根据id拒绝病历
      * @return
      */
     @RequestMapping("rejectRecordById")
     @ResponseBody
-    public AjaxResponse rejectRecordById(int id){
+    public AjaxResponse rejectRecordById(int id , String userLoginId){
         AjaxResponse ajaxResponse = new AjaxResponse();
         try {
             int i = recordService.rejectRecordById(id);
-            ajaxResponse.setSuccessMessage("拒绝病历成功！", i);
+            if(i>0) {
+                Map<String, Object> map = userService.getUserInfo(userLoginId);
+                String userId = map.get("id").toString();
+                MRemind mRemind = new MRemind();
+                mRemind.setMessage("提交的病历被拒绝，请修改后封存！");
+                mRemind.setGmtCreate(getNowDateString());
+                mRemind.setUserid(Long.parseLong(userId));
+                remindService.insert(mRemind);
+                ajaxResponse.setSuccessMessage("拒绝病历成功！", i);
+            }
         } catch (Exception e) {
             ajaxResponse.setErrorMessage("拒绝病历失败！", e);
         }
 
         return ajaxResponse;
     }
+    /**
+     *
+     * @return
+     */
+    @RequestMapping("downloadRecordWord")
+    @ResponseBody
+    public AjaxResponse downloadRecordWord(int id, HttpServletRequest request){
+        AjaxResponse ajaxResponse = new AjaxResponse();
+        try {
+            Map<String,Object> dataMap= recordService.downloadRecordWord(id);
+            Configuration configuration=new Configuration();
+            Writer out = null;
+            String wordTemplatePath = request.getSession().getServletContext().getRealPath("/") + "templet";
+            String outPath = "C:/Users/WangXinYu/Desktop/record/";
+            File tempFile = new File(outPath);
+            if (!tempFile.exists() && !tempFile.isDirectory()) {
+                tempFile.mkdirs();
+            }
+            configuration.setDefaultEncoding("utf-8");
+            configuration.setDirectoryForTemplateLoading(new File(wordTemplatePath));
+            Template t = configuration.getTemplate("record.ftl", "utf-8");
+            try {
+                String outputPath = tempFile + "病历"+dataMap.get("id").toString()  + ".doc";
+                File outFile = new File(outputPath);
+                out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(outFile), "utf-8"), 10240);
+                t.process(dataMap, out);
+                out.flush();
+                out.close();
+            } catch (TemplateException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            ajaxResponse.setSuccessMessage("下载病历成功,请在桌面查看！", dataMap);
+        } catch (Exception e) {
+            ajaxResponse.setErrorMessage("下载病历失败！", e);
+        }
+
+        return ajaxResponse;
+    }
+
 
 }

@@ -133,10 +133,10 @@
                             <a href="javascript:void(0)" data-html="nursingClerical" onclick="switchPage(this)">
                                 <i class="am-icon-angle-right"></i>
                                 <span>护理文书</span>
-                            </a><a href="javascript:void(0)" data-html="workRemind" onclick="switchPage(this)">
+                            </a><%--<a href="javascript:void(0)" data-html="workRemind" onclick="switchPage(this)">
                             <i class="am-icon-angle-right"></i>
                             <span>工作提醒</span>
-                        </a><%--<a href="javascript:void(0)" data-html="paramSetting" onclick="switchPage(this)">
+                        </a>--%><%--<a href="javascript:void(0)" data-html="paramSetting" onclick="switchPage(this)">
                             <i class="am-icon-angle-right"></i>
                             <span>参数设置</span>
                         </a>--%>

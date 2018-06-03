@@ -76,6 +76,17 @@ var commonUtils = {
             return date;
         }
     },
+    downloadRecord(recordId) {
+        $ajax(contextPath+'record/downloadRecordWord',{
+            id:recordId
+        },function (res) {
+            if(res.state==="200") {
+                pageUtils.showAlert("提示", res.message);
+            }
+        },function (err) {
+            pageUtils.showAlert('提示', res.message);
+        })
+    }
 
 };
 
@@ -96,7 +107,7 @@ function imgOnError() {
 }
 
 //封装了jquery的ajax
-function $ajax(url, postData, succCallback, errorCallback, type, dataType){
+function $ajax(url, postData, succCallback, errorCallback,async, type, dataType){
     var type = type || "post";
     var dataType = dataType || "json";
 
@@ -105,7 +116,7 @@ function $ajax(url, postData, succCallback, errorCallback, type, dataType){
         url: url,
         data: postData,
         dataType: dataType,
-
+        async: async,
         beforeSend: function(){  //开始loading
             pageUtils.showLoading('数据正在传输，请稍后...')
         },

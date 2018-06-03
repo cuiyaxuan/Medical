@@ -4,7 +4,7 @@ $(function () {
 });
 var dataAll = [];
 var MonthTop = [];
-
+var DepartTop = [];
 function initInfectionChart() {
     // 基于准备好的dom，初始化echarts实例
     var myChart = echarts.init(document.getElementById('infection_chart'));
@@ -63,13 +63,13 @@ function initInfectionChart() {
                 center: ['22%', '75%'],
                 color: ['#86c9f4', '#4da8ec', '#3a91d2', '#005fa6', '#315f97'],
                 labelLine: {normal: {show: false}},
-                data: [
+                data: DepartTop/*[
                     {value: 335, name: '传染病科'},
                     {value: 310, name: '内科'},
                     {value: 234, name: '男科'},
                     {value: 135, name: '外科'},
                     {value: 135, name: '儿科'},
-                ],
+                ]*/,
                 itemStyle: {normal: {label: {show: true, formatter: '{b} \n ({d}%)', textStyle: {color: '#B1B9D3'}}},},
             },
             {
@@ -135,13 +135,13 @@ function selectAllInfection() {
         async: false,
         success: function (data) {
             dataAll = data.result.reverse();
-            console.log(dataAll);
         },
         error: function () {
 
         }
     });
     listAllMonthTop();
+    listAllDepartmentTop();
     initInfectionChart();
 }
 
@@ -153,11 +153,21 @@ function listAllMonthTop() {
         data: {},
         async: false,
         success: function (data) {
-            console.log(data.result);
             MonthTop = data.result;
         },
         error: function () {
 
         }
     });
+}
+
+function listAllDepartmentTop() {
+    $ajax(contextPath + 'data/listDepartmentTop', {}, function (res) {
+        if (res.state === "200") {
+            console.log(res.result);
+            DepartTop = res.result;
+        }
+    }, err => {
+
+    }, false);
 }
