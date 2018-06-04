@@ -3,6 +3,8 @@ package service.record;
 import Util.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import repository.UserMapper;
+import repository.doctor.DoctorMapper;
 import repository.record.RecordMapper;
 
 import java.util.List;
@@ -18,6 +20,11 @@ public class RecordService {
     @Autowired
     RecordMapper recordMapper;
 
+    @Autowired
+    UserMapper userMapper;
+
+    @Autowired
+    DoctorMapper doctorMapper;
     public List<Map<String, Object>> listTodaySignedRecord() {
         String nowDateString = DateUtils.getNowDateString();
         List<Map<String, Object>> mapList = recordMapper.listTodaySignedRecord(nowDateString);
@@ -35,8 +42,9 @@ public class RecordService {
         return mapList;
     }
 
-    public List<Map<String, Object>> listAllRecordByState(int state) {
-        List<Map<String, Object>> mapList = recordMapper.listAllRecordByState(state);
+    public List<Map<String, Object>> listAllRecordByState(int state,String userName) {
+        String departmentId = doctorMapper.getUserDepartment(userName);
+        List<Map<String, Object>> mapList = recordMapper.listAllRecordByState(state,departmentId);
         return mapList;
     }
 
@@ -55,9 +63,13 @@ public class RecordService {
         return i;
     }
 
-    public int passRecordById(int id) {
+    public int passRecordById(int id,String loginId) {
         int i = recordMapper.passRecordById(id);
-        return i;
+        if(i>0) {
+            userMapper.addScore(loginId);
+            return i;
+        }
+        return 0;
     }
 
     public int rejectRecordById(int id) {

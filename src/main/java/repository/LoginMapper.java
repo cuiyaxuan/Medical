@@ -40,7 +40,7 @@ public interface LoginMapper extends BaseMapper<Login> {
      * @param id the id
      * @return the user info
      */
-    @Select(" select password from  m_user where loginid=#{id}")
+    @Select(" select * from  m_user where loginid=#{id}")
     MUser getUserInfo(String id);
 
     /**

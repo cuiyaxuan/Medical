@@ -39,4 +39,10 @@ public interface RoleMapper {
      */
     @Update("UPDATE m_user u SET u.role=#{role} WHERE u.id= #{id}")
     int updateUserRoleByid(@Param("id") int id, @Param("role") int role);
+
+    @Select("SELECT * FROM m_user u LEFT JOIN m_department d ON u.departmentid=d.id WHERE u.id=#{id}")
+    Map<String, Object> getOneUser(String id);
+
+    @Update("UPDATE m_department d SET d.d_leader=#{userId} WHERE d.id=#{depId}")
+    int updateUserDepRole(@Param("depId") String departmentid, @Param("userId") String userId);
 }

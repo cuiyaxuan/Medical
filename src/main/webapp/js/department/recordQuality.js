@@ -4,7 +4,7 @@ $(function () {
 
 function initQualityChart() {
     //图表中有的数据
-    var sum = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    var sum = [];
     var defaultState=[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
     var passState=[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
     var rejectState=[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];

@@ -86,8 +86,8 @@ public interface RecordMapper extends BaseMapper<MRecord> {
             "\tWHEN 2 THEN\n" +
             "\t'已封存' \n" +
             " ELSE '未知'\n" +
-            "END AS state FROM `m_record` r INNER JOIN m_patient p ON p.id=r.pid LEFT JOIN m_department d on d.id=r.rdepartment WHERE r.rstate = #{state} AND r.rpass!=1")
-    List<Map<String, Object>> listAllRecordByState(int state);
+            "END AS state FROM `m_record` r INNER JOIN m_patient p ON p.id=r.pid LEFT JOIN m_department d on d.id=r.rdepartment WHERE r.rstate = #{state} AND r.rpass!=1 AND r.rdepartment=#{departmentid}")
+    List<Map<String, Object>> listAllRecordByState(@Param("state") int state,@Param("departmentid") String departmentid);
 
     /**
      * 使用id查询单个的病历
@@ -162,4 +162,7 @@ public interface RecordMapper extends BaseMapper<MRecord> {
      */
     @Select("SELECT r.*,p.* FROM `m_record` r LEFT JOIN m_patient p ON p.id=r.pid WHERE r.id=#{id}")
     Map<String, Object> getRecordAndPatientInfo(int id);
+
+
+
 }

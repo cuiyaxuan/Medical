@@ -30,6 +30,7 @@ public class UserService {
         int i = userMapper.updateByPrimaryKeySelective(mUser);
         return i;
     }
+    @Transactional
     public int insert(String userName,MUser mUser){
         int i = userMapper.addLogin(userName);
         int flag = 0;

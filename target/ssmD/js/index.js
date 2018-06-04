@@ -217,6 +217,8 @@ function changePwd() {
             if (res.state === "200") {
                 pageUtils.showAlert('提示', res.message);
                 pageUtils.closeModal();
+                window.location.href = "http://localhost:8080/";
+                sessionStorage.clear();
             } else if (res.state === "999") {
                 pageUtils.showAlert('提示', res.message);
             }
@@ -257,13 +259,14 @@ function getUserInfoByLoginId() {
 }
 
 function returnLogin() {
-    var r = confirm("是否退出本系统？");
-    if (r == true) {
-        window.location.href = "http://localhost:8080/";
-    }
-    else {
-        pageUtils.showAlert('提示', '操作已取消！');
-    }
+        var r = confirm("是否退出本系统？");
+        if (r == true) {
+            window.location.href = "http://localhost:8080/";
+            sessionStorage.clear();
+        }
+        else {
+            pageUtils.showAlert('提示', '操作已取消！');
+        }
 
 }
 

@@ -33,7 +33,7 @@ function initTableRecordCheck() {
                     '    <div class="am-dropdown-content" style="padding: 0 !important;">' +
                     '  <ul class="am-list am-list-border" style="margin-bottom: 0 !important;">\n' +
                     '    <li><a href="javaScript:void(0)" onclick="openRecordHtml('+data.id+')">查看详情</a></li>\n' +
-                    '    <li class="am-active"><a href="javaScript:void(0)" onclick="passRecordById('+data.id+')">通过</a></li>\n' +
+                    '    <li class="am-active"><a href="javaScript:void(0)" onclick="passRecordById('+data.id+','+data.userloginid+')">通过</a></li>\n' +
                     '    <li><a href="javaScript:void(0)" onclick="rejectRecordById('+data.id+','+data.userloginid+')">拒绝</a></li>\n' +
                     '  </ul>' +
                     '</div>\n' +
@@ -73,16 +73,16 @@ function initTableRecordCheck() {
     });
 }
 
-function passRecordById(id) {
-    var r=confirm("确认拒绝该病历？")
+function passRecordById(id,loginId) {
+    var r=confirm("确认通过该病历？")
     if(r==true) {
         $.ajax({
             method:'post',
             url:contextPath+'/record/passRecordById',
-            data:{id: id},
+            data:{id: id,loginId:loginId},
             async:false,
             success:function (data) {
-                alert(data.message);
+                pageUtils.showAlert('提示',data.message);
                 initTableRecordCheck();
             },
             error:function () {

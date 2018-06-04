@@ -93,13 +93,20 @@ function initData() {
     })
 }
 function initSearch() {
+    let department = $('.patient-department-select').val();
+    let age = $('.patient-age-select').val();
+    let sex = $('.patient-sex-select').val();
+    if(department=="0"||age=="0"||sex=="0") {
+        initData();
+        return;
+    }
     $.ajax({
         method: "post",
         url: contextPath + "/data/listPatientMonthDataBySex",
         data: {
-            departmentId: $('.patient-department-select').val(),
-            page: $('.patient-age-select').val(),
-            psex: $('.patient-sex-select').val()
+            departmentId:department ,
+            page: age,
+            psex: sex,
         },
         success: function (data) {
             console.log(data.result);

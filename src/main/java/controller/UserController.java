@@ -76,7 +76,6 @@ public class UserController {
     @RequestMapping("/add")
     public AjaxResponse add(String userName,MUser mUser,HttpServletRequest request) throws Exception {
         AjaxResponse ajaxResponse = new AjaxResponse();
-        HttpSession session = request.getSession(true);
         int i = userService.insert(userName, mUser);
         if(i>0) {
             ajaxResponse.setSuccessMessage("分配账号成功，初始密码为123456", i);

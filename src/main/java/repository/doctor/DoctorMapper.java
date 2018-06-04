@@ -25,7 +25,7 @@ public interface DoctorMapper extends BaseMapper<MUser> {
      *
      * @return the list
      */
-    @Select("SELECT * FROM m_patient WHERE precure = 1")
+    @Select("SELECT * FROM m_patient WHERE precure = 1 and")
     List<MPatient> listAllPatient();
 
     /**
@@ -89,7 +89,7 @@ public interface DoctorMapper extends BaseMapper<MUser> {
      * @param userName the user name
      * @return the user department
      */
-    @Select("SELECT u.departmentid FROM m_login l INNER JOIN m_user u ON l.id=u.id WHERE l.username=#{userName}")
+    @Select("SELECT u.departmentid FROM m_login l INNER JOIN m_user u ON l.id=u.loginid WHERE l.username=#{userName}")
     String getUserDepartment(String userName);
 
     /**

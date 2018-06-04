@@ -14,9 +14,10 @@ $(function () {
                     defaultState = data.result.defaultState;
                     passState = data.result.passState;
                     rejectState = data.result.rejectState;
-                    // for (var i = 0; i <12; i++) {
-                    //     sum.push(parseInt(defaultState[i]) + parseInt(passState[i]) + parseInt(rejectState[i]));
-                    // }
+/*                    sum = [];
+                    for (var i = 0; i <12; i++) {
+                        sum.push(parseInt(defaultState[i]) + parseInt(passState[i]) + parseInt(rejectState[i]));
+                    }*/
                     initDataRecordChart();
                 },
                 error: function () {
@@ -30,7 +31,7 @@ $(function () {
 
     });
 });
-var sum = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+var sum = [];
 var defaultState=[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 var passState=[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 var rejectState=[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -270,14 +271,12 @@ function initRecordData() {
         data: {year:"2018"},
         async:false,
         success: function (data) {
-            console.log(data);
             defaultState = data.result.defaultState;
             passState = data.result.passState;
             rejectState = data.result.rejectState;
-            // for (var i = 0; i <12; i++) {
-            //     sum.push(parseInt(defaultState[i]) + parseInt(passState[i]) + parseInt(rejectState[i]));
-            // }
-            console.log(sum);
+/*            for (var i = 0; i <12; i++) {
+                sum.push(parseInt(defaultState[i]) + parseInt(passState[i]) + parseInt(rejectState[i]));
+            }*/
             initDataRecordChart();
         },
         error: function () {

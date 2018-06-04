@@ -3,6 +3,7 @@ package repository;
 import entity.MUser;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Repository;
 import tk.mybatis.mapper.common.BaseMapper;
 
@@ -45,4 +46,6 @@ public interface UserMapper extends BaseMapper<MUser> {
     @Select("SELECT u.*,d.d_name,d.d_leader FROM `m_user` u LEFT JOIN m_department d on d.id=u.departmentid WHERE u.id = #{id}")
     Map<String, Object> getUserInfoById(String id);
 
+    @Update("UPDATE m_user SET score=score+1 WHERE loginid=#{loginid} ")
+    int addScore(String loginid);
 }

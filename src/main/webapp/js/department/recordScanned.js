@@ -7,7 +7,7 @@ function initTableDepartmentRecordScanned() {
         ajax: {  //ajax方式向后台发送请求
             "type": "POST",
             "async":false,
-            "url":contextPath+"/record/listAllRecord",
+            "url":contextPath+"/doctor/listAllRecord",
             "dataType" : "json",
             "dataSrc": "result"
         },

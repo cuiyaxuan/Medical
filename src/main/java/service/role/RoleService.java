@@ -25,4 +25,20 @@ public class RoleService {
         int i = roleMapper.updateUserRoleByid(id, role);
         return i;
     }
+    public Map<String,Object> getOneUser(String id){
+        String leaderFlag = "";
+        Map<String,Object> map = roleMapper.getOneUser(id);
+        if(String.valueOf(map.get("d_leader")).equals(id)) {
+            leaderFlag = "1";
+        }else {
+            leaderFlag = "2";
+        }
+        map.put("leaderFlag", leaderFlag);
+        return map;
+    }
+
+    public int updateUserDepRole(String depId ,String userId){
+        int i = roleMapper.updateUserDepRole(depId, userId);
+        return i;
+    }
 }

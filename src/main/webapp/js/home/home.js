@@ -48,7 +48,6 @@ function initHomeLogs() {
             initIScollerLogs();
         },
         error:function () {
-            alert("ajax Error!");
         }
     })
 }
@@ -144,7 +143,7 @@ function listDoctorSort() {
                 }
                 docHtml += '<tr>\n' +
                     '<td>\n' +
-                    '<img src="../../img/headImg.png" alt="" class="user-pic">\n' +
+                    '<img src="'+obj.headimg+'" alt="" class="user-pic">\n' +
                     '<a class="user-name" href="###">' + obj.realname + '</a>\n' +
                     '</td>\n' +
                     '<td>' + obj.d_name + '</td>\n' +

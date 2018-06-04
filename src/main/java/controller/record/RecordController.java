@@ -14,6 +14,7 @@ import service.record.RecordService;
 import service.remind.RemindService;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.io.*;
 import java.util.List;
 import java.util.Map;
@@ -91,10 +92,12 @@ public class RecordController {
      */
     @RequestMapping("listAllRecordByState")
     @ResponseBody
-    public AjaxResponse listAllRecordByState(int state){
+    public AjaxResponse listAllRecordByState(int state,HttpServletRequest request){
         AjaxResponse ajaxResponse = new AjaxResponse();
+        HttpSession session = request.getSession();
+        String userName = session.getAttribute("userName").toString();
         try {
-            List<Map<String, Object>> mapList = recordService.listAllRecordByState(state);
+            List<Map<String, Object>> mapList = recordService.listAllRecordByState(state,userName);
             ajaxResponse.setSuccessMessage("查询所有病历成功！", mapList);
         } catch (Exception e) {
             ajaxResponse.setErrorMessage("查询所有病历失败！", e);
@@ -170,10 +173,10 @@ public class RecordController {
      */
     @RequestMapping("passRecordById")
     @ResponseBody
-    public AjaxResponse passRecordById(int id) {
+    public AjaxResponse passRecordById(int id,String loginId) {
         AjaxResponse ajaxResponse = new AjaxResponse();
         try {
-            int i = recordService.passRecordById(id);
+            int i = recordService.passRecordById(id,loginId);
             ajaxResponse.setSuccessMessage("通过病历成功！", i);
 
         } catch (Exception e) {

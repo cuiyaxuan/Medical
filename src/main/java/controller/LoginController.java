@@ -31,7 +31,7 @@ public class LoginController {
 
     @ResponseBody
     @RequestMapping("login")
-    public AjaxResponse create(Login login, HttpServletRequest request) {
+    public AjaxResponse login(Login login, HttpServletRequest request) {
         AjaxResponse ajaxResponse = new AjaxResponse();
         HttpSession session = request.getSession(true);
         Login returnLogin = loginService.getUser(login);

@@ -2,10 +2,12 @@ package controller.role;
 
 import Util.AjaxResponse;
 import entity.Logs;
+import entity.MUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import service.UserService;
 import service.logs.LogsService;
 import service.role.RoleService;
 
@@ -27,6 +29,8 @@ public class RoleController {
     RoleService roleService;
     @Autowired
     private LogsService logsService;
+    @Autowired
+    private UserService userService;
     @RequestMapping("listUserRole")
     @ResponseBody
     public AjaxResponse listUserRole(){
@@ -57,6 +61,38 @@ public class RoleController {
             ajaxResponse.setSuccessMessage("更新成功！", i);
         }else {
             ajaxResponse.setErrorMessage("更新失败！", i);
+        }
+        return ajaxResponse;
+    }
+    @RequestMapping("getOneUser")
+    @ResponseBody
+    public AjaxResponse getOneUser(String id){
+        AjaxResponse ajaxResponse = new AjaxResponse();
+        try {
+            Map<String, Object> map = roleService.getOneUser(id);
+            ajaxResponse.setSuccessMessage("查询成功！",map);
+        } catch (Exception e) {
+            ajaxResponse.setSuccessMessage("查询失败！",e);
+            e.printStackTrace();
+        }
+        return ajaxResponse;
+    }
+    @RequestMapping("updateUserDepRole")
+    @ResponseBody
+    public AjaxResponse updateUserDepRole(String id,String departmentid,String leaderFlag){
+        AjaxResponse ajaxResponse = new AjaxResponse();
+        MUser mUser = new MUser();
+        mUser.setId(id);
+        mUser.setDepartmentid(departmentid);
+        try {
+            userService.updateUserInfo(mUser);
+            if(leaderFlag.equals("1")) {
+                int i=roleService.updateUserDepRole(departmentid, id);
+            }
+            ajaxResponse.setSuccessMessage("修改成功！",mUser);
+        } catch (Exception e) {
+            ajaxResponse.setSuccessMessage("修改失败！",mUser);
+            e.printStackTrace();
         }
         return ajaxResponse;
     }

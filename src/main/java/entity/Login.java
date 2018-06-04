@@ -7,6 +7,7 @@ import javax.persistence.*;
  * @author WangXinYu
  */
 @Entity
+@Table(name="m_login")
 public class Login {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
